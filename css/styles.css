@@ -174,7 +174,7 @@ body {
 
 /* Alternating Project Layout */
 .projects-section {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 40px var(--gap-2xl);
 }
@@ -192,26 +192,26 @@ body {
 
 #projectsGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: var(--gap-xl);
 }
 
 .bento-project {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--gap-md);
-  margin-bottom: 0;
+  margin-bottom: var(--gap-xl);
   min-height: auto;
 }
 
 .bento-project.reverse {
-  flex-direction: column;
+  grid-template-columns: 1fr 1fr;
 }
 .bento-project.reverse .bento-visual-col {
-  order: unset;
+  order: 2;
 }
 .bento-project.reverse .bento-data-col {
-  order: unset;
+  order: 1;
 }
 
 /* Left/Right Columns */
@@ -222,10 +222,10 @@ body {
   position: relative;
   display: flex;
   align-items: flex-end;
-  padding: 48px;
+  padding: 40px;
   box-shadow: var(--shadow-bento);
   border: 1px solid var(--border-color);
-  min-height: 360px;
+  min-height: 320px;
 }
 
 .bento-visual-bg {
@@ -248,7 +248,7 @@ body {
 }
 
 .bento-visual-content h3 {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 800;
   letter-spacing: -0.03em;
   margin-bottom: 8px;
@@ -282,30 +282,29 @@ body {
 .bento-data-desc {
   grid-column: span 2;
   justify-content: flex-start;
-  min-height: 140px;
 }
 
 .bento-data-desc h4 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   letter-spacing: -0.02em;
 }
 
 .bento-data-desc p {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .bento-data-stat {
   text-align: center;
   align-items: center;
-  min-height: 120px;
+  padding: 24px;
 }
 
 .bento-data-stat .stat-val {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   color: var(--text-main);
   letter-spacing: -0.03em;
@@ -444,7 +443,7 @@ body {
     grid-template-columns: 1fr;
   }
   .bento-project, .bento-project.reverse {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
   .bento-project.reverse .bento-visual-col {
     order: unset;
@@ -453,7 +452,7 @@ body {
     order: unset;
   }
   .bento-visual-col {
-    min-height: 400px;
+    min-height: 320px;
   }
 }
 
