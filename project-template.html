@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{PROJECT_TITLE} · 路演</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .project-page {
+      min-height: 100vh;
+      background: var(--color-bg);
+    }
+
+    .project-header {
+      padding: 100px var(--space-xl) var(--space-2xl);
+      background: var(--color-white);
+      border-bottom: 1px solid rgba(27, 77, 62, 0.08);
+    }
+
+    .project-header-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--color-text-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: var(--space-lg);
+      transition: color var(--transition-fast);
+    }
+
+    .back-link:hover {
+      color: var(--color-forest);
+    }
+
+    .back-link svg {
+      transition: transform var(--transition-fast);
+    }
+
+    .back-link:hover svg {
+      transform: translateX(-4px);
+    }
+
+    .project-badge {
+      display: inline-block;
+      padding: var(--space-xs) var(--space-md);
+      background: var(--color-sage-light);
+      color: var(--color-forest);
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 100px;
+      margin-bottom: var(--space-md);
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.1;
+      margin-bottom: var(--space-md);
+    }
+
+    .project-title-accent {
+      color: var(--color-caramel);
+    }
+
+    .project-subtitle {
+      font-size: 1.3rem;
+      color: var(--color-text-light);
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    .project-hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xl);
+      margin-top: var(--space-xl);
+      padding-top: var(--space-lg);
+      border-top: 1px solid rgba(27, 77, 62, 0.08);
+    }
+
+    .project-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .project-stat-value {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-forest);
+    }
+
+    .project-stat-label {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+    }
+
+    .slides-container {
+      padding: var(--space-2xl) var(--space-xl);
+      background: var(--color-bg);
+    }
+
+    .slides-wrapper {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .project-header {
+        padding: 80px var(--space-md) var(--space-xl);
+      }
+
+      .slides-container {
+        padding: var(--space-xl) var(--space-md);
+      }
+
+      .project-hero-stats {
+        gap: var(--space-lg);
+      }
+
+      .project-stat-value {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="project-page">
+    <header class="project-header">
+      <div class="project-header-content">
+        <a href="index.html" class="back-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          返回项目列表
+        </a>
+
+        <span class="project-badge">{PROJECT_CATEGORY}</span>
+        <h1 class="project-title">{PROJECT_TITLE}</h1>
+        <p class="project-subtitle">{PROJECT_SUBTITLE}</p>
+
+        <div class="project-hero-stats">
+          {PROJECT_STATS_HTML}
+        </div>
+      </div>
+    </header>
+
+    <section class="slides-container">
+      <div class="slides-wrapper">
+        {SLIDES_CONTENT}
+      </div>
+    </section>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
