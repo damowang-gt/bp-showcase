@@ -28,8 +28,17 @@
                     <a href="presentation" target="_blank"><i class="fas fa-play-circle"></i> 查看路演</a>
                 </div>
                 <div style="display: flex; align-items: center; gap: 16px;">
-                    <button id="themeToggle" class="btn-outline-light" style="padding: 10px; border-radius: 50%; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;" title="切换主题">
-                        <i class="fas fa-sun" id="themeIcon"></i>
+                    <button id="themeToggle" class="btn-outline-light" style="padding: 10px; border-radius: 50%; width: 42px; height: 42px; display: flex; justify-content: center; align-items: center;" title="切换主题">
+                        <!-- 自定义手绘太阳 SVG -->
+                        <svg id="icon-sun" style="width: 22px; height: 22px; display: none;" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 4.25c-4.28 0-7.75 3.47-7.75 7.75s3.47 7.75 7.75 7.75 7.75-3.47 7.75-7.75S16.28 4.25 12 4.25zm0 13.5c-3.17 0-5.75-2.58-5.75-5.75S8.83 6.25 12 6.25s5.75 2.58 5.75 5.75-2.58 5.75-5.75 5.75z"/>
+                            <path d="M12 2.25c.41 0 .75-.34.75-.75V.75a.75.75 0 0 0-1.5 0v.75c0 .41.34.75.75.75zm0 19.5c-.41 0-.75.34-.75.75v.75a.75.75 0 0 0 1.5 0v-.75c0-.41-.34-.75-.75-.75zm8.49-10.5h.75a.75.75 0 0 0 0-1.5h-.75a.75.75 0 0 0 0 1.5zM2.75 12c0 .41.34.75.75.75h.75a.75.75 0 0 0 0-1.5h-.75c-.41 0-.75.34-.75.75zm15.02-7.52a.75.75 0 0 0 1.06-1.06l-.53-.53a.75.75 0 0 0-1.06 1.06l.53.53zm-11.54 11.54a.75.75 0 0 0-1.06 1.06l.53.53a.75.75 0 0 0 1.06-1.06l-.53-.53zm11.54 1.06l.53.53a.75.75 0 0 0 1.06-1.06l-.53-.53a.75.75 0 0 0-1.06 1.06zM5.17 5.17L4.64 4.64a.75.75 0 0 0-1.06 1.06l.53.53a.75.75 0 0 0 1.06-1.06z"/>
+                            <circle cx="12" cy="12" r="4.5"/>
+                        </svg>
+                        <!-- 自定义手绘月亮 SVG -->
+                        <svg id="icon-moon" style="width: 22px; height: 22px; display: none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
                     </button>
                     <button class="btn-outline-light" id="btnConnectWallet"><i class="fas fa-wallet"></i> 连接钱包</button>
                 </div>
@@ -249,24 +258,10 @@
                 <h3>连接钱包</h3>
                 <button class="close-btn" onclick="closeModal('walletModal')"><i class="fas fa-times"></i></button>
             </div>
-            <div class="wallet-option" onclick="simulateConnectWallet('MetaMask')">
+            <div class="wallet-option" onclick="connectWeb3Wallet()">
                 <div style="display:flex; align-items:center; gap:12px;">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask">
-                    <span>MetaMask</span>
-                </div>
-                <i class="fas fa-chevron-right" style="color:#4a6582;"></i>
-            </div>
-            <div class="wallet-option" onclick="simulateConnectWallet('WalletConnect')">
-                <div style="display:flex; align-items:center; gap:12px;">
-                    <img src="https://raw.githubusercontent.com/WalletConnect/walletconnect-assets/master/Logo/Blue%20(Default)/Logo.png" alt="WalletConnect">
-                    <span>WalletConnect</span>
-                </div>
-                <i class="fas fa-chevron-right" style="color:#4a6582;"></i>
-            </div>
-            <div class="wallet-option" onclick="simulateConnectWallet('Coinbase Wallet')">
-                <div style="display:flex; align-items:center; gap:12px;">
-                    <div style="width:32px; height:32px; background:#0052FF; border-radius:8px; display:flex; justify-content:center; align-items:center;"><i class="fas fa-circle" style="color:white; font-size:12px;"></i></div>
-                    <span>Coinbase Wallet</span>
+                    <span>Web3 钱包 (MetaMask / OKX等)</span>
                 </div>
                 <i class="fas fa-chevron-right" style="color:#4a6582;"></i>
             </div>
@@ -292,7 +287,7 @@
                 <label>详细描述 / 官网链接 / Github</label>
                 <textarea id="bpDesc" class="form-control" placeholder="AI Agent将自动爬取并分析相关资料..."></textarea>
             </div>
-            <button class="btn-primary" style="width:100%; margin-top:10px;" onclick="submitBP()">
+            <button class="btn-primary" style="width:100%; margin-top:10px;" onclick="submitRealBP()">
                 <i class="fas fa-magic"></i> 提交并启动 AI 评估
             </button>
         </div>
@@ -320,7 +315,7 @@
                 <span>钱包余额: <span id="walletBalance">0.00</span></span>
                 <span>预计 APY: <span style="color:#2ee6d8;">18.4%</span></span>
             </div>
-            <button class="btn-primary" style="width:100%;" onclick="simulateDeposit()">
+            <button class="btn-primary" style="width:100%;" onclick="executeRealDeposit()">
                 <i class="fas fa-arrow-down"></i> 确认存入
             </button>
         </div>

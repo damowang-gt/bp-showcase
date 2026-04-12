@@ -4,15 +4,18 @@ let walletBalance = 0;
 
 // Theme Toggle Logic
 const themeToggle = document.getElementById('themeToggle');
-const themeIcon = document.getElementById('themeIcon');
+const iconSun = document.getElementById('icon-sun');
+const iconMoon = document.getElementById('icon-moon');
 const htmlElement = document.documentElement;
 
 // Function to update icon based on theme
 function updateThemeIcon(theme) {
     if (theme === 'light') {
-        themeIcon.className = 'fas fa-moon'; // 月亮代表可以切换到暗色，或者当前是浅色
+        iconSun.style.display = 'none';
+        iconMoon.style.display = 'block';
     } else {
-        themeIcon.className = 'fas fa-sun'; // 太阳代表可以切换到浅色，或者当前是暗色
+        iconSun.style.display = 'block';
+        iconMoon.style.display = 'none';
     }
 }
 
@@ -67,27 +70,45 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
     });
 });
 
-// 1. Connect Wallet Simulation
-function simulateConnectWallet(walletName) {
-    const btn = document.getElementById('btnConnectWallet');
-    btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> 连接中...`;
-    
-    setTimeout(() => {
-        walletConnected = true;
-        walletAddress = '0x7A' + Math.floor(Math.random() * 100000) + '...B9A';
-        walletBalance = 15420.50;
+// 1. Real Connect Web3 Wallet
+async function connectWeb3Wallet() {
+    if (typeof window.ethereum !== 'undefined') {
+        const btn = document.getElementById('btnConnectWallet');
+        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> 连接中...`;
         
-        btn.innerHTML = `<i class="fas fa-wallet"></i> ${walletAddress}`;
-        btn.style.borderColor = '#2ee6d8';
-        btn.style.color = '#ffffff';
-        btn.style.background = 'rgba(46, 230, 216, 0.1)';
-        
-        closeModal('walletModal');
-    }, 800);
+        try {
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            walletAddress = accounts[0];
+            walletConnected = true;
+            
+            // Get balance in Wei
+            const balanceWei = await window.ethereum.request({
+                method: 'eth_getBalance',
+                params: [walletAddress, 'latest']
+            });
+            // Convert Wei to ETH/Token (approximate)
+            const balanceEth = parseInt(balanceWei, 16) / 1e18;
+            walletBalance = balanceEth;
+            
+            const shortAddr = walletAddress.substring(0, 6) + '...' + walletAddress.substring(38);
+            btn.innerHTML = `<i class="fas fa-wallet"></i> ${shortAddr}`;
+            btn.style.borderColor = 'var(--color-cyan-bright)';
+            btn.style.color = 'var(--text-main)';
+            btn.style.background = 'var(--bg-process-card-active)';
+            
+            closeModal('walletModal');
+        } catch (error) {
+            console.error("Wallet connection failed:", error);
+            btn.innerHTML = `<i class="fas fa-wallet"></i> 连接钱包`;
+            alert('连接被拒绝或发生错误');
+        }
+    } else {
+        alert('未检测到 Web3 钱包，请安装 MetaMask 等扩展！');
+    }
 }
 
-// 2. Deposit Simulation
-function simulateDeposit() {
+// 2. Real Deposit Transaction
+async function executeRealDeposit() {
     const amountInput = document.getElementById('depositAmount');
     const amount = parseFloat(amountInput.value);
     
@@ -103,34 +124,76 @@ function simulateDeposit() {
     
     const btn = document.querySelector('#depositModal .btn-primary');
     const originalText = btn.innerHTML;
-    btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> 正在上链确认...`;
+    btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> 唤起钱包...`;
     
-    setTimeout(() => {
-        walletBalance -= amount;
-        alert(`成功存入 ${amount} USDC! 感谢您为去中心化创投网络提供流动性。`);
-        closeModal('depositModal');
+    try {
+        // Send a 0 ETH transaction with data to simulate contract interaction safely
+        const txParams = {
+            to: walletAddress, // send to self for safety in demo
+            from: walletAddress,
+            value: '0x0', // 0 ETH
+            data: '0x' + Array.from(new TextEncoder().encode('GuanlanVC Deposit')).map(b => b.toString(16).padStart(2, '0')).join('')
+        };
+        
+        const txHash = await window.ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [txParams],
+        });
+        
+        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> 等待区块确认...`;
+        
+        setTimeout(() => {
+            walletBalance -= amount;
+            alert(`存入交易已提交上链！\n交易哈希: ${txHash}`);
+            closeModal('depositModal');
+            btn.innerHTML = originalText;
+            amountInput.value = '';
+        }, 3000);
+        
+    } catch (error) {
+        console.error(error);
         btn.innerHTML = originalText;
-        amountInput.value = '';
-    }, 1500);
+        alert('交易已被取消或失败');
+    }
 }
 
-// 3. AI Agent BP Evaluation Simulation
-function submitBP() {
+// 3. Real Signature for BP Submission
+async function submitRealBP() {
     const name = document.getElementById('bpName').value;
     if(!name) {
         alert("请输入项目名称");
         return;
     }
     
+    if(!walletConnected) {
+        alert("请先连接钱包以验证创始人身份");
+        closeModal('bpModal');
+        openModal('walletModal');
+        return;
+    }
+    
     const btn = document.querySelector('#bpModal .btn-primary');
     const originalText = btn.innerHTML;
-    btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> 正在提交...`;
+    btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> 唤起钱包签名...`;
     
-    setTimeout(() => {
+    try {
+        const message = `【观澜星辰 AI 创投网络】\n\n确认提交项目：${name}\n\n请签名此消息以证明您是该项目的提交者。此签名不会消耗任何 Gas 费用。`;
+        const hexMessage = '0x' + Array.from(new TextEncoder().encode(message)).map(b => b.toString(16).padStart(2, '0')).join('');
+        
+        const signature = await window.ethereum.request({
+            method: 'personal_sign',
+            params: [hexMessage, walletAddress],
+        });
+        
         closeModal('bpModal');
         btn.innerHTML = originalText;
         startAIEvaluation(name);
-    }, 600);
+        
+    } catch (error) {
+        console.error(error);
+        btn.innerHTML = originalText;
+        alert('签名被拒绝，项目提交终止');
+    }
 }
 
 function startAIEvaluation(projectName) {

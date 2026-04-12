@@ -86,7 +86,7 @@
     --bg-body: radial-gradient(circle at 10% 20%, #f4f7fb, #eef2f6);
     --bg-mesh-1: rgba(0, 119, 234, 0.05);
     --bg-mesh-2: rgba(0, 119, 234, 0.05);
-    --bg-nav: rgba(255, 255, 255, 0.6);
+    --bg-nav: rgba(244, 247, 251, 0.85);
     --bg-btn-outline-hover: rgba(0, 119, 234, 0.1);
     --bg-btn-secondary: rgba(255, 255, 255, 0.8);
     --bg-btn-secondary-hover: rgba(240, 245, 250, 0.9);
