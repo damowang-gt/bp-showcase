@@ -22,7 +22,7 @@ const PROJECTS = [
       { label: '市场规模(2024)', value: '300亿+' },
       { label: '年复合增长率', value: '47%' }
     ],
-    page: '惊喜食光魔法袋.html',
+    page: 'projects/magic-bag/index.html',
     pageTitle: '惊喜食光魔法袋 · 路演',
     subtitle: '门店当日库存 → 惊喜盲盒 · 让浪费变价值',
     heroStats: [
