@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>惊喜食光魔法袋 · 有赞双向赋能</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,170 +15,313 @@
       --text-main: #1D1D1F;
       --text-secondary: #86868B;
       --border-color: rgba(0, 0, 0, 0.05);
-      --radius-md: 24px;
-      --radius-lg: 32px;
-      --radius-xl: 48px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
       --shadow-bento: 0 4px 24px rgba(0, 0, 0, 0.04);
       --color-magic: #c45d2c;
       --color-youzan: #1d5e4c;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
       background: var(--bg-main);
       color: var(--text-main);
-      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow: hidden;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 40px;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      margin-bottom: 24px;
-      line-height: 1.1;
-    }
-
-    h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin: 80px 0 32px 0;
+    .page {
+      max-width: 1400px;
+      width: 100%;
+      height: calc(100vh - 48px);
+      margin: 24px auto;
+      padding: 0 40px;
       display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+
+    .header-left {
+      flex: 1;
+    }
+
+    .badge-tag {
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
+      padding: 6px 16px;
+      background: var(--text-main);
+      color: white;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 12px;
     }
 
-    h3 { 
-      font-size: 1.4rem; 
-      font-weight: 700; 
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
+    .header h1 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 8px;
     }
 
-    .highlight {
+    .header h1 .highlight {
       background: linear-gradient(135deg, var(--color-magic) 0%, #b0471a 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      display: inline-block;
     }
 
-    .badge {
-      background: var(--text-main);
-      color: white;
-      padding: 8px 24px;
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      display: inline-flex;
+    .header-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    .header-right {
+      display: flex;
+      gap: 24px;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 24px;
     }
 
-    .card {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      box-shadow: var(--shadow-bento);
-      border: 1px solid var(--border-color);
-      height: 100%;
-      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    .stat-mini {
+      text-align: center;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-      border-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 32px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
-
-    .stat-box {
-      margin-top: 32px; 
-      background: var(--bg-main); 
-      border-radius: var(--radius-md); 
-      padding: 24px;
-    }
-
-    .stat-large {
-      font-size: 3rem;
+    .stat-mini .val {
+      font-size: 2rem;
       font-weight: 800;
+      letter-spacing: -0.03em;
       color: var(--text-main);
       line-height: 1;
+    }
+
+    .stat-mini .lbl {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: space-between;
+    }
+
+    /* Core Layout: 2 columns + 1 bottom */
+    .section-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .section-row.full { flex-direction: column; }
+
+    /* Pain Point Card */
+    .pain-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-bento);
+      border: 1px solid var(--border-color);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .pain-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pain-card h3 i { color: var(--color-magic); }
+
+    .pain-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .pain-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .pain-stat .big {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--color-magic);
       letter-spacing: -0.03em;
     }
 
-    .stat-label { 
-      font-size: 1rem; 
-      font-weight: 600;
-      color: var(--text-secondary); 
+    .pain-stat .small {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
     }
 
-    .pill-icon {
-      width: 64px; 
-      height: 64px;
-      background: var(--bg-main);
-      border-radius: 20px;
+    /* Arrow Center */
+    .arrow-col {
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .arrow-col i {
+      font-size: 2rem;
+      color: var(--color-youzan);
+      opacity: 0.4;
+    }
+
+    /* Synergy Columns */
+    .synergy-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .synergy-col-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0 4px;
+      margin-bottom: 4px;
+    }
+
+    .synergy-col.youzan .synergy-col-title { color: var(--color-youzan); }
+    .synergy-col.magic .synergy-col-title { color: var(--color-magic); }
+
+    .synergy-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-bento);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .synergy-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+    }
+
+    .synergy-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .synergy-icon i { font-size: 1.2rem; }
+
+    .youzan .synergy-icon {
+      background: rgba(29, 94, 76, 0.08);
+      color: var(--color-youzan);
+    }
+
+    .magic .synergy-icon {
+      background: rgba(196, 93, 44, 0.08);
+      color: var(--color-magic);
+    }
+
+    .synergy-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
       color: var(--text-main);
-      font-size: 1.8rem;
-      margin-bottom: 24px;
+      margin-bottom: 2px;
+    }
+
+    .synergy-text p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
     }
 
     .synergy-tag {
-      background: rgba(196, 93, 44, 0.1);
+      margin-left: auto;
+      flex-shrink: 0;
+      padding: 4px 12px;
       border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       font-weight: 600;
-      color: var(--color-magic);
-      display: inline-block;
     }
 
-    .flow-container {
+    .youzan .synergy-tag {
+      background: rgba(29, 94, 76, 0.1);
+      color: var(--color-youzan);
+    }
+
+    .magic .synergy-tag {
+      background: rgba(196, 93, 44, 0.1);
+      color: var(--color-magic);
+    }
+
+    /* Flow Section */
+    .flow-section {
       background: var(--bg-card);
       border-radius: var(--radius-xl);
-      padding: 48px;
-      margin: 64px 0;
+      padding: 20px 28px;
       box-shadow: var(--shadow-bento);
       border: 1px solid var(--border-color);
-      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
-    
-    .flow-container:hover {
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+
+    .flow-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
+
+    .flow-title i { color: var(--color-youzan); }
 
     .flow-row {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 16px 24px;
     }
 
     .flow-node {
-      background: var(--bg-main);
+      padding: 10px 20px;
       border-radius: 100px;
-      padding: 20px 32px;
+      font-size: 0.9rem;
       font-weight: 600;
-      min-width: 200px;
-      text-align: center;
-      font-size: 1.1rem;
+      white-space: nowrap;
     }
 
     .flow-node.dark {
@@ -186,237 +329,242 @@
       color: white;
     }
 
-    .flow-node.accent {
-      background: var(--color-magic);
-      color: white;
+    .flow-node.youzan {
+      background: rgba(29, 94, 76, 0.1);
+      color: var(--color-youzan);
+      border: 1px solid rgba(29, 94, 76, 0.2);
     }
 
-    .arrow-icon {
-      font-size: 1.5rem;
+    .flow-node.magic {
+      background: rgba(196, 93, 44, 0.1);
+      color: var(--color-magic);
+      border: 1px solid rgba(196, 93, 44, 0.2);
+    }
+
+    .flow-arrow {
       color: var(--text-secondary);
       opacity: 0.5;
+      font-size: 1rem;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    /* Summary */
+    .summary-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .summary-card {
+      flex: 1;
       background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
+      border-radius: var(--radius-xl);
+      padding: 20px 24px;
       box-shadow: var(--shadow-bento);
       border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
-    th, td {
-      padding: 24px 32px;
-      text-align: left;
-      border-bottom: 1px solid var(--border-color);
+    .summary-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
-    th {
-      background: var(--bg-main);
+    .summary-icon i { font-size: 1.4rem; }
+
+    .summary-text {
+      flex: 1;
+    }
+
+    .summary-text h4 {
+      font-size: 1rem;
       font-weight: 700;
-      font-size: 1.1rem;
+      color: var(--text-main);
+      margin-bottom: 2px;
     }
 
-    tr:last-child td { border-bottom: none; }
+    .summary-text p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
 
-    .value-highlight {
+    /* Back button */
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 100px;
+      text-decoration: none;
+      color: #1a4b3c;
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #e2f0e8;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
       background: var(--text-main);
       color: white;
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      margin-top: 40px;
-    }
-
-    .value-highlight p {
-      color: rgba(255,255,255,0.9);
+      border-color: var(--text-main);
     }
 
     @media (max-width: 1024px) {
-      .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 768px) {
-      .container { padding: 80px 24px 40px; }
-      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-      .flow-node { width: 100%; }
-      .arrow-icon { transform: rotate(90deg); margin: 8px 0; }
+      body { overflow: auto; }
+      .page { height: auto; min-height: calc(100vh - 48px); }
+      .section-row { flex-direction: column; }
+      .arrow-col { transform: rotate(90deg); justify-content: center; }
+      .summary-row { flex-direction: column; }
+      .header { flex-direction: column; gap: 16px; }
+      .header-right { align-self: flex-start; }
     }
   </style>
 </head>
 <body>
-<!-- 返回导航 -->
-<div style="position: fixed; top: 20px; left: 20px; z-index: 100;">
-  <a href="index.html" style="display: flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); border-radius: 100px; text-decoration: none; color: #1a4b3c; font-weight: 600; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2f0e8; transition: all 0.2s ease;">
+  <!-- 返回导航 -->
+  <a href="index.html" class="back-btn">
     <i class="fas fa-arrow-left"></i> 返回路演
   </a>
-</div>
 
-<div class="container">
-  
-  <!-- 页眉 -->
-  <div style="margin-bottom: 24px;">
-    <span class="badge"><i class="fas fa-sync-alt" style="margin-right: 8px;"></i> 战略协同 · 双向赋能</span>
-    <h1>惊喜食光魔法袋 <span style="font-weight: 400; color: #4d7063;">✕</span> <span class="highlight">有赞SaaS生态</span></h1>
-    <p style="font-size: 1.3rem; color: #2a5a48; max-width: 850px;">
-      魔法袋不是另一个独立项目，而是有赞SaaS生态的“流量发动机”和“交易催化剂”—— 
-      让有赞从“卖工具”升级为“卖工具+送流量”。
-    </p>
-  </div>
-
-  <!-- 第一部分：有赞SaaS业务痛点 -->
-  <h2>🔍 有赞的“阿喀琉斯之踵”</h2>
-  <div class="grid-3">
-    <div class="card">
-      <div class="pill-icon"><i class="fas fa-store-alt"></i></div>
-      <h3>门店SaaS：工具强大，缺流量</h3>
-      <p>覆盖30+核心场景、500+项功能，门店GMV达537亿。但商家买了软件后依然面临“客流从哪来”的根本问题。</p>
-      <div style="margin-top: 20px; background: #f4faf7; border-radius: 16px; padding: 16px;">
-        <span class="stat-large">5.28万</span> <span class="stat-label">存量付费商家</span><br>
-        <span style="font-size:0.9rem; opacity:0.7;">增长仅约5% · 渗透率待突破</span>
+  <div class="page">
+    <!-- 页眉 -->
+    <div class="header">
+      <div class="header-left">
+        <div class="badge-tag"><i class="fas fa-sync-alt"></i> 战略协同 · 双向赋能</div>
+        <h1>惊喜食光魔法袋 <span style="color:#86868B; font-weight:400;">✕</span> <span class="highlight">有赞SaaS生态</span></h1>
+        <p class="header-desc">魔法袋是有赞SaaS生态的"流量发动机"和"交易催化剂"—— 让有赞从"卖工具"升级为"卖工具+送流量"，破解续费率下滑困境。</p>
+      </div>
+      <div class="header-right">
+        <div class="stat-mini">
+          <div class="val" style="color: var(--color-youzan);">5.28万</div>
+          <div class="lbl">存量付费商家</div>
+        </div>
+        <div class="stat-mini">
+          <div class="val" style="color: var(--color-magic);">537亿</div>
+          <div class="lbl">门店SaaS年GMV</div>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <div class="pill-icon"><i class="fas fa-file-invoice-dollar" style="color:#c45d2c;"></i></div>
-      <h3>订阅收入下滑，核心承压</h3>
-      <p>2025上半年订阅解决方案收益同比-1.0%，毛利率-2.8%。付费商家总数持续萎缩。</p>
-      <div style="margin-top: 20px; background: #fef3ee; border-radius: 16px; padding: 16px;">
-        <span class="stat-large">5.4万</span> <span class="stat-label">商家总数 (2025H1)</span><br>
-        <span style="font-size:0.9rem; opacity:0.7;">较2024年底5.6万家减少</span>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pill-icon"><i class="fab fa-xiaohongshu" style="color:#c45d2c;"></i></div>
-      <h3>小红书方案：转化链条长</h3>
-      <p>有赞是小红书“小红卡”独家服务商，打通公域流量。但缺少一个“低门槛钩子产品”来降低首次尝试成本。</p>
-      <div style="margin-top: 20px; background: #fef3ee; border-radius: 16px; padding: 16px;">
-        <span class="stat-large">600万/日</span> <span class="stat-label">求购需求触达</span><br>
-        <span style="font-size:0.9rem; opacity:0.7;">急需高频交易场景承接</span>
-      </div>
-    </div>
-  </div>
-  <div class="value-highlight">
-    <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;"><i class="fas fa-lightbulb" style="color:#c45d2c; margin-right: 10px;"></i>核心矛盾</p>
-    <p style="font-size: 1.2rem;">有赞拥有强大的SaaS工具能力，但“只卖软件”的商业模式天然缺乏流量赋能；而商家最需要的恰恰是“能带来真实订单和客流”的解决方案。</p>
-  </div>
 
-  <!-- 第二部分：魔法袋如何反向赋能有赞 -->
-  <h2>⚡ 魔法袋如何反向赋能有赞SaaS？</h2>
-  <div class="grid-2">
-    <div class="card" style="border-left: 6px solid #2a7a62;">
-      <div class="flex-between" style="display: flex; justify-content: space-between;">
-        <h3 style="margin-bottom: 8px;"><i class="fas fa-store"></i> 赋能门店SaaS</h3>
-        <span class="synergy-tag">工具 → 工具+流量</span>
-      </div>
-      <p style="margin-top: 12px;"><strong>创造增量到店客流：</strong>每笔魔法袋交易都是一次真实到店，商家可引导加入会员、关注小程序、进入私域社群。</p>
-      <p style="margin-top: 12px;"><strong>提升SaaS销售价值：</strong>“买SaaS送流量入口”的话术，降低商家决策门槛，提高成交率和客单价。</p>
-      <p style="margin-top: 12px;"><strong>形成数据闭环：</strong>订单、评价、核销数据与会员系统打通，提升SaaS不可替代性。</p>
-    </div>
-    <div class="card" style="border-left: 6px solid #c45d2c;">
-      <div class="flex-between" style="display: flex; justify-content: space-between;">
-        <h3 style="margin-bottom: 8px;"><i class="fab fa-xiaohongshu"></i> 赋能小红书本地生活</h3>
-        <span class="synergy-tag">钩子产品</span>
-      </div>
-      <p style="margin-top: 12px;"><strong>低门槛钩子：</strong>3-5折盲盒天然具有社交传播属性，用户开箱即发小红书笔记，UGC内容裂变。</p>
-      <p style="margin-top: 12px;"><strong>数据反哺内容策略：</strong>交易数据帮助识别高转化内容，优化种草到成交链路。</p>
-      <p style="margin-top: 12px;"><strong>粉丝沉淀：</strong>核销后自动引导关注商家POI页面，提升粉丝沉淀效率。</p>
-    </div>
-    <div class="card" style="border-left: 6px solid #2a7a62;">
-      <div class="flex-between" style="display: flex; justify-content: space-between;">
-        <h3 style="margin-bottom: 8px;"><i class="fas fa-users"></i> 赋能私域生态</h3>
-        <span class="synergy-tag">持续触达</span>
-      </div>
-      <p style="margin-top: 12px;"><strong>批量沉淀用户：</strong>“周边捡漏群”为商家批量沉淀高价值性价比用户，每日推送形成稳定日活。</p>
-      <p style="margin-top: 12px;"><strong>会员转化：</strong>到店核销后通过一键授权快速完成会员注册，提升会员基数。</p>
-      <p style="margin-top: 12px;"><strong>复购驱动：</strong>盲盒的“惊喜体验”促使用户二次到店，带动正价商品消费。</p>
-    </div>
-    <div class="card" style="border-left: 6px solid #c45d2c;">
-      <div class="flex-between" style="display: flex; justify-content: space-between;">
-        <h3 style="margin-bottom: 8px;"><i class="fas fa-chart-simple"></i> 赋能智能营销</h3>
-        <span class="synergy-tag">数据反哺</span>
-      </div>
-      <p style="margin-top: 12px;"><strong>交易数据反哺：</strong>魔法袋的订单数据可输入有赞智能营销引擎，优化商家推荐算法。</p>
-      <p style="margin-top: 12px;"><strong>用户画像补充：</strong>盲盒购买行为数据丰富消费者画像，提升精准营销能力。</p>
-      <p style="margin-top: 12px;"><strong>GMV贡献：</strong>魔法袋交易可计入有赞门店SaaS的GMV，直接拉动核心指标。</p>
-    </div>
-  </div>
+    <!-- 核心内容 -->
+    <div class="main-content">
+      <!-- 第一行：痛点 + 中间箭头 + 反向赋能（合并） -->
+      <div class="section-row">
+        <!-- 左侧：痛点 -->
+        <div class="pain-card">
+          <h3><i class="fas fa-exclamation-triangle"></i> 有赞SaaS的核心困境</h3>
+          <p>覆盖500+功能、30+核心场景，门店SaaS年GMV达537亿。但商家买了工具后——客流从哪来？</p>
+          <div class="pain-stat">
+            <span class="big">-1.0%</span>
+            <span class="small">2025上半年订阅收益同比下滑 · 付费商家持续萎缩</span>
+          </div>
+        </div>
 
-  <!-- 协同闭环可视化 -->
-  <div class="flow-container">
-    <p style="font-weight: 700; font-size: 1.4rem; margin-bottom: 28px; text-align: center;"><i class="fas fa-sync-alt fa-spin" style="margin-right: 8px;"></i>业务协同闭环</p>
-    <div class="flow-row">
-      <div class="flow-node dark"><i class="fas fa-magic"></i> 魔法袋<br><span style="font-size:0.75rem;">流量入口+交易平台</span></div>
-      <span class="arrow-icon"><i class="fas fa-arrow-right"></i></span>
-      <div class="flow-node"><i class="fas fa-store"></i> 门店SaaS<br><span style="font-size:0.75rem;">会员沉淀+复购管理</span></div>
-      <span class="arrow-icon"><i class="fas fa-arrow-right"></i></span>
-      <div class="flow-node accent"><i class="fab fa-xiaohongshu"></i> 小红书本地生活<br><span style="font-size:0.75rem;">品牌曝光+UGC裂变</span></div>
-      <span class="arrow-icon"><i class="fas fa-arrow-right"></i></span>
-      <div class="flow-node"><i class="fas fa-user-group"></i> 私域运营<br><span style="font-size:0.75rem;">社群+企微+智能营销</span></div>
-      <span class="arrow-icon"><i class="fas fa-arrow-right"></i></span>
-      <div class="flow-node dark"><i class="fas fa-sync-alt"></i> 反哺魔法袋<br><span style="font-size:0.75rem;">商家活跃+更多供给</span></div>
-    </div>
-  </div>
+        <div class="arrow-col">
+          <i class="fas fa-arrows-alt-h"></i>
+        </div>
 
-  <!-- 第三部分：有赞资源如何助力魔法袋 -->
-  <h2>🚀 有赞资源如何助力魔法袋抢占市场？</h2>
-  <div class="grid-4">
-    <div class="card">
-      <i class="fas fa-network-wired fa-2x" style="color:#1d6b4e; margin-bottom: 16px;"></i>
-      <h3>直销+代理商体系</h3>
-      <p>有赞覆盖一线城市的分公司网络和强大的代理商体系，已有大量合作烘焙、轻食商家可直接转化为魔法袋入驻商户。</p>
-      <div class="data-badge" style="margin-top: 16px; background:#e4f0ea; border-radius:30px; padding:6px 16px; display:inline-block;">0成本供给侧冷启动</div>
-    </div>
-    <div class="card">
-      <i class="fas fa-users-gear fa-2x" style="color:#1d6b4e; margin-bottom: 16px;"></i>
-      <h3>内部种子用户</h3>
-      <p>有赞公司+代理商体系相关人员及其家庭成员，可作为最快触达的首批种子用户，3个月内完成用户端冷启动验证。</p>
-      <div class="data-badge" style="margin-top: 16px; background:#e4f0ea; border-radius:30px; padding:6px 16px; display:inline-block;">首批万级种子用户</div>
-    </div>
-    <div class="card">
-      <i class="fab fa-xiaohongshu fa-2x" style="color:#c45d2c; margin-bottom: 16px;"></i>
-      <h3>小红书独家服务商</h3>
-      <p>有赞作为小红书“小红卡”独家服务商，为魔法袋商家提供“种草+交易”一体化解决方案。</p>
-      <div class="data-badge" style="margin-top: 16px; background:#e4f0ea; border-radius:30px; padding:6px 16px; display:inline-block;">公域流量天然入口</div>
-    </div>
-    <div class="card">
-      <i class="fas fa-microchip fa-2x" style="color:#1d6b4e; margin-bottom: 16px;"></i>
-      <h3>技术中台能力</h3>
-      <p>复用在有赞开放平台、智能营销引擎、订单管理系统，大幅降低从0到1的开发成本。</p>
-      <div class="data-badge" style="margin-top: 16px; background:#e4f0ea; border-radius:30px; padding:6px 16px; display:inline-block;">加速产品上线</div>
-    </div>
-  </div>
+        <!-- 右侧：魔法袋反向赋能有赞（核心价值） -->
+        <div class="synergy-col magic" style="flex: 2;">
+          <div class="synergy-col-title">⚡ 魔法袋反向赋能有赞（破解续费困境）</div>
+          <div class="synergy-card">
+            <div class="synergy-icon"><i class="fas fa-store"></i></div>
+            <div class="synergy-text">
+              <h4>创造增量到店客流</h4>
+              <p>每笔魔法袋交易=一次真实到店，可引导加入会员、进私域社群</p>
+            </div>
+            <span class="synergy-tag">续费率↑</span>
+          </div>
+          <div class="synergy-card">
+            <div class="synergy-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="synergy-text">
+              <h4>直接拉动GMV增长</h4>
+              <p>魔法袋交易计入有赞门店SaaS的GMV，直接贡献核心KPI</p>
+            </div>
+            <span class="synergy-tag">GMV↑</span>
+          </div>
+          <div class="synergy-card">
+            <div class="synergy-icon"><i class="fas fa-database"></i></div>
+            <div class="synergy-text">
+              <h4>数据闭环反哺营销</h4>
+              <p>消费行为数据输入有赞智能营销引擎，优化商家推荐算法</p>
+            </div>
+            <span class="synergy-tag">精准度↑</span>
+          </div>
+        </div>
+      </div>
 
-  <!-- 双向赋能对比表 -->
-  <h2>📊 双向赋能全景对比</h2>
-  <table>
-    <tr>
-      <th>维度</th>
-      <th>有赞 → 魔法袋</th>
-      <th>魔法袋 → 有赞</th>
-    </tr>
-    <tr><td><strong>商家资源</strong></td><td>直销+代理商体系快速渗透商家</td><td>为门店SaaS商家创造增量到店流量，提升续费率</td></tr>
-    <tr><td><strong>用户资源</strong></td><td>内部员工+家庭作为种子用户</td><td>魔法袋用户可转化为有赞私域生态用户</td></tr>
-    <tr><td><strong>技术能力</strong></td><td>复用在有赞技术中台，降低开发成本</td><td>魔法袋交易数据反哺有赞智能营销引擎</td></tr>
-    <tr><td><strong>渠道能力</strong></td><td>小红书独家服务商身份获取公域流量</td><td>魔法袋成为小红书本地生活的“钩子产品”</td></tr>
-    <tr><td><strong>品牌价值</strong></td><td>借力有赞品牌信任，快速建立商家信任</td><td>魔法袋强化有赞“社会企业”品牌形象</td></tr>
-  </table>
+      <!-- 飞轮业务闭环 -->
+      <div class="flow-section">
+        <div class="flow-title">
+          <i class="fas fa-sync-alt"></i> 业务协同飞轮
+        </div>
+        <div class="flow-row">
+          <span class="flow-node dark"><i class="fas fa-magic"></i> 魔法袋交易</span>
+          <i class="fas fa-arrow-right flow-arrow"></i>
+          <span class="flow-node youzan"><i class="fas fa-store"></i> 商家获客增收</span>
+          <i class="fas fa-arrow-right flow-arrow"></i>
+          <span class="flow-node youzan"><i class="fas fa-user-check"></i> 会员沉淀转化</span>
+          <i class="fas fa-arrow-right flow-arrow"></i>
+          <span class="flow-node youzan"><i class="fas fa-redo"></i> 续费率提升</span>
+          <i class="fas fa-arrow-right flow-arrow"></i>
+          <span class="flow-node dark"><i class="fas fa-sync-alt"></i> 反哺供给扩大</span>
+        </div>
+      </div>
 
-  <!-- 战略价值总结 -->
-  <div class="divider"></div>
-  <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; background: #1d463b0c; border-radius: 48px; padding: 32px 36px;">
-    <div style="flex:1; min-width: 200px;">
-      <i class="fas fa-quote-right" style="font-size: 3rem; color: #2a7a62; opacity: 0.4;"></i>
-    </div>
-    <div style="flex:4;">
-      <p style="font-size: 1.6rem; font-weight: 700; color: #1a4b3c;">“魔法袋让有赞SaaS从‘工具’升级为‘流量+工具’的一体化解决方案，是破解有赞增长瓶颈的战略级项目。”</p>
-      <p style="margin-top: 16px; opacity: 0.8;"><i class="fas fa-check-circle" style="color:#1f7a5c;"></i> 既可独立存活，又能深度赋能有赞，同时借助有赞资源快速扩张——三重价值，内部创业首选。</p>
+      <!-- 第三行：有赞赋能魔法袋 + 底部总结 -->
+      <div class="summary-row">
+        <!-- 左侧：有赞如何赋能魔法袋 -->
+        <div class="synergy-col youzan" style="flex: 1.5;">
+          <div class="synergy-col-title">🚀 有赞资源如何助力魔法袋冷启动</div>
+          <div class="synergy-card">
+            <div class="synergy-icon"><i class="fas fa-network-wired"></i></div>
+            <div class="synergy-text">
+              <h4>直销+代理商网络</h4>
+              <p>现成B端资源快速对接，0成本获取首批商家入驻</p>
+            </div>
+          </div>
+          <div class="synergy-card">
+            <div class="synergy-icon"><i class="fas fa-users"></i></div>
+            <div class="synergy-text">
+              <h4>内部种子用户</h4>
+              <p>员工+代理商体系，3个月内快速完成用户端验证</p>
+            </div>
+          </div>
+          <div class="synergy-card">
+            <div class="synergy-icon"><i class="fas fa-microchip"></i></div>
+            <div class="synergy-text">
+              <h4>技术中台复用</h4>
+              <p>订单管理、智能营销引擎复用，大幅降低开发成本</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧：战略总结 -->
+        <div class="summary-card" style="flex: 1; background: linear-gradient(135deg, rgba(29,94,76,0.06) 0%, rgba(196,93,44,0.06) 100%);">
+          <div class="summary-icon" style="background: rgba(29,94,76,0.1); color: var(--color-youzan);">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="summary-text">
+            <h4>战略级项目定位</h4>
+            <p>魔法袋破解有赞SaaS续费困境，有赞赋能让魔法袋低成本冷启动——内部创业首选，资源互补，三方共赢。</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  
-  <div style="margin-top: 40px; text-align: right; opacity: 0.7; font-size: 0.9rem;">
-    惊喜食光魔法袋 · 有赞生态战略协同分析
-  </div>
-</div>
 </body>
 </html>
