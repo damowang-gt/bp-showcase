@@ -5,7 +5,7 @@ const PROJECT_DATA = {
   description: '每个用户仅可发布一条求租+一条出租，从底层杜绝中介刷屏。平台只做信息展示与联系撮合，不涉及合同签订与资金——极轻模式，极高信任。',
   pptLink: '', // 如果有在线PPT链接可以填入这里
   gradient: 'linear-gradient(135deg, rgba(26,52,71,0.85) 0%, rgba(60,141,188,0.85) 100%), url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80")',
-  tags: ['有赞内部孵化', '零中介费', '真实房源'],
+  tags: ['真实房源', '零中介费', '个人直租'],
   stats: [
     { label: '中国住房租赁市场', value: '2.5万亿', sub: '行业规模庞大' },
     { label: '租房人口', value: '2.4亿+', sub: '2026E 预测数据' },
@@ -17,7 +17,7 @@ const PROJECT_DATA = {
     { icon: 'handshake', text: '直联直聊无佣金' },
     { icon: 'check', text: '零合规与法律风险' }
   ],
-  type: '内部孵化项目 · C2C 直租撮合平台',
+  type: '真实房源项目 · C2C 直租撮合平台',
   links: [
     { title: '在线演示/编辑 PPT', action: 'ppt', icon: 'ppt' }
   ]

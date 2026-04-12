@@ -7,7 +7,7 @@ const PROJECT_DATA = {
   tags: ['Web3', 'AI Agent', '去中心化VC'],
   stats: [
     { label: '稳定币流动性', value: '$24.8M+', sub: '全球Web3投资者提供' },
-    { label: '平均尽调至放款', value: '1h', sub: '传统VC需要3-6个月' },
+    { label: '平均尽调至放款', value: '3h', sub: '传统VC需要3-6个月' },
     { label: '人为干预', value: '0', sub: '100%智能体决策' }
   ],
   quote: '"让每一次创新都被看见，让每一份代码都有价值。"',

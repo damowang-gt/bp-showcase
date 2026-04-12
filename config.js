@@ -7,7 +7,7 @@ const SITE_CONFIG = {
 
 const NAV_LINKS = [
   { label: '项目', href: '#projects' },
-  { label: '平台数据', href: '#about' }
+  { label: '平台数据', href: '#top' }
 ];
 
 const PROJECTS = [
@@ -58,7 +58,7 @@ const PROJECTS = [
   {
     id: 'huanju-planet',
     title: '换居星球',
-    category: '内部孵化 · 零中介直租',
+    category: '真实房源 · 零中介直租',
     year: 2026,
     featured: true,
     description: '每个用户仅可发布一条求租+一条出租，从底层杜绝中介刷屏。平台只做信息展示与联系撮合，不涉及合同签订与资金——极轻模式，极高信任。',
@@ -86,7 +86,7 @@ const PROJECTS = [
     description: '全球首个由多智能体(Multi-Agent)完全驱动的去中心化创投网络。消除人为偏见，AI自动完成立项调研与风控尽调，合格即触发智能合约，全自动向创业者拨付USDC/USDT稳定币资金。',
     stats: [
       { label: '稳定币流动性', value: '$24.8M+' },
-      { label: '平均尽调至放款', value: '1h' }
+      { label: '平均尽调至放款', value: '3h' }
     ],
     page: '/projects/guanlan-vc/presentation',
     website: '/projects/guanlan-vc/',
