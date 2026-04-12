@@ -121,8 +121,8 @@
   function renderCoverSlide() {
     return `
       <div class="slide">
-        <div class="slide-content" style="justify-content: center;">
-          <div class="cover-wrapper">
+        <div class="slide-content">
+          <div class="cover-wrapper" style="margin-top: auto; margin-bottom: auto; padding-top: 20px; padding-bottom: 40px;">
             <div class="cover-tags">
               ${PROJECT_DATA.tags.map(tag => `<span class="cover-tag">${tag}</span>`).join('')}
             </div>
