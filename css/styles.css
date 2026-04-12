@@ -387,6 +387,18 @@ body {
   transform: translateX(4px);
 }
 
+.bento-cta-outline {
+  background: transparent;
+  color: var(--text-main);
+  border: 2px solid var(--text-main);
+  margin-top: 0;
+}
+
+.bento-cta-outline:hover {
+  background: var(--text-main);
+  color: var(--text-inverse);
+}
+
 /* Modal */
 .project-modal {
   position: fixed;

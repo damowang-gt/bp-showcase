@@ -88,7 +88,8 @@ const PROJECTS = [
       { label: '稳定币流动性', value: '$24.8M+' },
       { label: '平均尽调至放款', value: '1h' }
     ],
-    page: 'projects/guanlan-vc/index.html',
+    page: 'projects/guanlan-vc/presentation.html',
+    website: 'projects/guanlan-vc/index.html',
     pageTitle: '观澜星辰 · AI Agent 全自动创投网络',
     subtitle: '提交创业想法，AI 尽调 · 稳定币直投',
     heroStats: [
@@ -141,6 +142,15 @@ function renderProjectCard(project, index) {
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
+        
+        ${project.website ? `
+        <a href="${project.website}" class="bento-card bento-cta-card bento-cta-outline">
+          <span>直达项目官网</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+        ` : ''}
       </div>
     </div>
   `;
