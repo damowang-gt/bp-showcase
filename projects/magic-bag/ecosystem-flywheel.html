@@ -83,7 +83,7 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
       justify-content: space-between;
     }
 
@@ -92,13 +92,13 @@
       display: flex;
       justify-content: space-evenly;
       align-items: stretch;
-      gap: 24px;
+      gap: 20px;
     }
 
     .node {
       background: #fff;
       border-radius: var(--radius-lg);
-      padding: 20px;
+      padding: 16px 20px;
       box-shadow: var(--shadow-bento);
       border: 2px solid;
       flex: 1;
@@ -106,7 +106,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      min-width: 180px;
+      min-width: 160px;
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     
@@ -116,43 +116,43 @@
     }
 
     .node-icon { 
-      font-size: 2.2rem; 
-      margin-bottom: 8px; 
-      width: 56px;
-      height: 56px;
+      font-size: 2rem; 
+      margin-bottom: 6px; 
+      width: 48px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #fff;
-      border-radius: 16px;
+      border-radius: 14px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    .node h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.02em; }
-    .node .sub { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 8px; }
+    .node h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.02em; }
+    .node .sub { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px; }
 
     .badge-group {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 6px;
-      margin: 6px 0;
+      margin: 4px 0;
     }
     .badge {
       background: var(--bg-main);
       color: var(--text-main);
       border-radius: 30px;
-      padding: 4px 12px;
-      font-size: 0.8rem;
+      padding: 3px 10px;
+      font-size: 0.75rem;
       font-weight: 600;
       border: 1px solid var(--border-color);
     }
 
     .exchange-text {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       margin-top: auto;
-      padding-top: 12px;
+      padding-top: 10px;
       color: var(--text-main);
-      line-height: 1.4;
+      line-height: 1.35;
       font-weight: 500;
       text-align: left;
       width: 100%;
@@ -205,8 +205,8 @@
     .flywheel-section {
       background: var(--bg-main);
       border-radius: var(--radius-lg);
-      padding: 16px 20px;
-      margin: 8px 0;
+      padding: 12px 16px;
+      margin: 4px 0;
       border: 1px solid var(--border-color);
     }
 
@@ -214,20 +214,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     .flywheel-item {
       background: white;
       border-radius: 40px;
-      padding: 10px 18px;
+      padding: 8px 14px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       box-shadow: var(--shadow-bento);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       color: var(--text-main);
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
       border: 1px solid var(--border-color);
@@ -269,26 +269,26 @@
     .value-grid {
       display: grid;
       grid-template-columns: repeat(4,1fr);
-      gap: 16px;
-      margin-top: 8px;
+      gap: 12px;
+      margin-top: 4px;
     }
     .value-card {
       background: var(--bg-main);
       border-radius: var(--radius-lg);
-      padding: 16px;
-      font-size: 0.85rem;
+      padding: 12px 16px;
+      font-size: 0.8rem;
       color: var(--text-secondary);
-      line-height: 1.5;
+      line-height: 1.4;
     }
     .value-card strong {
       color: var(--text-main);
-      font-size: 1rem;
+      font-size: 0.9rem;
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .value-card i {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
       display: block;
     }
 
@@ -310,10 +310,10 @@
 </div>
 
 <div class="diagram">
-  <div style="display: flex; justify-content: space-between; align-items: center;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
     <div>
-      <h2><i class="fas fa-project-diagram"></i> 惊喜食光魔法袋 · 生态价值飞轮</h2>
-      <div class="subtitle">每个节点双向赋能 · 形成「流量-交易-留存-反哺」增长飞轮</div>
+      <h2 style="margin-bottom: 2px;"><i class="fas fa-project-diagram"></i> 惊喜食光魔法袋 · 生态价值飞轮</h2>
+      <div class="subtitle" style="margin-bottom: 0;">每个节点双向赋能 · 形成「流量-交易-留存-反哺」增长飞轮</div>
     </div>
     <div class="legend">
       <div class="legend-item"><span class="legend-dot" style="background:#c45d2c;"></span>魔法袋</div>
