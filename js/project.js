@@ -18,7 +18,9 @@
       slideData.cards.forEach(card => {
         cardsHtml += `
           <div class="bento-slide-card">
-            <div class="card-icon">${getIcon(card.icon)}</div>
+            ${card.image ? `<img src="${card.image}" alt="${card.title}" class="card-image">` : ''}
+            ${card.svg ? `<div class="card-image" style="display:flex;align-items:center;justify-content:center;background:var(--bg-main);">${card.svg}</div>` : ''}
+            ${!card.image && !card.svg ? `<div class="card-icon">${getIcon(card.icon)}</div>` : ''}
             <div class="card-title">${card.title}</div>
             ${card.badge ? `<span style="font-size:0.8rem;font-weight:600;color:#c45d2c;margin-bottom:8px;">${card.badge}</span>` : ''}
             ${card.subtitle ? `<div class="card-subtitle">${card.subtitle}</div>` : ''}

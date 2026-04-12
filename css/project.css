@@ -118,6 +118,15 @@
   display: flex;
   flex-direction: column;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  overflow: hidden;
+}
+
+.card-image {
+  width: calc(100% + 56px);
+  margin: -28px -28px 24px -28px;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .bento-slide-card:hover {

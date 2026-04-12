@@ -33,16 +33,19 @@ const SLIDES = [
       {
         icon: 'users',
         title: '中介房源泛滥',
+        image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80',
         content: '58、贝壳等平台充斥中介批量发布的重复虚假房源，个人房东/租客被淹没，沟通成本极高。'
       },
       {
         icon: 'credit-card',
         title: '高额中介费',
+        image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80',
         content: '动辄半个月到一个月租金的中介费，让租客和房东都感到压力，而平台并未提供对等价值。'
       },
       {
         icon: 'file-text',
         title: '签约流程复杂',
+        image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80',
         content: '现有平台捆绑合同与支付，但法律风险与纠纷不断；用户真正需要的只是“找到对的人”。'
       }
     ]
@@ -56,6 +59,7 @@ const SLIDES = [
       {
         icon: 'check',
         title: '一人一条规则 · 天然反中介',
+        image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=600&q=80',
         isList: true,
         items: [
           { text: '每个认证用户（手机号绑定）只能发布一条出租与一条求租。' },
@@ -65,6 +69,7 @@ const SLIDES = [
       {
         icon: 'handshake',
         title: '直联直聊 · 无中介费',
+        image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80',
         isList: true,
         items: [
           { text: '双方可查看联系方式并直接沟通。' },
@@ -87,24 +92,28 @@ const SLIDES = [
         icon: 'crown',
         title: '会员订阅',
         subtitle: 'ARPU ¥9.9~19.9/月',
+        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80',
         content: '享优先展示、谁看过我、智能刷新等。保守估计付费率8%~12%。<br><br><strong>10万DAU年收入可达千万级。</strong>'
       },
       {
         icon: 'target',
         title: '精准广告',
         subtitle: 'CPC / 品牌合作',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
         content: '嵌入搬家、保洁、家具租赁等本地服务广告。基于LBS与用户画像投放。<br><br><strong>与有赞商家生态联动。</strong>'
       },
       {
         icon: 'share',
         title: '佣金导流',
         subtitle: 'CPS分成',
+        image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=600&q=80',
         content: '推荐第三方电子合同、信用查询、维修等服务，用户跳转交易，平台抽佣。<br><br><strong>纯导流分润，轻资产。</strong>'
       },
       {
         icon: 'bar-chart',
         title: '数据洞察',
         subtitle: 'B端报告/API',
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
         content: '向研究机构、房产开发商提供区域租金走势、供需热度、通勤数据。<br><br><strong>中长期资产变现，毛利极高。</strong>'
       }
     ]
@@ -118,16 +127,19 @@ const SLIDES = [
       {
         icon: 'shield',
         title: '规则即壁垒',
+        image: 'https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&w=600&q=80',
         content: '“一人一条”规则与中介利益相悖，大平台难以跟进（会损失现有中介广告收入）。换居星球从零构建纯净社区。'
       },
       {
         icon: 'scale',
         title: '零法律风险',
+        image: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&q=80',
         content: '不参与合同与资金，完全符合《电子商务法》对信息服务平台的定义，合规成本几乎为零，扩张无政策阻力。'
       },
       {
         icon: 'network',
         title: '双边网络效应',
+        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
         content: '真实房源越多，吸引更多真实租客；反之亦然。社区氛围一旦形成，用户迁移成本极高。'
       }
     ]
@@ -141,11 +153,13 @@ const SLIDES = [
       {
         icon: 'refresh',
         title: '与有赞生态的战略协同',
+        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80',
         content: '作为“本地生活”板块拼图，商家可接入搬家/保洁广告；租住人群反哺零售/美业SaaS。<br><br><strong>复用有赞技术中台与支付能力，极低研发成本。</strong>'
       },
       {
         icon: 'flag',
         title: '孵化执行路线',
+        image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80',
         isList: true,
         items: [
           { text: '<strong>Q2 2026:</strong> MVP上线，有赞云开发，杭京试点内测。' },
@@ -154,10 +168,7 @@ const SLIDES = [
         ]
       }
     ],
-    footer: {
-      icon: 'rocket',
-      text: '申请内部孵化资金80万元，期望获有赞云技术与流量扶持，预计18个月内实现盈亏平衡。'
-    }
+    
   }
 ];
 

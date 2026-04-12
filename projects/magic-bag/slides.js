@@ -64,6 +64,7 @@ const SLIDES = [
       {
         icon: 'pie-chart',
         title: '商家 · 止损增收',
+        image: 'https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&w=600&q=80',
         subtitle: '原本丢弃 = 利润',
         content: '单店日均增收约 ¥80~150，不冲击正价体系，提升环保品牌形象。',
         stat: { value: '+30%', label: '预估净利润提升' }
@@ -71,6 +72,7 @@ const SLIDES = [
       {
         icon: 'gift',
         title: '用户 · 超值惊喜',
+        image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=600&q=80',
         subtitle: '3~5折拿下当日鲜食',
         content: '盲盒神秘感 + 高性价比，LBS附近门店自提，环保消费新体验。',
         stat: { value: '¥5.9~24.9', label: '主流价格带' }
@@ -94,7 +96,7 @@ const SLIDES = [
       {
         icon: 'user',
         title: '用户端小程序',
-        svg: '<svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="65" y="10" width="70" height="120" rx="10" stroke="#c45d2c" stroke-width="3"/><rect x="75" y="25" width="50" height="45" rx="6" fill="#fce8dc"/><rect x="75" y="80" width="50" height="6" rx="3" fill="#e8e8e8"/><rect x="75" y="95" width="30" height="6" rx="3" fill="#e8e8e8"/><circle cx="100" cy="115" r="8" fill="#c45d2c"/></svg>',
+        image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80',
         badge: 'LBS·盲盒·核销',
         isList: true,
         items: [
@@ -106,7 +108,7 @@ const SLIDES = [
       {
         icon: 'shop',
         title: '商家端后台',
-        svg: '<svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="20" width="160" height="100" rx="6" stroke="#2a7a62" stroke-width="3"/><path d="M20 26 C20 22.6863 22.6863 20 26 20 L60 20 L60 120 L26 120 C22.6863 120 20 117.314 20 114 L20 26 Z" fill="#e2f0e8"/><rect x="75" y="35" width="40" height="20" rx="4" fill="#f6fcf9" stroke="#2a7a62" stroke-width="2"/><rect x="125" y="35" width="40" height="20" rx="4" fill="#f6fcf9" stroke="#2a7a62" stroke-width="2"/><path d="M75 90 L95 65 L115 80 L145 50" stroke="#2a7a62" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="95" cy="65" r="4" fill="#2a7a62"/><circle cx="115" cy="80" r="4" fill="#2a7a62"/><circle cx="145" cy="50" r="4" fill="#2a7a62"/></svg>',
+        image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=600&q=80',
         badge: '一键发布·数据看板',
         isList: true,
         items: [
@@ -130,7 +132,7 @@ const SLIDES = [
       {
         icon: 'coins',
         title: '平台收入构成',
-        svg: '<svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="70" r="45" stroke="#f0f0f0" stroke-width="16"/><path d="M100 25 A45 45 0 0 1 140 50" stroke="#c45d2c" stroke-width="16" stroke-linecap="round"/><path d="M140 50 A45 45 0 0 1 70 101" stroke="#2a7a62" stroke-width="16" stroke-linecap="round"/><path d="M70 101 A45 45 0 0 1 60 49" stroke="#e68a2e" stroke-width="16" stroke-linecap="round"/></svg>',
+        image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80',
         isList: true,
         items: [
           { text: '<strong>佣金抽成</strong> 10%~20% (早期优惠引流)' },
@@ -143,9 +145,8 @@ const SLIDES = [
       {
         icon: 'building',
         title: '生态闭环验证',
-        svg: '<svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 70 L50 30 M100 70 L150 30 M100 70 L150 110 M100 70 L50 110" stroke="#d1d1d6" stroke-width="2" stroke-dasharray="4 4"/><circle cx="100" cy="70" r="16" fill="#c45d2c"/><circle cx="50" cy="30" r="10" fill="#2a7a62"/><circle cx="150" cy="30" r="12" fill="#e68a2e"/><circle cx="150" cy="110" r="8" fill="#6a4e9e"/><circle cx="50" cy="110" r="10" fill="#1d5e4c"/></svg>',
-        content: '不仅是一门生意，更是一个多方受益的增长飞轮。点击下方查看生态价值关系图：',
-        action: { text: '查看生态价值飞轮图 ➔', url: 'ecosystem-flywheel.html' },
+        image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80',
+        content: '不仅是一门生意，更是一个多方受益的增长飞轮，形成了稳固的市场护城河。',
         highlight: { value: '2万+', label: '门店', value2: '1000万+', label2: '用户' },
         sub: '证明市场接受度与盈利能力'
       }
@@ -159,16 +160,12 @@ const SLIDES = [
     id: 'growth',
     tag: '独家资源 · 爆发式增长路径',
     title: '冷启动即规模 · 持续裂变',
-    type: 'four-col',
+    type: 'three-col',
     cards: [
-      {
-        icon: 'handshake',
-        title: '有赞生态战略赋能',
-        content: '利用有赞SaaS、私域及小红书资源实现冷启动。深度分析请点击下方链接：<br><br><a href="youzan-synergy.html" class="inline-link-btn" target="_blank">查看有赞双向赋能分析 ➔</a>'
-      },
       {
         icon: 'store',
         title: '头部连锁撬动',
+        image: 'https://images.unsplash.com/photo-1555529771-835f59fc5efe?auto=format&fit=crop&w=600&q=80',
         content: '先攻克区域内头部烘焙连锁品牌，利用其品牌效应吸引首批用户。'
       },
       {
@@ -180,7 +177,30 @@ const SLIDES = [
       {
         icon: 'share',
         title: '裂变 · 私域',
+        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
         content: '邀请好友助力解锁盲盒；引导加入"周边捡漏群"提升复购。'
+      }
+    ]
+  },
+  {
+    id: 'synergy',
+    tag: '有赞生态战略赋能',
+    title: '冷启动的核心壁垒',
+    type: 'two-col',
+    cards: [
+      {
+        icon: 'handshake',
+        title: '双向赋能模型',
+        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80',
+        content: '利用有赞SaaS、私域生态资源实现冷启动，极大地降低获客与商家拓展成本。',
+        action: { text: '查看双向赋能分析 ➔', url: 'youzan-synergy.html' }
+      },
+      {
+        icon: 'building',
+        title: '生态价值网络',
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
+        content: '不仅是一门生意，更是一个多方受益的增长飞轮，形成稳固的市场护城河。',
+        action: { text: '查看生态飞轮图 ➔', url: 'ecosystem-flywheel.html' }
       }
     ]
   },

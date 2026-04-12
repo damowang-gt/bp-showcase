@@ -34,18 +34,21 @@ const SLIDES = [
         icon: 'users',
         title: '2.8亿',
         subtitle: '60+ 人口，空巢比例过半',
+        image: 'https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&q=80',
         content: '智能手机渗透率68%，但市面“简易模式”仅放大字体，解决不了微信视频、误触等核心障碍。'
       },
       {
         icon: 'credit-card',
         title: '9.9元/月',
         subtitle: '低决策门槛订阅',
+        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80',
         content: '25-45岁子女87%愿为父母支付“一杯咖啡钱”，LTV预估超200元，高粘性刚需。'
       },
       {
         icon: 'microchip',
         title: '3000万+',
         subtitle: '旧手机改造潜力',
+        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80',
         content: '与回收商合作预装关怀桌面，作为“长辈机”二次销售，硬件增量市场清晰。'
       }
     ]
@@ -59,6 +62,7 @@ const SLIDES = [
       {
         icon: 'frown',
         title: '传统老人模式局限',
+        image: 'https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=600&q=80',
         isList: true,
         items: [
           { text: '微信视频需5步以上，老人无法独立发起' },
@@ -70,6 +74,7 @@ const SLIDES = [
       {
         icon: 'rocket',
         title: '关怀桌面 · 技术壁垒',
+        image: 'https://images.unsplash.com/photo-1544396821-4dd40b938ad3?auto=format&fit=crop&w=600&q=80',
         isList: true,
         items: [
           { text: '<strong>无障碍一键直达</strong> —— 模拟点击，微信视频/语音一步完成' },
@@ -93,17 +98,20 @@ const SLIDES = [
       {
         icon: 'gift',
         title: '基础免费版',
+        image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80',
         content: '大字桌面、基础语音、通讯卡片 —— 快速积累种子用户，建立信任。<br><br>获客渠道：应用商店、子女推荐、养老社群。'
       },
       {
         icon: 'crown',
         title: '高级订阅 · 子女安心包',
         subtitle: '¥9.9/月',
+        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80',
         content: '远程配置桌面 · 跌倒监测 · 云端联系人 · 家庭群组 · 防误触高级锁。<br><br><strong>真实转化预估：</strong> 免费用户8-12%转化为付费，月留存>80%。'
       },
       {
         icon: 'handshake',
         title: 'B端/硬件合作',
+        image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80',
         content: '• 养老机构SaaS版 (年费/床位)<br>• 运营商定制预装分成<br>• 旧手机刷机授权 (每台5-10元)<br><br>已与2家区域养老社区沟通试点方案。'
       }
     ],
@@ -122,17 +130,20 @@ const SLIDES = [
         icon: 'user-tie',
         title: '王文涛',
         subtitle: '需求/营销',
+        image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80',
         content: '前智能硬件产品负责人，深度访谈200+老龄用户，擅长增长与渠道。'
       },
       {
         icon: 'code',
         title: '谢飞',
         subtitle: '开发/架构',
+        image: 'https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=600&q=80',
         content: '全栈+Android专家，无障碍服务领域4年，主导自动化引擎。'
       },
       {
         icon: 'flag-checkered',
         title: '里程碑',
+        image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80',
         isList: true,
         items: [
           { text: '✅ V1.0 安卓APK完成 (2026.03)' },
