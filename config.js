@@ -7,20 +7,20 @@ const SITE_CONFIG = {
 
 const NAV_LINKS = [
   { label: '项目', href: '#projects' },
-  { label: '关于', href: '#about' }
+  { label: '平台数据', href: '#about' }
 ];
 
 const PROJECTS = [
   {
     id: 'magic-bag',
     title: '惊喜食光魔法袋',
-    category: '食品科技',
+    category: '食品科技 · O2O',
     year: 2025,
     featured: true,
-    description: '门店当日余量食品盲盒交易平台，让浪费变惊喜。连接商家与消费者，实现三方共赢。',
+    description: '门店当日余量食品盲盒交易平台，让浪费变惊喜。以"一杯奶茶钱，带走高质烘焙惊喜"为切入点，连接本地商家与年轻消费者，实现三方共赢与环保闭环。',
     stats: [
-      { label: '市场规模', value: '300亿+' },
-      { label: '年增长率', value: '47%' }
+      { label: '市场规模(2024)', value: '300亿+' },
+      { label: '年复合增长率', value: '47%' }
     ],
     page: '惊喜食光魔法袋.html',
     pageTitle: '惊喜食光魔法袋 · 路演',
@@ -29,7 +29,8 @@ const PROJECTS = [
       { label: '余量食品盲盒市场', value: '300亿+' },
       { label: '中国烘焙市场规模', value: '1160亿' },
       { label: '用户已验证', value: '1000万+' }
-    ]
+    ],
+    gradient: 'linear-gradient(135deg, #1B4D3E 0%, #C45D2C 100%)'
   }
 ];
 
@@ -37,69 +38,57 @@ function getProjectById(id) {
   return PROJECTS.find(p => p.id === id);
 }
 
-function getFeaturedProject() {
-  return PROJECTS.find(p => p.featured);
-}
-
-function renderProjectCard(project) {
+function renderProjectCard(project, index) {
+  const isReverse = index % 2 !== 0 ? 'reverse' : '';
+  
   return `
-    <article class="project-card ${project.featured ? 'project-featured' : ''}" data-project="${project.id}">
-      <div class="card-image">
-        <div class="card-image-placeholder" style="background: ${project.gradient || 'linear-gradient(135deg, #C45D2C 0%, #1B4D3E 100%)'}">
-          <svg viewBox="0 0 200 120" class="placeholder-svg">
-            <circle cx="100" cy="50" r="25" fill="rgba(255,255,255,0.3)"/>
-            <path d="M85 65 L100 80 L115 65" stroke="rgba(255,255,255,0.5)" stroke-width="3" fill="none"/>
-            <rect x="70" y="85" width="60" height="8" rx="4" fill="rgba(255,255,255,0.2)"/>
+    <div class="bento-project ${isReverse}">
+      <div class="bento-visual-col" style="background: #111;">
+        <div class="bento-visual-bg" style="background: ${project.gradient}"></div>
+        <div class="bento-visual-content">
+          <span class="bento-tag">${project.category}</span>
+          <h3>${project.title}</h3>
+        </div>
+      </div>
+      
+      <div class="bento-data-col">
+        <div class="bento-card bento-data-desc">
+          <h4>项目愿景</h4>
+          <p>${project.description}</p>
+        </div>
+        
+        ${project.stats.map(stat => `
+          <div class="bento-card bento-data-stat">
+            <div class="stat-val">${stat.value}</div>
+            <div class="stat-lbl">${stat.label}</div>
+          </div>
+        `).join('')}
+        
+        <div class="bento-card bento-cta-card project-card" data-project="${project.id}">
+          <span>查看完整路演详情</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </div>
-        <div class="card-overlay">
-          <span class="view-label">查看详情</span>
-        </div>
       </div>
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="meta-tag">${project.category}</span>
-          <span class="meta-dot"></span>
-          <span class="meta-date">${project.year}</span>
-        </div>
-        <h3 class="card-title">${project.title}</h3>
-        <p class="card-desc">${project.description}</p>
-        <div class="card-stats">
-          ${project.stats.map(stat => `
-            <div class="stat">
-              <span class="stat-value">${stat.value}</span>
-              <span class="stat-label">${stat.label}</span>
-            </div>
-          `).join('')}
-        </div>
-        <div class="card-footer">
-          <span class="learn-more">
-            探索项目
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </span>
-        </div>
-      </div>
-    </article>
+    </div>
   `;
 }
 
 function renderComingSoonCard() {
   return `
-    <article class="project-card project-coming-soon">
-      <div class="coming-soon-content">
-        <div class="coming-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="3"/>
-            <path d="M12 8v4l2 2"/>
-          </svg>
+    <div class="bento-project">
+      <div class="bento-visual-col" style="background: #F5F5F7; border: 2px dashed #D1D1D6; box-shadow: none;">
+        <div class="bento-visual-content" style="color: #86868B; text-shadow: none;">
+          <h3>更多项目<br>即将呈现</h3>
         </div>
-        <h3>更多项目</h3>
-        <p>精彩即将呈现...</p>
-        <span class="soon-badge">Coming Soon</span>
       </div>
-    </article>
+      <div class="bento-data-col">
+        <div class="bento-card coming-soon-bento">
+          <h3>Stay Tuned...</h3>
+        </div>
+      </div>
+    </div>
   `;
 }
 
@@ -107,7 +96,7 @@ function initProjectsGrid(containerSelector) {
   const container = document.querySelector(containerSelector);
   if (!container) return;
 
-  let html = PROJECTS.map(renderProjectCard).join('');
+  let html = PROJECTS.map((project, index) => renderProjectCard(project, index)).join('');
   html += renderComingSoonCard();
   container.innerHTML = html;
 }

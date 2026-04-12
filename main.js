@@ -37,7 +37,9 @@ const Modal = {
   close() {
     if (!this.modal || !this.frame) return;
     this.modal.classList.remove('active');
-    this.frame.src = '';
+    setTimeout(() => {
+      this.frame.src = '';
+    }, 300); // Wait for animation
     document.body.style.overflow = '';
   },
 
@@ -48,16 +50,16 @@ const Modal = {
 
 const ProjectCards = {
   init() {
-    const cards = document.querySelectorAll('.project-card[data-project]');
-
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
+    // We bind to document to handle dynamically generated cards
+    document.addEventListener('click', (e) => {
+      const card = e.target.closest('.project-card[data-project]');
+      if (card) {
         const projectId = card.dataset.project;
         const project = getProjectById(projectId);
         if (project && project.page) {
           Modal.open(project.page);
         }
-      });
+      }
     });
   }
 };
@@ -75,34 +77,33 @@ const ScrollAnimations = {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view');
+          // Optional: stop observing once animated
+          // this.observer.unobserve(entry.target);
         }
       });
     }, options);
 
-    document.querySelectorAll('.project-card, .section-header').forEach(el => {
+    // Apply animation classes to these elements
+    const elementsToAnimate = document.querySelectorAll(
+      '.bento-card, .bento-visual-col, .section-header h2'
+    );
+
+    elementsToAnimate.forEach((el, index) => {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      el.style.transform = 'translateY(40px)';
+      // Stagger animations based on index or position
+      el.style.animationDelay = `${(index % 5) * 0.1}s`;
       this.observer.observe(el);
     });
-
-    this.injectStyles();
-  },
-
-  injectStyles() {
-    const style = document.createElement('style');
-    style.textContent = `
-      .in-view {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-      }
-    `;
-    document.head.appendChild(style);
   }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   Modal.init();
   ProjectCards.init();
-  ScrollAnimations.init();
+  
+  // Initialize scroll animations slightly after to ensure DOM is ready
+  setTimeout(() => {
+    ScrollAnimations.init();
+  }, 100);
 });

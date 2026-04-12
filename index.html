@@ -2,97 +2,43 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>创业项目展示</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-wrapper">
-    <header class="hero-section">
-      <nav class="nav-bar">
-        <a href="index.html" class="logo">
-          <span class="logo-mark">B</span>
-          <span class="logo-text">P</span>
-        </a>
-        <div class="nav-links" id="navLinks"></div>
-      </nav>
+  <nav class="nav-bar">
+    <a href="index.html" class="logo">BP Showcase.</a>
+    <div class="nav-links" id="navLinks"></div>
+  </nav>
 
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="badge-dot"></span>
-          <span id="heroBadgeText">创业项目展示平台</span>
-        </div>
-        <h1 class="hero-title">
-          用创意<br>
-          <span class="title-accent">改变世界</span>
-        </h1>
-        <p class="hero-subtitle" id="heroSubtitle">探索前沿商业构想，见证创新力量</p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn-primary">
-            <span>浏览项目</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-      </div>
+  <header class="hero-section">
+    <h1 class="hero-title">创新 · 洞见 · 价值</h1>
+    <p class="hero-subtitle" id="heroSubtitle">探索前沿商业构想，见证每一个改变世界的可能</p>
+  </header>
 
-      <div class="hero-decoration">
-        <div class="deco-circle deco-1"></div>
-        <div class="deco-circle deco-2"></div>
-        <div class="deco-line deco-3"></div>
-      </div>
-    </header>
+  <section class="global-highlights" id="about">
+    <div class="bento-card highlight-large">
+      <h3>累计覆盖市场规模</h3>
+      <div class="giant-number">1000亿+</div>
+    </div>
+    <div class="bento-card highlight-small">
+      <h3>收录精选项目</h3>
+      <div class="giant-number" id="totalProjectsCount">1</div>
+    </div>
+    <div class="bento-card highlight-small">
+      <h3>核心聚焦领域</h3>
+      <div class="giant-number">前沿消费</div>
+    </div>
+  </section>
 
-    <section id="projects" class="projects-section">
-      <div class="section-header">
-        <span class="section-tag">Portfolio</span>
-        <h2 class="section-title">精选项目</h2>
-        <p class="section-desc">每一个想法都值得被认真对待</p>
-      </div>
-
-      <div class="projects-grid" id="projectsGrid"></div>
-    </section>
-
-    <section id="about" class="about-section">
-      <div class="about-content">
-        <div class="about-text">
-          <span class="section-tag">About</span>
-          <h2>关于这个平台</h2>
-          <p>这是一个专注于创业项目展示的平台，旨在将创新想法和商业计划以最优雅的方式呈现。</p>
-          <p>无论是融资路演、项目展示还是团队介绍，这里都是你展示才华的舞台。</p>
-          <div class="about-features">
-            <div class="feature">
-              <span class="feature-icon">✦</span>
-              <span>精美视觉呈现</span>
-            </div>
-            <div class="feature">
-              <span class="feature-icon">✦</span>
-              <span>响应式设计</span>
-            </div>
-            <div class="feature">
-              <span class="feature-icon">✦</span>
-              <span>GitHub Pages 托管</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-content">
-        <a href="index.html" class="footer-logo">
-          <span class="logo-mark">B</span>
-          <span class="logo-text">P</span>
-        </a>
-        <p class="footer-text">用创意改变世界 · <span id="footerYear"></span></p>
-        <div class="footer-links" id="footerLinks"></div>
-      </div>
-    </footer>
-  </div>
+  <section class="projects-section" id="projects">
+    <div class="section-header">
+      <h2>精选项目</h2>
+    </div>
+    
+    <div id="projectsGrid"></div>
+  </section>
 
   <div class="project-modal" id="projectModal">
     <div class="modal-backdrop"></div>
@@ -112,13 +58,9 @@
     document.getElementById('navLinks').innerHTML = NAV_LINKS.map(link =>
       `<a href="${link.href}" class="nav-link">${link.label}</a>`
     ).join('');
-
-    document.getElementById('footerLinks').innerHTML = NAV_LINKS.map(link =>
-      `<a href="${link.href}">${link.label}</a>`
-    ).join('');
-
-    document.getElementById('footerYear').textContent = SITE_CONFIG.year;
-
+    
+    document.getElementById('totalProjectsCount').textContent = PROJECTS.length;
+    
     initProjectsGrid('#projectsGrid');
   </script>
 </body>
