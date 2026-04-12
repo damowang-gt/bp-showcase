@@ -22,8 +22,8 @@ const PROJECT_DATA = {
   type: 'S2B2C · 本地即时 · 当日余量食物盲盒交易平台',
   links: [
     { title: '在线演示/编辑 PPT', action: 'ppt', icon: 'ppt' },
-    { title: '查看生态价值飞轮图', url: 'ecosystem-flywheel.html', icon: 'project-diagram' },
-    { title: '查看有赞双向赋能分析', url: 'youzan-synergy.html', icon: 'handshake' }
+    { title: '查看生态价值飞轮图', url: 'ecosystem-flywheel', icon: 'project-diagram' },
+    { title: '查看有赞双向赋能分析', url: 'youzan-synergy', icon: 'handshake' }
   ]
 };
 
@@ -193,14 +193,14 @@ const SLIDES = [
         title: '双向赋能模型',
         image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80',
         content: '利用有赞SaaS、私域生态资源实现冷启动，极大地降低获客与商家拓展成本。',
-        action: { text: '查看双向赋能分析 ➔', url: 'youzan-synergy.html' }
+        action: { text: '查看双向赋能分析 ➔', url: 'youzan-synergy' }
       },
       {
         icon: 'building',
         title: '生态价值网络',
         image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
         content: '不仅是一门生意，更是一个多方受益的增长飞轮，形成稳固的市场护城河。',
-        action: { text: '查看生态飞轮图 ➔', url: 'ecosystem-flywheel.html' }
+        action: { text: '查看生态飞轮图 ➔', url: 'ecosystem-flywheel' }
       }
     ]
   },

@@ -18,7 +18,7 @@ const PROJECT_DATA = {
   ],
   type: 'Web3 × AI Agent · 全自动创投网络',
   links: [
-    { title: '直达项目官网', url: 'index.html', icon: 'globe' }
+    { title: '直达项目官网', url: './', icon: 'globe' }
   ]
 };
 

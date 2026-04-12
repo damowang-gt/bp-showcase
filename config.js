@@ -1,5 +1,5 @@
 const SITE_CONFIG = {
-  name: '创业项目展示',
+  name: '观澜星辰',
   tagline: '用创意改变世界',
   description: '探索前沿商业构想，见证创新力量',
   year: new Date().getFullYear()
@@ -22,7 +22,7 @@ const PROJECTS = [
       { label: '市场规模(2024)', value: '300亿+' },
       { label: '年复合增长率', value: '47%' }
     ],
-    page: 'projects/magic-bag/index.html',
+    page: '/projects/magic-bag/',
     pageTitle: '惊喜食光魔法袋 · 路演',
     subtitle: '门店当日库存 → 惊喜盲盒 · 让浪费变价值',
     heroStats: [
@@ -44,7 +44,7 @@ const PROJECTS = [
       { label: '60+ 人口', value: '2.8亿' },
       { label: '子女付费意愿', value: '87%' }
     ],
-    page: 'projects/care-desktop/index.html',
+    page: '/projects/care-desktop/',
     pageTitle: '关怀桌面 · 银发智能桌面',
     subtitle: '银发族的数字桥梁，一键连接',
     heroStats: [
@@ -66,7 +66,7 @@ const PROJECTS = [
       { label: '中国住房租赁市场', value: '2.5万亿' },
       { label: '租客反感中介费', value: '76%' }
     ],
-    page: 'projects/huanju-planet/index.html',
+    page: '/projects/huanju-planet/',
     pageTitle: '换居星球 · 内部创业孵化BP',
     subtitle: '一人·一房 · 无中介直租信息撮合',
     heroStats: [
@@ -88,8 +88,8 @@ const PROJECTS = [
       { label: '稳定币流动性', value: '$24.8M+' },
       { label: '平均尽调至放款', value: '1h' }
     ],
-    page: 'projects/guanlan-vc/presentation.html',
-    website: 'projects/guanlan-vc/index.html',
+    page: '/projects/guanlan-vc/presentation',
+    website: '/projects/guanlan-vc/',
     pageTitle: '观澜星辰 · AI Agent 全自动创投网络',
     subtitle: '提交创业想法，AI 尽调 · 稳定币直投',
     heroStats: [
