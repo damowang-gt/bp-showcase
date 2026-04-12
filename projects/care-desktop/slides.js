@@ -17,6 +17,7 @@ const PROJECT_DATA = {
     { icon: 'shield', text: '系统级防误触' },
     { icon: 'heart', text: '安全守护矩阵' }
   ],
+  type: 'B2C · 银发经济 · 软硬一体适老操作系统',
   links: [
     { title: '在线演示/编辑 PPT', action: 'ppt', icon: 'ppt' }
   ]

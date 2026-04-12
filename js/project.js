@@ -152,7 +152,7 @@
               </div>
             </div>
             
-            <div class="cover-type">S2B2C · 本地即时 · 当日余量食物盲盒交易平台</div>
+            ${PROJECT_DATA.type ? `<div class="cover-type">${PROJECT_DATA.type}</div>` : ''}
             
             ${PROJECT_DATA.links ? `
               <div class="cover-links" style="margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap;">

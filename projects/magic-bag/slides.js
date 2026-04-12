@@ -19,6 +19,7 @@ const PROJECT_DATA = {
     { icon: 'smile', text: '用户 · 3-5折' },
     { icon: 'leaf', text: '每日拯救数千份食物' }
   ],
+  type: 'S2B2C · 本地即时 · 当日余量食物盲盒交易平台',
   links: [
     { title: '在线演示/编辑 PPT', action: 'ppt', icon: 'ppt' },
     { title: '查看生态价值飞轮图', url: 'ecosystem-flywheel.html', icon: 'project-diagram' },
