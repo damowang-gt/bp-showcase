@@ -677,6 +677,92 @@
   border-radius: 4px;
 }
 
+/* Side Actions */
+.side-actions {
+  position: fixed;
+  right: 32px;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.side-actions.visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.side-action-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c45d2c 0%, #b0471a 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(196, 93, 44, 0.3);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+}
+
+.side-action-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.side-action-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(196, 93, 44, 0.4);
+}
+
+.side-action-btn::before {
+  content: attr(title);
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background: rgba(29, 29, 31, 0.9);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.side-action-btn::after {
+  content: '';
+  position: absolute;
+  right: calc(100% + 4px);
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 0 6px 8px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(29, 29, 31, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.side-action-btn:hover::before,
+.side-action-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .bento-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
@@ -694,4 +780,7 @@
   .nav-controls { bottom: 20px; }
   .pagination { right: 16px; padding: 12px 8px; }
   .slide-footer { flex-direction: column; text-align: center; }
+  .side-actions { right: 16px; bottom: 24px; }
+  .side-action-btn { width: 40px; height: 40px; }
+  .side-action-btn::before, .side-action-btn::after { display: none; }
 }

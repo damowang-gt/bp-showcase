@@ -217,6 +217,17 @@
       dot.classList.toggle('active', idx === currentIndex);
     });
     currentSlideEl.textContent = currentIndex + 1;
+    
+    // Toggle side actions visibility based on current slide
+    const sideActions = document.querySelector('.side-actions');
+    if (sideActions) {
+      // Hide on the first cover slide (index 0), show on others
+      if (currentIndex === 0) {
+        sideActions.classList.remove('visible');
+      } else {
+        sideActions.classList.add('visible');
+      }
+    }
   }
 
   function goToSlide(index) {
