@@ -249,6 +249,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      text-align: left;
     }
     .value-tag i {
       color: var(--color-private);
@@ -352,6 +353,34 @@
       .connector { padding: 16px 0; }
       .double-arrow { flex-direction: row; }
       .value-grid { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 12px; }
+      .diagram { padding: 20px 16px; margin-top: 50px; }
+      .top-section { flex-direction: column; gap: 24px; }
+      .module-group { flex-direction: column; gap: 16px; }
+      
+      .connector { flex-direction: column; min-height: 40px; padding: 16px 0; }
+      .connector i { transform: rotate(90deg); margin: 4px 0; }
+      .connector .label { margin: 8px 0; }
+      .connector .sync-label { flex-direction: row; }
+      .connector .sync-label i { transform: rotate(0); }
+
+      .private-row { flex-direction: column; gap: 16px; }
+      .private-row .node { padding: 16px; width: 100%; }
+      .private-row .exchange-tags { flex-direction: column; gap: 8px; }
+      .value-tag { text-align: left; align-items: flex-start; white-space: normal; height: auto; }
+      
+      .flywheel-row { flex-direction: column; gap: 8px; }
+      .flywheel-arrow { transform: rotate(90deg); margin: 4px 0; }
+      
+      .value-grid { grid-template-columns: 1fr; }
+      
+      h2 { font-size: 1.2rem; align-items: flex-start; flex-direction: column; gap: 8px; }
+      .subtitle { font-size: 0.85rem; }
+      
+      .legend { flex-wrap: wrap; justify-content: flex-start; margin-top: 12px; margin-bottom: 16px; }
     }
   </style>
 </head>
