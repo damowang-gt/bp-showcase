@@ -45,10 +45,12 @@ function renderProjectCard(project, index) {
     <div class="bento-project ${isReverse}">
       <div class="bento-visual-col" style="background: #111;">
         <div class="bento-visual-bg" style="background: ${project.gradient}"></div>
-        <div class="bento-visual-content">
-          <span class="bento-tag">${project.category}</span>
-          <h3>${project.title}</h3>
-        </div>
+        <a href="${project.page}" class="bento-visual-link">
+          <div class="bento-visual-content">
+            <span class="bento-tag">${project.category}</span>
+            <h3>${project.title}</h3>
+          </div>
+        </a>
       </div>
       
       <div class="bento-data-col">
@@ -64,12 +66,12 @@ function renderProjectCard(project, index) {
           </div>
         `).join('')}
         
-        <div class="bento-card bento-cta-card project-card" data-project="${project.id}">
+        <a href="${project.page}" class="bento-card bento-cta-card">
           <span>查看完整路演详情</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
-        </div>
+        </a>
       </div>
     </div>
   `;

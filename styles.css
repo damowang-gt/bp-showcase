@@ -258,6 +258,13 @@ body {
   margin-bottom: 16px;
 }
 
+.bento-visual-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  text-decoration: none;
+}
+
 .bento-data-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
