@@ -5,7 +5,7 @@ const PROJECT_DATA = {
   description: '一个连接"门店当日剩余食品"和"消费者"的本地即时食物盲盒交易平台。',
   // 在此处配置在线PPT的分享链接（支持腾讯文档、飞书、金山文档等）
   // 确保链接是公开可访问的。如果是嵌入链接（iframe src），效果最好。
-  pptLink: 'https://docs.qq.com/slide/DS3F6WGtCRUZJdVpz',
+  pptLink: 'https://feishu.cn/base/slide/your-feishu-slide-id-here',
   gradient: 'linear-gradient(135deg, #1B4D3E 0%, #C45D2C 100%)',
   tags: ['百亿赛道', '反浪费立法', '高频刚需'],
   stats: [
