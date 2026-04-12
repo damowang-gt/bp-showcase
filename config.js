@@ -12,28 +12,6 @@ const NAV_LINKS = [
 
 const PROJECTS = [
   {
-    id: 'huanju-planet',
-    title: '换居星球',
-    category: '内部孵化 · 零中介直租',
-    year: 2026,
-    featured: true,
-    description: '每个用户仅可发布一条求租+一条出租，从底层杜绝中介刷屏。平台只做信息展示与联系撮合，不涉及合同签订与资金——极轻模式，极高信任。',
-    stats: [
-      { label: '中国住房租赁市场', value: '2.5万亿' },
-      { label: '租客反感中介费', value: '76%' }
-    ],
-    page: 'projects/huanju-planet/index.html',
-    pageTitle: '换居星球 · 内部创业孵化BP',
-    subtitle: '一人·一房 · 无中介直租信息撮合',
-    heroStats: [
-      { label: '市场规模', value: '2.5万亿' },
-      { label: '租房人口', value: '2.4亿+' },
-      { label: '平台信息撮合边际成本', value: '0佣金' }
-    ],
-    gradient: 'linear-gradient(135deg, rgba(26,52,71,0.85) 0%, rgba(60,141,188,0.85) 100%), url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80")',
-    imagePosition: 'center center'
-  },
-  {
     id: 'magic-bag',
     title: '惊喜食光魔法袋',
     category: '本地生活 · S2B2C ',
@@ -76,6 +54,28 @@ const PROJECTS = [
     ],
     gradient: 'linear-gradient(135deg, rgba(30,111,92,0.85) 0%, rgba(226,140,76,0.85) 100%), url("https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=1200&q=80")',
     imagePosition: 'center 30%'
+  },
+  {
+    id: 'huanju-planet',
+    title: '换居星球',
+    category: '内部孵化 · 零中介直租',
+    year: 2026,
+    featured: true,
+    description: '每个用户仅可发布一条求租+一条出租，从底层杜绝中介刷屏。平台只做信息展示与联系撮合，不涉及合同签订与资金——极轻模式，极高信任。',
+    stats: [
+      { label: '中国住房租赁市场', value: '2.5万亿' },
+      { label: '租客反感中介费', value: '76%' }
+    ],
+    page: 'projects/huanju-planet/index.html',
+    pageTitle: '换居星球 · 内部创业孵化BP',
+    subtitle: '一人·一房 · 无中介直租信息撮合',
+    heroStats: [
+      { label: '市场规模', value: '2.5万亿' },
+      { label: '租房人口', value: '2.4亿+' },
+      { label: '平台信息撮合边际成本', value: '0佣金' }
+    ],
+    gradient: 'linear-gradient(135deg, rgba(26,52,71,0.85) 0%, rgba(60,141,188,0.85) 100%), url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80")',
+    imagePosition: 'center center'
   }
 ];
 
