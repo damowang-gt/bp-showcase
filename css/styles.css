@@ -198,14 +198,14 @@ body {
 
 .bento-project {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap-md);
-  margin-bottom: var(--gap-xl);
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--gap-xl);
+  margin-bottom: var(--gap-2xl);
   min-height: auto;
 }
 
 .bento-project.reverse {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.9fr 1.1fr;
 }
 .bento-project.reverse .bento-visual-col {
   order: 2;
@@ -221,19 +221,27 @@ body {
   overflow: hidden;
   position: relative;
   display: flex;
-  align-items: flex-end;
-  padding: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
   box-shadow: var(--shadow-bento);
   border: 1px solid var(--border-color);
-  min-height: 320px;
+  min-height: 440px;
 }
 
 .bento-visual-bg {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 0;
-  opacity: 0.9;
   transition: transform var(--transition-slow);
+}
+
+.bento-visual-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
 }
 
 .bento-project:hover .bento-visual-bg {
@@ -242,46 +250,70 @@ body {
 
 .bento-visual-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   color: var(--text-inverse);
-  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-.bento-visual-content h3 {
-  font-size: 36px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .bento-tag {
   display: inline-block;
-  padding: 6px 16px;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
+  padding: 8px 24px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: 100px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
+  border: 1px solid rgba(255,255,255,0.2);
+  order: 1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.bento-visual-content h3 {
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 20px;
+  order: 2;
+  text-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+
+.bento-visual-subtitle {
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 90%;
+  line-height: 1.6;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  order: 3;
 }
 
 .bento-visual-link {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 3;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bento-data-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto auto;
   gap: var(--gap-md);
 }
 
 .bento-data-desc {
   grid-column: span 2;
   justify-content: flex-start;
+  padding: 32px;
 }
 
 .bento-data-desc h4 {
@@ -299,12 +331,16 @@ body {
 
 .bento-data-stat {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 24px;
+  min-height: 120px;
 }
 
 .bento-data-stat .stat-val {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 800;
   color: var(--text-main);
   letter-spacing: -0.03em;
@@ -321,11 +357,15 @@ body {
   grid-column: span 2;
   background: var(--text-main);
   color: var(--text-inverse);
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   padding: 24px 32px;
+  border-radius: 100px;
+  margin-top: 8px;
+  text-decoration: none;
 }
 
 .bento-cta-card:hover {
@@ -452,7 +492,11 @@ body {
     order: unset;
   }
   .bento-visual-col {
-    min-height: 320px;
+    min-height: 360px;
+    padding: 32px;
+  }
+  .bento-visual-content h3 {
+    font-size: 48px;
   }
 }
 
@@ -483,6 +527,12 @@ body {
   .modal-close {
     top: 16px;
     right: 16px;
+  }
+  .bento-visual-content h3 {
+    font-size: 36px;
+  }
+  .bento-visual-subtitle {
+    font-size: 16px;
   }
 }
 

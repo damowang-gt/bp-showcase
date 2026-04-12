@@ -30,7 +30,8 @@ const PROJECTS = [
       { label: '中国烘焙市场规模', value: '1160亿' },
       { label: '用户已验证', value: '1000万+' }
     ],
-    gradient: 'linear-gradient(135deg, #1B4D3E 0%, #C45D2C 100%)'
+    gradient: 'linear-gradient(135deg, rgba(27,77,62,0.9) 0%, rgba(196,93,44,0.9) 100%), url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80")',
+    imagePosition: 'center 40%'
   },
   {
     id: 'care-desktop',
@@ -51,7 +52,8 @@ const PROJECTS = [
       { label: '订阅定价', value: '9.9元/月' },
       { label: '旧手机改造潜力', value: '3000万+' }
     ],
-    gradient: 'linear-gradient(135deg, #1e6f5c 0%, #e28c4c 100%)'
+    gradient: 'linear-gradient(135deg, rgba(30,111,92,0.85) 0%, rgba(226,140,76,0.85) 100%), url("https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=1200&q=80")',
+    imagePosition: 'center 30%'
   }
 ];
 
@@ -61,15 +63,17 @@ function getProjectById(id) {
 
 function renderProjectCard(project, index) {
   const isReverse = index % 2 !== 0 ? 'reverse' : '';
+  const bgPos = project.imagePosition || 'center center';
   
   return `
     <div class="bento-project ${isReverse}">
       <div class="bento-visual-col" style="background: #111;">
-        <div class="bento-visual-bg" style="background: ${project.gradient}"></div>
+        <div class="bento-visual-bg" style="background: ${project.gradient}; background-size: cover; background-position: ${bgPos};"></div>
         <a href="${project.page}" class="bento-visual-link">
           <div class="bento-visual-content">
             <span class="bento-tag">${project.category}</span>
             <h3>${project.title}</h3>
+            <p class="bento-visual-subtitle">${project.subtitle}</p>
           </div>
         </a>
       </div>
