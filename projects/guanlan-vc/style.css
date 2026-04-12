@@ -3,7 +3,7 @@
     --bg-body: radial-gradient(circle at top left, rgba(35, 118, 255, 0.2), transparent 28%), radial-gradient(circle at 82% 12%, rgba(0, 226, 184, 0.12), transparent 22%), linear-gradient(180deg, #07111f 0%, #091525 52%, #050a14 100%);
     --bg-mesh-1: rgba(138, 166, 255, 0.06);
     --bg-mesh-2: rgba(0, 226, 184, 0.04);
-    --bg-nav: transparent;
+    --bg-nav: rgba(7, 17, 31, 0.82);
     --bg-btn-outline-hover: rgba(255, 255, 255, 0.08);
     --bg-btn-secondary: rgba(255, 255, 255, 0.06);
     --bg-btn-secondary-hover: rgba(255, 255, 255, 0.1);
@@ -46,7 +46,7 @@
     --text-footer-link: #9cadcf;
     --text-modal-title: #f5f8ff;
 
-    --border-nav: transparent;
+    --border-nav: rgba(255, 255, 255, 0.06);
     --border-btn-outline: rgba(255, 255, 255, 0.14);
     --border-btn-outline-hover: rgba(255, 255, 255, 0.22);
     --border-btn-primary: rgba(255, 255, 255, 0.08);
@@ -91,7 +91,7 @@
     --bg-body: radial-gradient(circle at top left, rgba(84, 116, 255, 0.12), transparent 26%), radial-gradient(circle at 88% 10%, rgba(20, 198, 166, 0.08), transparent 20%), linear-gradient(180deg, #f7f9fd 0%, #eef3fa 52%, #f7f9fd 100%);
     --bg-mesh-1: rgba(84, 116, 255, 0.06);
     --bg-mesh-2: rgba(20, 198, 166, 0.04);
-    --bg-nav: transparent;
+    --bg-nav: rgba(247, 249, 253, 0.88);
     --bg-btn-outline-hover: rgba(84, 116, 255, 0.08);
     --bg-btn-secondary: rgba(255, 255, 255, 0.78);
     --bg-btn-secondary-hover: rgba(255, 255, 255, 0.96);
@@ -134,7 +134,7 @@
     --text-footer-link: #4f5d76;
     --text-modal-title: #1a2332;
 
-    --border-nav: transparent;
+    --border-nav: rgba(84, 116, 255, 0.10);
     --border-btn-outline: rgba(16, 24, 40, 0.08);
     --border-btn-outline-hover: rgba(84, 116, 255, 0.28);
     --border-btn-primary: rgba(84, 116, 255, 0.05);
@@ -224,12 +224,27 @@ body {
     gap: 28px;
     padding: 28px 0 10px;
     border-bottom: 1px solid var(--border-nav);
-    background: var(--bg-nav);
+    background: transparent;
     position: sticky;
     top: 0;
     z-index: 50;
     margin-bottom: 8px;
     transition: background 0.3s, border-color 0.3s;
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background: var(--bg-nav);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border-nav);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .logo {
@@ -431,12 +446,16 @@ body {
 
 .hero-title {
     font-family: 'Sora', sans-serif;
-    font-size: clamp(3rem, 6vw, 5.3rem);
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
     font-weight: 700;
     line-height: 1.04;
     letter-spacing: -0.055em;
     margin-bottom: 26px;
-    max-width: 12ch;
+    max-width: 15ch;
+}
+
+.hero-title .gradient-text {
+    white-space: nowrap;
 }
 
 .gradient-text {
