@@ -80,7 +80,7 @@ const PROJECTS = [
   {
     id: 'guanlan-vc',
     title: '观澜星辰',
-    category: 'Web3 × AI Agent',
+    category: 'Web3 × AI Agent创投',
     year: 2026,
     featured: true,
     description: '全球首个由多智能体(Multi-Agent)完全驱动的去中心化创投网络。消除人为偏见，AI自动完成立项调研与风控尽调，合格即触发智能合约，全自动向创业者拨付USDC/USDT稳定币资金。',
