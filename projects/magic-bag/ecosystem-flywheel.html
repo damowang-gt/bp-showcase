@@ -176,27 +176,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 100px;
-      font-size: 0.85rem;
+      min-width: 110px;
+      font-size: 0.8rem;
       font-weight: 600;
       color: var(--text-secondary);
       flex-direction: column;
+      gap: 4px;
     }
-    .connector i { font-size: 1.2rem; margin: 0 4px; color: var(--text-main); opacity: 0.5; }
+    .connector i { font-size: 1.1rem; color: var(--text-main); opacity: 0.4; }
     .connector .label {
       background: var(--bg-main);
-      padding: 4px 12px;
-      border-radius: 40px;
-      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 30px;
+      font-size: 0.75rem;
       white-space: nowrap;
       border: 1px solid var(--border-color);
       color: var(--text-main);
     }
-    .double-arrow {
+    .connector .sync-label {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
     }
 
     /* 飞轮区域（中心部分） */
@@ -340,17 +342,15 @@
       </div>
 
       <div class="connector">
-        <div class="double-arrow">
-          <div><i class="fas fa-arrow-right"></i> <span class="label">商家/技术</span> <i class="fas fa-arrow-left"></i></div>
-          <div style="margin:2px 0;"><i class="fas fa-sync-alt fa-xs"></i> 双向赋能</div>
-          <div><i class="fas fa-arrow-left"></i> <span class="label">流量/数据</span> <i class="fas fa-arrow-right"></i></div>
-        </div>
+        <div><i class="fas fa-arrow-right"></i> <span class="label">商家/技术</span> <i class="fas fa-arrow-left"></i></div>
+        <div class="sync-label"><i class="fas fa-sync-alt fa-xs"></i> 双向赋能</div>
+        <div><i class="fas fa-arrow-left"></i> <span class="label">流量/数据</span> <i class="fas fa-arrow-right"></i></div>
       </div>
 
       <div class="node node-youzan">
         <div class="node-icon"><i class="fas fa-cloud"></i></div>
         <h3>有赞SaaS生态</h3>
-        <div class="sub">门店SaaS · 小红书 · 私域工具</div>
+        <div class="sub">门店SaaS · 私域工具 · 智能营销</div>
         <div class="badge-group">
           <span class="badge"><i class="fas fa-toolbox"></i> 数字化底座</span>
           <span class="badge"><i class="fas fa-chart-line"></i> 智能营销</span>
@@ -379,11 +379,9 @@
       </div>
 
       <div class="connector">
-        <div class="double-arrow">
-          <div><i class="fas fa-arrow-right"></i> <span class="label">上架盲盒</span> <i class="fas fa-arrow-left"></i></div>
-          <div style="margin:2px 0;"><i class="fas fa-exchange-alt fa-xs"></i> 交易闭环</div>
-          <div><i class="fas fa-arrow-left"></i> <span class="label">到店核销</span> <i class="fas fa-arrow-right"></i></div>
-        </div>
+        <div><i class="fas fa-arrow-right"></i> <span class="label">上架盲盒</span> <i class="fas fa-arrow-left"></i></div>
+        <div class="sync-label"><i class="fas fa-exchange-alt fa-xs"></i> 交易闭环</div>
+        <div><i class="fas fa-arrow-left"></i> <span class="label">到店核销</span> <i class="fas fa-arrow-right"></i></div>
       </div>
 
       <div class="node node-consumer">
