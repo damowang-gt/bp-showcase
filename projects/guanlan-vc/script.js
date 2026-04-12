@@ -13,18 +13,21 @@ function updateThemeIcon(theme) {
     if (theme === 'light') {
         iconSun.style.display = 'none';
         iconMoon.style.display = 'block';
+        themeToggle.setAttribute('aria-label', '切换到暗色模式');
+        themeToggle.title = '切换到暗色模式';
     } else {
         iconSun.style.display = 'block';
         iconMoon.style.display = 'none';
+        themeToggle.setAttribute('aria-label', '切换到浅色模式');
+        themeToggle.title = '切换到浅色模式';
     }
 }
 
-// Check for saved user preference or default to dark
 const savedTheme = localStorage.getItem('theme') || 'dark';
 if (savedTheme === 'light') {
     htmlElement.setAttribute('data-theme', 'light');
-    updateThemeIcon('light');
 }
+updateThemeIcon(savedTheme);
 
 themeToggle.addEventListener('click', () => {
     if (htmlElement.getAttribute('data-theme') === 'light') {
@@ -92,7 +95,7 @@ async function connectWeb3Wallet() {
             
             const shortAddr = walletAddress.substring(0, 6) + '...' + walletAddress.substring(38);
             btn.innerHTML = `<i class="fas fa-wallet"></i> ${shortAddr}`;
-            btn.style.borderColor = 'var(--color-cyan-bright)';
+            btn.style.borderColor = 'var(--border-btn-outline-hover)';
             btn.style.color = 'var(--text-main)';
             btn.style.background = 'var(--bg-process-card-active)';
             
@@ -202,9 +205,9 @@ function startAIEvaluation(projectName) {
     
     const badge = document.getElementById('agentStatusBadge');
     badge.innerHTML = `<i class="fas fa-spinner fa-pulse"></i> 正在评估 [${projectName}]`;
-    badge.style.color = '#f1c40f';
-    badge.style.borderColor = '#f1c40f50';
-    badge.style.background = '#f1c40f10';
+    badge.style.color = 'var(--status-loading)';
+    badge.style.borderColor = 'color-mix(in srgb, var(--status-loading) 35%, transparent)';
+    badge.style.background = 'color-mix(in srgb, var(--status-loading) 10%, transparent)';
     
     const steps = [
         document.getElementById('step1'),
@@ -216,8 +219,9 @@ function startAIEvaluation(projectName) {
     steps.forEach(step => {
         const statusIcon = step.querySelector('.step-status');
         statusIcon.className = 'fas fa-circle step-status';
-        statusIcon.style.color = 'rgba(255,255,255,0.1)';
+        statusIcon.style.color = 'var(--status-idle)';
         step.querySelector('.sub').innerText = '等待中...';
+        step.querySelector('.sub').style.color = 'var(--text-step-sub)';
     });
     
     // Reset payout
@@ -259,20 +263,20 @@ function startAIEvaluation(projectName) {
     // Final Result
     setTimeout(() => {
         badge.innerHTML = `<i class="fas fa-check-circle"></i> 评估完成`;
-        badge.style.color = '#2ecc71';
-        badge.style.borderColor = '#2ecc7150';
-        badge.style.background = '#2ecc7110';
+        badge.style.color = 'var(--status-success)';
+        badge.style.borderColor = 'color-mix(in srgb, var(--status-success) 35%, transparent)';
+        badge.style.background = 'color-mix(in srgb, var(--status-success) 10%, transparent)';
         
         document.getElementById('payoutSim').style.background = 'var(--bg-process-card-active)';
         
         document.getElementById('simScore').innerText = '88 / 100 (A级)';
-        document.getElementById('simScore').style.color = '#2ee6d8';
+        document.getElementById('simScore').style.color = 'var(--text-highlight)';
         
         document.getElementById('simAmount').innerText = '$250,000 USDC';
-        document.getElementById('simAmount').style.color = '#2ee6d8';
+        document.getElementById('simAmount').style.color = 'var(--text-highlight)';
         
         document.getElementById('simStatus').innerText = '已发放至创始团队钱包';
-        document.getElementById('simStatus').style.color = '#2ecc71';
+        document.getElementById('simStatus').style.color = 'var(--status-success)';
         
         // Confetti effect could go here if we added a library, but alert works for now
         setTimeout(() => {
@@ -284,16 +288,16 @@ function startAIEvaluation(projectName) {
 
 function activateStep(stepEl, text) {
     stepEl.querySelector('.sub').innerText = text;
-    stepEl.querySelector('.sub').style.color = '#f1c40f';
+    stepEl.querySelector('.sub').style.color = 'var(--status-loading)';
     const statusIcon = stepEl.querySelector('.step-status');
     statusIcon.className = 'fas fa-spinner fa-pulse step-status';
-    statusIcon.style.color = '#f1c40f';
+    statusIcon.style.color = 'var(--status-loading)';
 }
 
 function completeStep(stepEl, text) {
     stepEl.querySelector('.sub').innerText = text;
-    stepEl.querySelector('.sub').style.color = '#2ecc71';
+    stepEl.querySelector('.sub').style.color = 'var(--status-success)';
     const statusIcon = stepEl.querySelector('.step-status');
     statusIcon.className = 'fas fa-check step-status';
-    statusIcon.style.color = '#2ecc71';
+    statusIcon.style.color = 'var(--status-success)';
 }

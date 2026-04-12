@@ -7,7 +7,7 @@
     <!-- 引入 Google Font & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,9 +17,9 @@
         <div class="container">
             <!-- 导航栏 -->
             <nav class="navbar">
-                <a href="/" class="logo" style="color: inherit;">
-                    <i class="fas fa-layer-group logo-icon"></i>
-                    <span>观澜星辰</span>
+                <a href="/" class="logo">
+                    <span class="logo-mark"><i class="fas fa-layer-group logo-icon"></i></span>
+                    <span class="logo-text">观澜星辰</span>
                 </a>
                 <div class="nav-links">
                     <a href="#platform">平台</a>
@@ -27,30 +27,34 @@
                     <a href="#pool">资金池</a>
                     <a href="presentation" target="_blank"><i class="fas fa-play-circle"></i> 查看路演</a>
                 </div>
-                <div style="display: flex; align-items: center; gap: 16px;">
-                    <button id="themeToggle" class="btn-outline-light" style="padding: 10px; border-radius: 50%; width: 42px; height: 42px; display: flex; justify-content: center; align-items: center;" title="切换主题">
-                        <!-- 自定义手绘太阳 SVG -->
-                        <svg id="icon-sun" style="width: 22px; height: 22px; display: none;" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 4.25c-4.28 0-7.75 3.47-7.75 7.75s3.47 7.75 7.75 7.75 7.75-3.47 7.75-7.75S16.28 4.25 12 4.25zm0 13.5c-3.17 0-5.75-2.58-5.75-5.75S8.83 6.25 12 6.25s5.75 2.58 5.75 5.75-2.58 5.75-5.75 5.75z"/>
-                            <path d="M12 2.25c.41 0 .75-.34.75-.75V.75a.75.75 0 0 0-1.5 0v.75c0 .41.34.75.75.75zm0 19.5c-.41 0-.75.34-.75.75v.75a.75.75 0 0 0 1.5 0v-.75c0-.41-.34-.75-.75-.75zm8.49-10.5h.75a.75.75 0 0 0 0-1.5h-.75a.75.75 0 0 0 0 1.5zM2.75 12c0 .41.34.75.75.75h.75a.75.75 0 0 0 0-1.5h-.75c-.41 0-.75.34-.75.75zm15.02-7.52a.75.75 0 0 0 1.06-1.06l-.53-.53a.75.75 0 0 0-1.06 1.06l.53.53zm-11.54 11.54a.75.75 0 0 0-1.06 1.06l.53.53a.75.75 0 0 0 1.06-1.06l-.53-.53zm11.54 1.06l.53.53a.75.75 0 0 0 1.06-1.06l-.53-.53a.75.75 0 0 0-1.06 1.06zM5.17 5.17L4.64 4.64a.75.75 0 0 0-1.06 1.06l.53.53a.75.75 0 0 0 1.06-1.06z"/>
-                            <circle cx="12" cy="12" r="4.5"/>
+                <div class="nav-actions">
+                    <button id="themeToggle" class="theme-toggle" title="切换主题" aria-label="切换到浅色模式">
+                        <svg id="icon-sun" class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2.75V5"></path>
+                            <path d="M12 19V21.25"></path>
+                            <path d="M21.25 12H19"></path>
+                            <path d="M5 12H2.75"></path>
+                            <path d="M18.54 5.46 16.95 7.05"></path>
+                            <path d="M7.05 16.95 5.46 18.54"></path>
+                            <path d="M18.54 18.54 16.95 16.95"></path>
+                            <path d="M7.05 7.05 5.46 5.46"></path>
                         </svg>
-                        <!-- 自定义手绘月亮 SVG -->
-                        <svg id="icon-moon" style="width: 22px; height: 22px; display: none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <svg id="icon-moon" class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 14.2A8.7 8.7 0 1 1 9.8 3A7 7 0 0 0 21 14.2Z"></path>
                         </svg>
                     </button>
-                    <button class="btn-outline-light" id="btnConnectWallet"><i class="fas fa-wallet"></i> 连接钱包</button>
+                    <button class="btn-outline-light wallet-trigger" id="btnConnectWallet"><i class="fas fa-wallet"></i> 连接钱包</button>
                 </div>
             </nav>
 
             <!-- Hero 区域 -->
             <div class="hero" id="platform">
                 <div class="hero-left">
-                    <div class="badge">
+                    <div class="badge hero-kicker">
                         <i class="fas fa-bolt"></i> Web3 × AI Agent 自动化创投网络
                     </div>
-                    <h1>
+                    <h1 class="hero-title">
                         提交创业想法，<br>
                         <span class="gradient-text">AI 尽调 · 稳定币直投</span>
                     </h1>
@@ -58,20 +62,23 @@
                         无人为干预 · 稳定币直投 · 链上透明。  
                         AI Agent 从立项分析到商业尽调，通过后自动调用资金池发放 USDC 启动资金。
                     </p>
-                    <div style="display: flex; gap: 18px; flex-wrap: wrap;">
+                    <div class="hero-actions">
                         <button class="btn-primary" id="btnSubmitBP"><i class="fas fa-paper-plane"></i> 启动项目评估</button>
                         <a href="#pool" class="btn-secondary"><i class="fas fa-chart-line"></i> 成为LP · 赚取收益</a>
                     </div>
                     <div class="hero-stats">
                         <div class="stat-item">
+                            <span class="stat-label">流动性网络</span>
                             <h3>$24.8M+</h3>
                             <p>流动资金池</p>
                         </div>
                         <div class="stat-item">
+                            <span class="stat-label">项目分发</span>
                             <h3>1,284</h3>
                             <p>AI已评估项目</p>
                         </div>
                         <div class="stat-item">
+                            <span class="stat-label">自动化程度</span>
                             <h3>0</h3>
                             <p>人为干预步骤</p>
                         </div>
@@ -95,7 +102,7 @@
                                     <div class="main">立项&研发调研</div>
                                     <div class="sub">等待接收 BP 数据...</div>
                                 </div>
-                                <i class="fas fa-circle step-status" style="color:rgba(255,255,255,0.1); margin-left: auto;"></i>
+                                <i class="fas fa-circle step-status"></i>
                             </div>
                             <div class="step-row" id="step2">
                                 <div class="step-icon"><i class="fas fa-chart-pie"></i></div>
@@ -103,7 +110,7 @@
                                     <div class="main">商业化规划</div>
                                     <div class="sub">竞品分析·GTM策略</div>
                                 </div>
-                                <i class="fas fa-circle step-status" style="color:rgba(255,255,255,0.1); margin-left: auto;"></i>
+                                <i class="fas fa-circle step-status"></i>
                             </div>
                             <div class="step-row" id="step3">
                                 <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
@@ -111,7 +118,7 @@
                                     <div class="main">风险评估&尽调</div>
                                     <div class="sub">团队·合规·知识产权</div>
                                 </div>
-                                <i class="fas fa-circle step-status" style="color:rgba(255,255,255,0.1); margin-left: auto;"></i>
+                                <i class="fas fa-circle step-status"></i>
                             </div>
                         </div>
                         <div class="divider"></div>
@@ -124,11 +131,11 @@
                                 <span>建议投资额度</span>
                                 <span class="highlight" id="simAmount">- USDC</span>
                             </div>
-                            <div class="stable-row" style="margin-top: 12px;">
+                            <div class="stable-row stable-row-offset">
                                 <span><i class="fab fa-ethereum"></i> 智能合约拨款</span>
-                                <span style="color:var(--text-muted);" id="simStatus">待触发 → </span>
+                                <span class="stable-status" id="simStatus">待触发 → </span>
                             </div>
-                            <div class="payout-sim-bottom" style="border-radius: 40px; padding: 10px 14px; margin-top: 16px;">
+                            <div class="payout-sim-bottom">
                                 <i class="fas fa-link"></i> 资金池: Arbitrum · USDC / USDT
                             </div>
                         </div>
@@ -137,8 +144,9 @@
             </div>
 
             <!-- 核心流程：AI全自动介入 -->
-            <div style="margin: 60px 0 20px;" id="agent">
-                <div class="section-title">🤖 AI Agent 全流程接管</div>
+            <div class="section-header" id="agent">
+                <div class="section-kicker">Protocol Workflow</div>
+                <div class="section-title">AI Agent 全流程接管</div>
                 <div class="section-sub">从立项到拨款，无需人工VC。四个步骤，由区块链智能合约与多智能体系统深度接管。</div>
             </div>
             <div class="process-grid">
@@ -157,16 +165,17 @@
                     <h4>STEP 03: AI 投决会决策</h4>
                     <p>基于风控模型，系统模拟投资委员会进行交叉辩论。若综合评分达到 A 级，自动确认投资额度与占股比例。</p>
                 </div>
-                <div class="process-card" style="border-color: rgba(46, 230, 216, 0.4); background: rgba(46, 230, 216, 0.05);">
-                    <div class="process-icon"><i class="fab fa-ethereum" style="color:#2ee6d8;"></i></div>
+                <div class="process-card process-card-accent">
+                    <div class="process-icon process-icon-accent"><i class="fab fa-ethereum"></i></div>
                     <h4>STEP 04: 智能合约打款</h4>
                     <p>决策通过后，调用链上流动性池，USDC/USDT 稳定币即刻发放至创始人钱包，资金使用记录全链透明。</p>
                 </div>
             </div>
 
             <!-- Agent 评估特性 -->
-            <div style="margin: 40px 0 20px;">
-                <div class="section-title">📋 无死角的多智能体评估系统</div>
+            <div class="section-header section-header-narrow">
+                <div class="section-kicker">Multi-Agent Capability</div>
+                <div class="section-title">无死角的多智能体评估系统</div>
                 <div class="section-sub">彻底取代传统 VC 的分析师、法务、行业专家，实现全栈、客观的机器决策。</div>
             </div>
             <div class="features">
@@ -195,8 +204,9 @@
             <!-- 资金池与区块链模块 -->
             <div class="pool-section" id="pool">
                 <div class="pool-left">
-                    <h2 style="font-size: 2.2rem; margin-bottom: 20px;">🌐 流动性来自全球的共识</h2>
-                    <p style="font-size: 1.2rem; color: var(--text-pool-desc); margin-bottom: 20px;">
+                    <div class="section-kicker">Global Liquidity Layer</div>
+                    <h2 class="pool-title">流动性来自全球的共识</h2>
+                    <p class="pool-desc">
                         观澜星辰不依赖单一美元基金。平台的资金池由全球加密资产持有者组成，通过提供稳定币流动性，参与早期科技创投红利。
                     </p>
                     <div class="chain-badge">
@@ -204,23 +214,23 @@
                         <span class="chain-item"><i class="fas fa-link"></i> Arbitrum L2</span>
                         <span class="chain-item"><i class="fas fa-dollar-sign"></i> USDC / USDT</span>
                     </div>
-                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                        <div><i class="fas fa-check-circle" style="color:#2ecc71;"></i> 审计合约·透明拨款</div>
-                        <div><i class="fas fa-check-circle" style="color:#2ecc71;"></i> 实时准备金证明</div>
+                    <div class="pool-proof">
+                        <div class="pool-proof-item"><i class="fas fa-check-circle"></i> 审计合约·透明拨款</div>
+                        <div class="pool-proof-item"><i class="fas fa-check-circle"></i> 实时准备金证明</div>
                     </div>
                 </div>
                 <div class="pool-right">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
-                        <i class="fas fa-water" style="font-size: 2rem; color:#4bc0c0;"></i>
-                        <span style="font-weight: 700; font-size: 1.4rem;">LP 流动性看板</span>
+                    <div class="pool-card-head">
+                        <i class="fas fa-water"></i>
+                        <span>LP 流动性看板</span>
                     </div>
                     <div class="stable-list">
-                        <div class="stable-row"><span style="color:#7e9dbb;">TVL (总锁仓量)</span> <span>$24,845,102.50</span></div>
-                        <div class="stable-row"><span style="color:#7e9dbb;">已投出资金</span> <span>$18,420,000.00</span></div>
-                        <div class="stable-row"><span style="color:#7e9dbb;">历史综合 APY</span> <span class="highlight">+ 18.4%</span></div>
+                        <div class="stable-row"><span class="stable-label">TVL (总锁仓量)</span> <span>$24,845,102.50</span></div>
+                        <div class="stable-row"><span class="stable-label">已投出资金</span> <span>$18,420,000.00</span></div>
+                        <div class="stable-row"><span class="stable-label">历史综合 APY</span> <span class="highlight">+ 18.4%</span></div>
                         <div class="divider"></div>
-                        <div style="margin-top: 20px;">
-                            <button class="btn-primary" id="btnDeposit" style="width: 100%;"><i class="fas fa-arrow-down"></i> 存入稳定币 · 赚取收益</button>
+                        <div class="pool-action">
+                            <button class="btn-primary btn-block" id="btnDeposit"><i class="fas fa-arrow-down"></i> 存入稳定币 · 赚取收益</button>
                         </div>
                     </div>
                 </div>
@@ -228,12 +238,13 @@
 
             <!-- 最后CTA： 项目提交 & 直接拨款 -->
             <div class="cta-box">
-                <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 20px;">准备好让你的项目<br>被AI评估并直接获得启动资金？</h2>
-                <p style="margin-bottom: 40px; color: var(--text-cta-desc);">无需路演，无需等待。AI Agent 全天候评估，拨款记录上链。</p>
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <button class="btn-primary" id="btnSubmitBPCta" style="padding: 16px 48px;"><i class="fas fa-rocket"></i> 提交创业项目</button>
+                <div class="section-kicker section-kicker-center">Launch With Agents</div>
+                <h2 class="cta-title">准备好让你的项目<br>被AI评估并直接获得启动资金？</h2>
+                <p class="cta-desc">无需路演，无需等待。AI Agent 全天候评估，拨款记录上链。</p>
+                <div class="cta-actions">
+                    <button class="btn-primary btn-cta" id="btnSubmitBPCta"><i class="fas fa-rocket"></i> 提交创业项目</button>
                 </div>
-                <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8; color: var(--text-cta-desc);">
+                <p class="cta-note">
                     <i class="fas fa-lock"></i> 资金由智能合约托管 · 仅当 Agent 投决会通过后触发拨款
                 </p>
             </div>
@@ -242,9 +253,9 @@
             <div class="footer">
                 <div>© 2026 观澜星辰 · 去中心化创投Agent协议</div>
                 <div>
-                    <a href="#" style="color:var(--text-footer-link); margin-right: 24px; text-decoration: none;">白皮书</a>
-                    <a href="#" style="color:var(--text-footer-link); margin-right: 24px; text-decoration: none;">审计报告</a>
-                    <a href="https://github.com/damowang-gt" target="_blank" style="color:var(--text-footer-link); text-decoration: none;">Github</a>
+                    <a href="#" class="footer-link">白皮书</a>
+                    <a href="#" class="footer-link">审计报告</a>
+                    <a href="https://github.com/damowang-gt" target="_blank" class="footer-link">Github</a>
                 </div>
             </div>
         </div><!-- container end -->
