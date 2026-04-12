@@ -152,7 +152,7 @@ const SLIDES = [
       {
         icon: 'handshake',
         title: '有赞生态战略赋能',
-        content: '利用有赞SaaS、私域及小红书资源实现冷启动。点击查看 <a href="youzan-synergy.html" style="color: #c45d2c; font-weight: bold; text-decoration: underline;">《惊喜食光魔法袋✕有赞双向赋能》</a> 深度分析。'
+        content: '利用有赞SaaS、私域及小红书资源实现冷启动。深度分析请点击下方链接：<br><br><a href="youzan-synergy.html" class="inline-link-btn" target="_blank">查看有赞双向赋能分析 ➔</a>'
       },
       {
         icon: 'store',

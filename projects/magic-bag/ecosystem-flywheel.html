@@ -9,6 +9,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    :root {
+      --bg-main: #F5F5F7;
+      --bg-card: #FFFFFF;
+      --text-main: #1D1D1F;
+      --text-secondary: #86868B;
+      --border-color: rgba(0, 0, 0, 0.05);
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --shadow-bento: 0 4px 24px rgba(0, 0, 0, 0.04);
+      --color-magic: #c45d2c;
+      --color-youzan: #1d5e4c;
+      --color-merchant: #2a7a62;
+      --color-consumer: #e68a2e;
+      --color-private: #6a4e9e;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -16,54 +32,58 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: #f2f8f5;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg-main);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       width: 100vw;
-      padding: 12px;
-      overflow: hidden;
+      padding: 24px;
+      overflow-x: hidden;
+      color: var(--text-main);
     }
 
     .diagram {
-      max-width: 1300px;
+      max-width: 1400px;
       width: 100%;
-      height: 100%;
-      background: #ffffff;
-      border-radius: 36px;
-      box-shadow: 0 20px 35px -10px rgba(20, 70, 50, 0.12);
-      padding: 16px 24px;
-      border: 1px solid #cbdcd2;
+      min-height: 90vh;
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-bento);
+      padding: 40px;
+      border: 1px solid var(--border-color);
       display: flex;
       flex-direction: column;
     }
 
     h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #153e33;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-main);
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-    h2 i { color: #c45d2c; font-size: 1.5rem; }
-    .subtitle {
-      color: #3d6e5d;
-      font-size: 0.8rem;
+      gap: 12px;
       margin-bottom: 8px;
-      border-left: 4px solid #c45d2c;
-      padding-left: 12px;
+      letter-spacing: -0.03em;
+    }
+    h2 i { color: var(--color-magic); font-size: 1.8rem; }
+    
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      border-left: 4px solid var(--color-magic);
+      padding-left: 16px;
     }
 
-    /* 主内容区：flex列，占满剩余高度 */
+    /* 主内容区 */
     .content {
       flex: 1;
       display: flex;
       flex-direction: column;
-      min-height: 0;
+      gap: 24px;
     }
 
     /* 节点行 */
@@ -71,133 +91,175 @@
       display: flex;
       justify-content: space-evenly;
       align-items: stretch;
-      gap: 12px;
+      gap: 24px;
       flex: 1;
-      min-height: 0;
     }
 
     .node {
       background: #fff;
-      border-radius: 24px;
-      padding: 14px 12px;
-      box-shadow: 0 6px 16px -6px rgba(0, 40, 30, 0.06);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-bento);
       border: 2px solid;
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      min-width: 140px;
+      min-width: 200px;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    
+    .node:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
     }
 
-    .node-icon { font-size: 1.8rem; margin-bottom: 4px; }
-    .node h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
-    .node .sub { font-size: 0.7rem; color: #4d7063; margin-bottom: 6px; }
+    .node-icon { 
+      font-size: 2.5rem; 
+      margin-bottom: 12px; 
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .node h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.02em; }
+    .node .sub { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 12px; }
 
     .badge-group {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 4px;
-      margin: 4px 0;
+      gap: 8px;
+      margin: 8px 0;
     }
     .badge {
-      background: #eef6f2;
+      background: var(--bg-main);
+      color: var(--text-main);
       border-radius: 30px;
-      padding: 3px 10px;
-      font-size: 0.65rem;
+      padding: 6px 14px;
+      font-size: 0.85rem;
       font-weight: 600;
+      border: 1px solid var(--border-color);
     }
 
     .exchange-text {
-      font-size: 0.65rem;
-      margin-top: 6px;
-      color: #1a4b3c;
-      line-height: 1.3;
+      font-size: 0.9rem;
+      margin-top: auto;
+      padding-top: 16px;
+      color: var(--text-main);
+      line-height: 1.5;
+      font-weight: 500;
+      text-align: left;
+      width: 100%;
+      border-top: 1px dashed var(--border-color);
     }
 
     /* 节点边框颜色 */
-    .node-magic { border-color: #c45d2c; background: #fffaf5; }
-    .node-youzan { border-color: #1d5e4c; background: #f6fcf9; }
-    .node-merchant { border-color: #2a7a62; }
-    .node-consumer { border-color: #e68a2e; }
-    .node-private { border-color: #6a4e9e; }
+    .node-magic { border-color: rgba(196, 93, 44, 0.3); background: #fffaf5; }
+    .node-magic .node-icon { color: var(--color-magic); }
+    .node-youzan { border-color: rgba(29, 94, 76, 0.3); background: #f6fcf9; }
+    .node-youzan .node-icon { color: var(--color-youzan); }
+    .node-merchant { border-color: rgba(42, 122, 98, 0.3); }
+    .node-merchant .node-icon { color: var(--color-merchant); }
+    .node-consumer { border-color: rgba(230, 138, 46, 0.3); }
+    .node-consumer .node-icon { color: var(--color-consumer); }
+    .node-private { border-color: rgba(106, 78, 158, 0.3); }
+    .node-private .node-icon { color: var(--color-private); }
 
     /* 连接器 */
     .connector {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 70px;
-      font-size: 0.7rem;
+      min-width: 120px;
+      font-size: 0.9rem;
       font-weight: 600;
-      color: #2a7a62;
+      color: var(--text-secondary);
       flex-direction: column;
     }
-    .connector i { font-size: 1.2rem; margin: 0 2px; }
+    .connector i { font-size: 1.5rem; margin: 0 4px; color: var(--text-main); opacity: 0.5; }
     .connector .label {
-      background: #eaf3ee;
-      padding: 2px 10px;
+      background: var(--bg-main);
+      padding: 6px 16px;
       border-radius: 40px;
-      font-size: 0.65rem;
+      font-size: 0.85rem;
       white-space: nowrap;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
     }
     .double-arrow {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2px;
+      gap: 8px;
     }
 
     /* 飞轮区域（中心部分） */
     .flywheel-section {
-      background: #e3f0e9;
-      border-radius: 40px;
-      padding: 10px 16px;
-      margin: 8px 0;
-      border: 1px dashed #2a7a62;
+      background: var(--bg-main);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin: 16px 0;
+      border: 1px solid var(--border-color);
     }
 
     .flywheel-row {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
     .flywheel-item {
       background: white;
       border-radius: 40px;
-      padding: 6px 16px;
+      padding: 12px 24px;
       font-weight: 600;
-      font-size: 0.75rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+      font-size: 1.05rem;
+      box-shadow: var(--shadow-bento);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 10px;
+      color: var(--text-main);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border: 1px solid var(--border-color);
+    }
+
+    .flywheel-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.1);
     }
 
     .flywheel-arrow {
-      color: #1d5e4c;
-      font-size: 1.2rem;
+      color: var(--text-secondary);
+      font-size: 1.5rem;
+      opacity: 0.5;
     }
 
     .legend {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       justify-content: flex-end;
-      margin-bottom: 6px;
+      margin-bottom: 12px;
     }
     .legend-item {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.7rem;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
     }
     .legend-dot {
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       border-radius: 4px;
     }
 
@@ -205,22 +267,34 @@
     .value-grid {
       display: grid;
       grid-template-columns: repeat(4,1fr);
-      gap: 8px;
-      margin-top: 6px;
+      gap: 16px;
+      margin-top: 16px;
     }
     .value-card {
-      background: #f8fdfa;
-      border-radius: 16px;
-      padding: 8px 10px;
-      border: 1px solid #d4e5dc;
-      font-size: 0.7rem;
+      background: var(--bg-main);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .value-card strong {
+      color: var(--text-main);
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .value-card i {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      display: block;
     }
 
-    /* 确保一屏内无滚动 */
-    @media (max-height: 700px) {
-      .node { padding: 8px 8px; }
-      .node-icon { font-size: 1.5rem; }
-      .node h3 { font-size: 1rem; }
+    @media (max-width: 1200px) {
+      .row { flex-direction: column; gap: 16px; }
+      .connector { padding: 16px 0; }
+      .double-arrow { flex-direction: row; }
+      .value-grid { grid-template-columns: repeat(2,1fr); }
     }
   </style>
 </head>

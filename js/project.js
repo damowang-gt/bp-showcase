@@ -1,8 +1,6 @@
 (function() {
   const track = document.getElementById('slidesTrack');
   const slidesContainer = document.getElementById('slidesContainer');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
   const pagination = document.getElementById('pagination');
   const currentSlideEl = document.getElementById('currentSlide');
   const totalSlidesEl = document.getElementById('totalSlides');
@@ -157,9 +155,9 @@
             <div class="cover-type">S2B2C · 本地即时 · 当日余量食物盲盒交易平台</div>
             
             ${PROJECT_DATA.links ? `
-              <div class="cover-links" style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
+              <div class="cover-links" style="margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap;">
                 ${PROJECT_DATA.links.map(link => `
-                  <a href="${link.url}" target="_blank" class="cover-link-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #fff; color: #1D1D1F; border-radius: 100px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.1); transition: all 0.2s ease;">
+                  <a href="${link.url}" target="_blank" class="cover-link-btn">
                     ${getIcon(link.icon)}
                     ${link.title}
                   </a>
@@ -185,14 +183,32 @@
   }
 
   function createPagination() {
-    pagination.innerHTML = '';
+    pagination.innerHTML = `
+      <button class="nav-btn" id="prevBtn" aria-label="上一页">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 15l-6-6-6 6"/>
+        </svg>
+      </button>
+      <div class="dots-container" id="dotsContainer"></div>
+      <button class="nav-btn" id="nextBtn" aria-label="下一页">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+    `;
+    
+    const dotsContainer = document.getElementById('dotsContainer');
+    
     for (let i = 0; i <= totalSlides; i++) {
       const dot = document.createElement('span');
       dot.classList.add('dot');
       if (i === currentIndex) dot.classList.add('active');
       dot.addEventListener('click', () => goToSlide(i));
-      pagination.appendChild(dot);
+      dotsContainer.appendChild(dot);
     }
+    
+    document.getElementById('prevBtn').addEventListener('click', prevSlide);
+    document.getElementById('nextBtn').addEventListener('click', nextSlide);
   }
 
   function updateActiveDot() {
@@ -213,10 +229,6 @@
 
   function nextSlide() { goToSlide(currentIndex + 1); }
   function prevSlide() { goToSlide(currentIndex - 1); }
-
-  // Button events
-  prevBtn.addEventListener('click', prevSlide);
-  nextBtn.addEventListener('click', nextSlide);
 
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
