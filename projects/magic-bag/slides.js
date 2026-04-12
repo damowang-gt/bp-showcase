@@ -15,6 +15,10 @@ const PROJECT_DATA = {
     { icon: 'store', text: '商家 · 变废为钱' },
     { icon: 'smile', text: '用户 · 3-5折' },
     { icon: 'leaf', text: '每日拯救数千份食物' }
+  ],
+  links: [
+    { title: '查看生态价值飞轮图', url: 'ecosystem-flywheel.html', icon: 'project-diagram' },
+    { title: '查看有赞双向赋能分析', url: 'youzan-synergy.html', icon: 'handshake' }
   ]
 };
 
@@ -127,8 +131,9 @@ const SLIDES = [
       },
       {
         icon: 'building',
-        title: '竞品盈利对标',
-        content: '<strong>惜食魔法袋</strong> (国内头部) : 抽佣约25%，商家到手≈75%；每笔1%捐赠"光盘行动"。',
+        title: '生态闭环验证',
+        content: '不仅是一门生意，更是一个多方受益的增长飞轮。点击下方查看生态价值关系图：',
+        action: { text: '查看生态价值飞轮图 ➔', url: 'ecosystem-flywheel.html' },
         highlight: { value: '2万+', label: '门店', value2: '1000万+', label2: '用户' },
         sub: '证明市场接受度与盈利能力'
       }
@@ -145,24 +150,24 @@ const SLIDES = [
     type: 'four-col',
     cards: [
       {
+        icon: 'handshake',
+        title: '有赞生态战略赋能',
+        content: '利用有赞SaaS、私域及小红书资源实现冷启动。点击查看 <a href="youzan-synergy.html" style="color: #c45d2c; font-weight: bold; text-decoration: underline;">《惊喜食光魔法袋✕有赞双向赋能》</a> 深度分析。'
+      },
+      {
         icon: 'store',
         title: '头部连锁撬动',
-        content: '先攻克区域内头部烘焙连锁品牌（好利来、巴黎贝甜等），利用其品牌效应吸引首批用户。'
+        content: '先攻克区域内头部烘焙连锁品牌，利用其品牌效应吸引首批用户。'
       },
       {
         icon: 'graduation',
         title: '高校渗透 · 长期蓄水',
-        content: '每年<strong>1000万+</strong>大学毕业生，性价比核心人群。"1元抢盲盒"+校园大使，触达30%即可持续增长。'
+        content: '每年1000万+大学毕业生人群。"1元抢盲盒"+校园大使。'
       },
       {
         icon: 'share',
         title: '裂变 · 私域',
-        content: '邀请好友助力解锁盲盒；引导加入"周边捡漏群"，闭店前推送转化率提升50%+。'
-      },
-      {
-        icon: 'ranking',
-        title: '商家激励',
-        content: '零浪费排行榜，流量倾斜，私域免费推介新品，保持高活跃与好评。'
+        content: '邀请好友助力解锁盲盒；引导加入"周边捡漏群"提升复购。'
       }
     ]
   },
@@ -217,7 +222,9 @@ const ICONS = {
   lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>',
   star: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
   clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
-  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>'
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>',
+  handshake: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v5s-4 2-8-2-4-8-4-8 2-4 6-4h2"/><path d="M12 15v5s4 2 8-2 4-8 4-8-2-4-6-4h-2"/><path d="M12 15L8 9l-4 4M12 15l4-6 4 4"/></svg>',
+  'project-diagram': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="9" y="15" width="6" height="6" rx="1"/><path d="M6 9v2c0 1.1.9 2 2 2h8a2 2 0 002-2V9"/><path d="M12 13v2"/></svg>'
 };
 
 function getIcon(name) {

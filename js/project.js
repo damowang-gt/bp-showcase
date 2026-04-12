@@ -36,6 +36,11 @@
                 <div class="stat-label">${card.stat.label}</div>
               </div>
             ` : ''}
+            ${card.action ? `
+              <a href="${card.action.url}" class="card-action-btn" target="_blank">
+                ${card.action.text}
+              </a>
+            ` : ''}
             ${card.highlight ? `
               <div class="highlight-box">
                 <div class="highlight-value">${card.highlight.title || card.highlight.value}</div>
@@ -150,6 +155,17 @@
             </div>
             
             <div class="cover-type">S2B2C · 本地即时 · 当日余量食物盲盒交易平台</div>
+            
+            ${PROJECT_DATA.links ? `
+              <div class="cover-links" style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
+                ${PROJECT_DATA.links.map(link => `
+                  <a href="${link.url}" target="_blank" class="cover-link-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #fff; color: #1D1D1F; border-radius: 100px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.1); transition: all 0.2s ease;">
+                    ${getIcon(link.icon)}
+                    ${link.title}
+                  </a>
+                `).join('')}
+              </div>
+            ` : ''}
           </div>
         </div>
       </div>
