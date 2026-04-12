@@ -156,12 +156,22 @@
             
             ${PROJECT_DATA.links ? `
               <div class="cover-links" style="margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap;">
-                ${PROJECT_DATA.links.map(link => `
-                  <a href="${link.url}" target="_blank" class="cover-link-btn">
-                    ${getIcon(link.icon)}
-                    ${link.title}
-                  </a>
-                `).join('')}
+                ${PROJECT_DATA.links.map(link => {
+                  if (link.action === 'ppt') {
+                    return `
+                      <a href="#" onclick="window.openPptModal(event)" class="cover-link-btn">
+                        ${getIcon(link.icon)}
+                        ${link.title}
+                      </a>
+                    `;
+                  }
+                  return `
+                    <a href="${link.url}" target="_blank" class="cover-link-btn">
+                      ${getIcon(link.icon)}
+                      ${link.title}
+                    </a>
+                  `;
+                }).join('')}
               </div>
             ` : ''}
           </div>
@@ -179,7 +189,63 @@
     
     totalSlidesEl.textContent = totalSlides;
     createPagination();
-    updateSlide();
+    initPptModal();
+    updateActiveDot();
+  }
+
+  function initPptModal() {
+    if (!PROJECT_DATA.pptLink) return;
+
+    // 添加 PPT 模态框 DOM
+    const modalHtml = `
+      <div id="pptModal" class="ppt-modal">
+        <div class="ppt-modal-content">
+          <button class="ppt-close-btn" id="closePptBtn" aria-label="关闭PPT">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+          <iframe id="pptIframe" class="ppt-iframe" src="" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+    const modal = document.getElementById('pptModal');
+    const iframe = document.getElementById('pptIframe');
+    const closeBtn = document.getElementById('closePptBtn');
+
+    // 绑定关闭事件
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      // 可选：清空 iframe src 以停止播放
+      // iframe.src = '';
+    });
+
+    // 暴露全局打开方法
+    window.openPptModal = function(e) {
+      if (e) e.preventDefault();
+      iframe.src = PROJECT_DATA.pptLink;
+      modal.classList.add('active');
+    };
+
+    // 动态添加侧边栏 PPT 按钮
+    const sideActions = document.querySelector('.side-actions');
+    if (sideActions) {
+      const pptBtn = document.createElement('a');
+      pptBtn.href = '#';
+      pptBtn.className = 'side-action-btn';
+      pptBtn.title = '在线播放/编辑 PPT';
+      pptBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+          <rect x="8" y="10" width="8" height="6" rx="1"/>
+        </svg>
+      `;
+      pptBtn.addEventListener('click', window.openPptModal);
+      sideActions.insertBefore(pptBtn, sideActions.firstChild);
+    }
   }
 
   function createPagination() {

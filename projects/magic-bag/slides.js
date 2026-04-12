@@ -3,6 +3,9 @@ const PROJECT_DATA = {
   title: '惊喜食光魔法袋',
   subtitle: '门店当日库存 → 惊喜盲盒 · 让浪费变价值',
   description: '一个连接"门店当日剩余食品"和"消费者"的本地即时食物盲盒交易平台。',
+  // 在此处配置在线PPT的分享链接（支持腾讯文档、飞书、金山文档等）
+  // 确保链接是公开可访问的。如果是嵌入链接（iframe src），效果最好。
+  pptLink: 'https://docs.qq.com/slide/DS3F6WGtCRUZJdVpz',
   gradient: 'linear-gradient(135deg, #1B4D3E 0%, #C45D2C 100%)',
   tags: ['百亿赛道', '反浪费立法', '高频刚需'],
   stats: [
@@ -17,6 +20,7 @@ const PROJECT_DATA = {
     { icon: 'leaf', text: '每日拯救数千份食物' }
   ],
   links: [
+    { title: '在线演示/编辑 PPT', action: 'ppt', icon: 'ppt' },
     { title: '查看生态价值飞轮图', url: 'ecosystem-flywheel.html', icon: 'project-diagram' },
     { title: '查看有赞双向赋能分析', url: 'youzan-synergy.html', icon: 'handshake' }
   ]
@@ -202,6 +206,7 @@ const SLIDES = [
 ];
 
 const ICONS = {
+  ppt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/><rect x="8" y="10" width="8" height="6" rx="1"/></svg>',
   store: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
   smile: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>',
   leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 21.5C3 18 2 13 2 10c0-3.5 2-6.5 5-8 0 3.5 1 7 4.5 9.5"/><path d="M11 2c2.5 2 4 4.5 4 8 0 3-1.5 6-4.5 8"/></svg>',
