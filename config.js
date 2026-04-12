@@ -14,7 +14,7 @@ const PROJECTS = [
   {
     id: 'magic-bag',
     title: '惊喜食光魔法袋',
-    category: '食品科技 · O2O',
+    category: '本地生活 · S2B2C ',
     year: 2025,
     featured: true,
     description: '门店当日余量食品盲盒交易平台，让浪费变惊喜。以"一杯奶茶钱，带走高质烘焙惊喜"为切入点，连接本地商家与年轻消费者，实现三方共赢与环保闭环。',
@@ -102,28 +102,10 @@ function renderProjectCard(project, index) {
   `;
 }
 
-function renderComingSoonCard() {
-  return `
-    <div class="bento-project">
-      <div class="bento-visual-col" style="background: #F5F5F7; border: 2px dashed #D1D1D6; box-shadow: none;">
-        <div class="bento-visual-content" style="color: #86868B; text-shadow: none;">
-          <h3>更多项目<br>即将呈现</h3>
-        </div>
-      </div>
-      <div class="bento-data-col">
-        <div class="bento-card coming-soon-bento">
-          <h3>Stay Tuned...</h3>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
 function initProjectsGrid(containerSelector) {
   const container = document.querySelector(containerSelector);
   if (!container) return;
 
   let html = PROJECTS.map((project, index) => renderProjectCard(project, index)).join('');
-  html += renderComingSoonCard();
   container.innerHTML = html;
 }

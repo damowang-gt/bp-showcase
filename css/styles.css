@@ -387,21 +387,6 @@ body {
   transform: translateX(4px);
 }
 
-/* Coming Soon Bento */
-.coming-soon-bento {
-  grid-column: span 2;
-  text-align: center;
-  align-items: center;
-  background: linear-gradient(135deg, #e5e5ea 0%, #f5f5f7 100%);
-  min-height: 200px;
-}
-
-.coming-soon-bento h3 {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-secondary);
-}
-
 /* Modal */
 .project-modal {
   position: fixed;
@@ -510,7 +495,7 @@ body {
   .global-highlights {
     grid-template-columns: 1fr;
   }
-  .highlight-large, .coming-soon-bento {
+  .highlight-large {
     grid-column: span 1;
   }
   .bento-data-col {
