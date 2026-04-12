@@ -13,6 +13,8 @@
     --bg-step-icon: #112a44;
     --bg-payout-sim: #071824;
     --bg-pool-link: #0d2638;
+    --border-pool-link: #1f6182;
+    --color-pool-link: #eef2fb;
     --bg-process-card: rgba(20, 40, 70, 0.35);
     --bg-process-card-hover: rgba(30, 60, 100, 0.4);
     --bg-process-card-active: rgba(46, 230, 216, 0.05);
@@ -38,7 +40,10 @@
     --text-highlight: #2ee6d8;
     --text-section-sub: #aac2e0;
     --text-chain-item: #b0ecff;
+    --text-pool-desc: #bedcff;
+    --text-cta-desc: #bbd6f0;
     --text-footer: #7e9dbb;
+    --text-footer-link: #9bb9df;
     --text-modal-title: white;
 
     --border-nav: rgba(255, 255, 255, 0.06);
@@ -91,6 +96,8 @@
     --bg-step-icon: #e8f0fe;
     --bg-payout-sim: #f8fafc;
     --bg-pool-link: #eef4f9;
+    --border-pool-link: #cbd5e1;
+    --color-pool-link: #4a5c75;
     --bg-process-card: rgba(255, 255, 255, 0.7);
     --bg-process-card-hover: rgba(255, 255, 255, 0.9);
     --bg-process-card-active: rgba(0, 168, 157, 0.05);
@@ -116,7 +123,10 @@
     --text-highlight: #00a89d;
     --text-section-sub: #4a5c75;
     --text-chain-item: #0077ea;
+    --text-pool-desc: #4a5c75;
+    --text-cta-desc: #4a5c75;
     --text-footer: #64748b;
+    --text-footer-link: #64748b;
     --text-modal-title: #1a2332;
 
     --border-nav: rgba(0, 0, 0, 0.06);
@@ -479,6 +489,12 @@ body {
     margin-bottom: 10px;
 }
 
+.payout-sim-bottom {
+    background: var(--bg-pool-link);
+    border: 1px solid var(--border-pool-link);
+    color: var(--color-pool-link);
+}
+
 .highlight {
     color: var(--text-highlight);
     font-weight: 700;
@@ -494,7 +510,7 @@ body {
 
 .section-sub {
     color: var(--text-section-sub);
-    margin-bottom: 48px;
+    margin-bottom: 60px; /* 增加与卡片的间距 */
     font-size: 1.2rem;
 }
 
@@ -502,7 +518,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
-    margin: 50px 0;
+    margin: 40px 0 100px; /* 增加底部间距 */
 }
 
 .process-card {
@@ -580,7 +596,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
-    margin: 60px 0;
+    margin: 60px 0 100px; /* 增加底部间距 */
 }
 
 .feature-item {

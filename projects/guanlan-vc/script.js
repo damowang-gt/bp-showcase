@@ -7,22 +7,31 @@ const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const htmlElement = document.documentElement;
 
+// Function to update icon based on theme
+function updateThemeIcon(theme) {
+    if (theme === 'light') {
+        themeIcon.className = 'fas fa-moon'; // 月亮代表可以切换到暗色，或者当前是浅色
+    } else {
+        themeIcon.className = 'fas fa-sun'; // 太阳代表可以切换到浅色，或者当前是暗色
+    }
+}
+
 // Check for saved user preference or default to dark
 const savedTheme = localStorage.getItem('theme') || 'dark';
 if (savedTheme === 'light') {
     htmlElement.setAttribute('data-theme', 'light');
-    themeIcon.classList.replace('fa-sun', 'fa-moon');
+    updateThemeIcon('light');
 }
 
 themeToggle.addEventListener('click', () => {
     if (htmlElement.getAttribute('data-theme') === 'light') {
         htmlElement.removeAttribute('data-theme');
         localStorage.setItem('theme', 'dark');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        updateThemeIcon('dark');
     } else {
         htmlElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
+        updateThemeIcon('light');
     }
 });
 
@@ -152,7 +161,7 @@ function startAIEvaluation(projectName) {
     document.getElementById('simScore').innerText = '- / 100';
     document.getElementById('simAmount').innerText = '- USDC';
     document.getElementById('simStatus').innerText = '待触发 →';
-    document.getElementById('simStatus').style.color = '#7e9dbb';
+    document.getElementById('simStatus').style.color = 'var(--text-muted)';
     
     // Sequence
     let delay = 0;
@@ -191,7 +200,7 @@ function startAIEvaluation(projectName) {
         badge.style.borderColor = '#2ecc7150';
         badge.style.background = '#2ecc7110';
         
-        document.getElementById('payoutSim').style.background = '#072418';
+        document.getElementById('payoutSim').style.background = 'var(--bg-process-card-active)';
         
         document.getElementById('simScore').innerText = '88 / 100 (A级)';
         document.getElementById('simScore').style.color = '#2ee6d8';
