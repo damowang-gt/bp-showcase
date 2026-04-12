@@ -36,12 +36,14 @@ const SLIDES = [
       {
         icon: 'trash',
         title: '商家高报损 · 千亿烘焙的浪费',
+        image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80',
         content: '现烤烘焙/日料/熟食"日清"丢弃，平均报损率 <strong>12%~18%</strong>，单店月损失可达 <strong>¥3000~8000</strong>。',
         highlight: { title: '不敢打折', desc: '影响正价 · 丢弃负罪 · 处理尴尬' }
       },
       {
         icon: 'users',
         title: '年轻消费者 · 性价比+猎奇',
+        image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=600&q=80',
         content: '<strong>1.2亿</strong> Z世代及年轻白领，愿意为"盲盒惊喜"和环保买单，但缺乏正规低价渠道。',
         stat: { value: '70%', label: '消费者愿尝试余量折扣食品' }
       }
@@ -75,6 +77,7 @@ const SLIDES = [
       {
         icon: 'seedling',
         title: '社会 · 减少浪费',
+        image: 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=600&q=80',
         subtitle: '让食物尽其用',
         content: '符合《反食品浪费法》，每单减少碳排放，未来部分收益反哺公益。',
         stat: { value: '1%', label: '拟捐赠流水支持光盘行动' }
@@ -90,6 +93,7 @@ const SLIDES = [
       {
         icon: 'user',
         title: '用户端小程序',
+        svg: '<svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="65" y="10" width="70" height="120" rx="10" stroke="#c45d2c" stroke-width="3"/><rect x="75" y="25" width="50" height="45" rx="6" fill="#fce8dc"/><rect x="75" y="80" width="50" height="6" rx="3" fill="#e8e8e8"/><rect x="75" y="95" width="30" height="6" rx="3" fill="#e8e8e8"/><circle cx="100" cy="115" r="8" fill="#c45d2c"/></svg>',
         badge: 'LBS·盲盒·核销',
         isList: true,
         items: [
@@ -101,6 +105,7 @@ const SLIDES = [
       {
         icon: 'shop',
         title: '商家端后台',
+        svg: '<svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="20" width="160" height="100" rx="6" stroke="#2a7a62" stroke-width="3"/><path d="M20 26 C20 22.6863 22.6863 20 26 20 L60 20 L60 120 L26 120 C22.6863 120 20 117.314 20 114 L20 26 Z" fill="#e2f0e8"/><rect x="75" y="35" width="40" height="20" rx="4" fill="#f6fcf9" stroke="#2a7a62" stroke-width="2"/><rect x="125" y="35" width="40" height="20" rx="4" fill="#f6fcf9" stroke="#2a7a62" stroke-width="2"/><path d="M75 90 L95 65 L115 80 L145 50" stroke="#2a7a62" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="95" cy="65" r="4" fill="#2a7a62"/><circle cx="115" cy="80" r="4" fill="#2a7a62"/><circle cx="145" cy="50" r="4" fill="#2a7a62"/></svg>',
         badge: '一键发布·数据看板',
         isList: true,
         items: [
@@ -124,6 +129,7 @@ const SLIDES = [
       {
         icon: 'coins',
         title: '平台收入构成',
+        svg: '<svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="70" r="45" stroke="#f0f0f0" stroke-width="16"/><path d="M100 25 A45 45 0 0 1 140 50" stroke="#c45d2c" stroke-width="16" stroke-linecap="round"/><path d="M140 50 A45 45 0 0 1 70 101" stroke="#2a7a62" stroke-width="16" stroke-linecap="round"/><path d="M70 101 A45 45 0 0 1 60 49" stroke="#e68a2e" stroke-width="16" stroke-linecap="round"/></svg>',
         isList: true,
         items: [
           { text: '<strong>佣金抽成</strong> 10%~20% (早期优惠引流)' },
@@ -136,6 +142,7 @@ const SLIDES = [
       {
         icon: 'building',
         title: '生态闭环验证',
+        svg: '<svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 70 L50 30 M100 70 L150 30 M100 70 L150 110 M100 70 L50 110" stroke="#d1d1d6" stroke-width="2" stroke-dasharray="4 4"/><circle cx="100" cy="70" r="16" fill="#c45d2c"/><circle cx="50" cy="30" r="10" fill="#2a7a62"/><circle cx="150" cy="30" r="12" fill="#e68a2e"/><circle cx="150" cy="110" r="8" fill="#6a4e9e"/><circle cx="50" cy="110" r="10" fill="#1d5e4c"/></svg>',
         content: '不仅是一门生意，更是一个多方受益的增长飞轮。点击下方查看生态价值关系图：',
         action: { text: '查看生态价值飞轮图 ➔', url: 'ecosystem-flywheel.html' },
         highlight: { value: '2万+', label: '门店', value2: '1000万+', label2: '用户' },
@@ -166,6 +173,7 @@ const SLIDES = [
       {
         icon: 'graduation',
         title: '高校渗透 · 长期蓄水',
+        image: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=600&q=80',
         content: '每年1000万+大学毕业生人群。"1元抢盲盒"+校园大使。'
       },
       {
