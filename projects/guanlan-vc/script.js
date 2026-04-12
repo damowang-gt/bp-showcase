@@ -2,6 +2,30 @@ let walletConnected = false;
 let walletAddress = '';
 let walletBalance = 0;
 
+// Theme Toggle Logic
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const htmlElement = document.documentElement;
+
+// Check for saved user preference or default to dark
+const savedTheme = localStorage.getItem('theme') || 'dark';
+if (savedTheme === 'light') {
+    htmlElement.setAttribute('data-theme', 'light');
+    themeIcon.classList.replace('fa-sun', 'fa-moon');
+}
+
+themeToggle.addEventListener('click', () => {
+    if (htmlElement.getAttribute('data-theme') === 'light') {
+        htmlElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+        htmlElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+});
+
 // Modal Logic
 function openModal(id) {
     document.getElementById(id).classList.add('active');
