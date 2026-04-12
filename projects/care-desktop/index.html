@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>关怀桌面 · 银发智能桌面 | 路演BP</title>
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/project.css">
+</head>
+<body>
+  <nav class="project-nav">
+    <a href="../../index.html" class="back-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      <span>返回首页</span>
+    </a>
+    <div class="nav-progress">
+      <span id="currentSlide">1</span>
+      <span class="divider">/</span>
+      <span id="totalSlides">5</span>
+    </div>
+  </nav>
+
+  <div class="slides-container" id="slidesContainer">
+    <div class="slides-track" id="slidesTrack"></div>
+  </div>
+
+  <div class="pagination" id="pagination">
+    <!-- 将由JS渲染包含上下箭头和圆点 -->
+  </div>
+
+  <script src="slides.js"></script>
+  <script src="../../js/project.js"></script>
+</body>
+</html>

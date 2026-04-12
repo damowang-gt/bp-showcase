@@ -31,6 +31,27 @@ const PROJECTS = [
       { label: '用户已验证', value: '1000万+' }
     ],
     gradient: 'linear-gradient(135deg, #1B4D3E 0%, #C45D2C 100%)'
+  },
+  {
+    id: 'care-desktop',
+    title: '关怀桌面',
+    category: '银发经济 · 智能适老',
+    year: 2026,
+    featured: true,
+    description: '基于AccessibilityService深度定制，将微信视频、防误触、语音播报封装成“关怀卡片”，让长辈秒变智能达人。',
+    stats: [
+      { label: '60+ 人口', value: '2.8亿' },
+      { label: '子女付费意愿', value: '87%' }
+    ],
+    page: 'projects/care-desktop/index.html',
+    pageTitle: '关怀桌面 · 银发智能桌面',
+    subtitle: '银发族的数字桥梁，一键连接',
+    heroStats: [
+      { label: '60+人口', value: '2.8亿' },
+      { label: '订阅定价', value: '9.9元/月' },
+      { label: '旧手机改造潜力', value: '3000万+' }
+    ],
+    gradient: 'linear-gradient(135deg, #1e6f5c 0%, #e28c4c 100%)'
   }
 ];
 

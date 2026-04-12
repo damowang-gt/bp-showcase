@@ -846,14 +846,27 @@
 
 @media (max-width: 768px) {
   .project-nav { padding: 0 20px; }
-  .slide { padding: 80px 20px 120px; }
+  .slides-container {
+    height: auto;
+    overflow: visible;
+  }
+  .slides-track {
+    transform: none !important;
+    height: auto;
+  }
+  .slide { 
+    padding: 80px 20px 60px; 
+    height: auto;
+    min-height: 100vh;
+    overflow-y: visible;
+  }
   .bento-grid.cols-2,
   .bento-grid.cols-3,
   .bento-grid.cols-4 { grid-template-columns: 1fr; }
   .timeline-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
   .nav-controls { bottom: 20px; }
-  .pagination { right: 16px; padding: 12px 8px; }
+  .pagination { display: none; }
   .slide-footer { flex-direction: column; text-align: center; }
   .side-actions { right: 16px; bottom: 24px; }
   .side-action-btn { width: 40px; height: 40px; }
