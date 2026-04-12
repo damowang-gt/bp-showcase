@@ -76,6 +76,28 @@ const PROJECTS = [
     ],
     gradient: 'linear-gradient(135deg, rgba(26,52,71,0.85) 0%, rgba(60,141,188,0.85) 100%), url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80")',
     imagePosition: 'center center'
+  },
+  {
+    id: 'guanlan-vc',
+    title: '观澜星辰',
+    category: 'Web3 × AI Agent',
+    year: 2026,
+    featured: true,
+    description: '全球首个由多智能体(Multi-Agent)完全驱动的去中心化创投网络。消除人为偏见，AI自动完成立项调研与风控尽调，合格即触发智能合约，全自动向创业者拨付USDC/USDT稳定币资金。',
+    stats: [
+      { label: '稳定币流动性', value: '$24.8M+' },
+      { label: '平均尽调至放款', value: '1h' }
+    ],
+    page: 'projects/guanlan-vc/index.html',
+    pageTitle: '观澜星辰 · AI Agent 全自动创投网络',
+    subtitle: '提交创业想法，AI 尽调 · 稳定币直投',
+    heroStats: [
+      { label: '流动资金池', value: '$24.8M+' },
+      { label: '已评估项目', value: '1284' },
+      { label: '人为干预', value: '0' }
+    ],
+    gradient: 'linear-gradient(135deg, rgba(10,25,50,0.85) 0%, rgba(30,10,60,0.85) 100%), url("https://images.unsplash.com/photo-1639762681485-074b7f4ec626?auto=format&fit=crop&w=1200&q=80")',
+    imagePosition: 'center center'
   }
 ];
 
