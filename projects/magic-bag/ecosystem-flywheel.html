@@ -83,8 +83,64 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       justify-content: space-between;
+    }
+
+    /* 列堆叠布局（节点+箭头+节点） */
+    .col-stack {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .col-stack .node {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .node-connector-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 100px;
+    }
+
+    .connector-vertical {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .connector-vertical i { font-size: 1rem; color: var(--text-main); opacity: 0.35; }
+    .connector-vertical .label {
+      background: var(--bg-main);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      white-space: nowrap;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+    .connector-vertical .sync-label {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    /* 底部一行：私域 + 飞轮 + 价值表 */
+    .bottom-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
     }
 
     /* 节点行 */
@@ -247,22 +303,23 @@
 
     .legend {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       justify-content: flex-end;
-      margin-bottom: 8px;
+      margin-bottom: 0;
+      flex-shrink: 0;
     }
     .legend-item {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
+      gap: 6px;
+      font-size: 0.8rem;
       font-weight: 500;
       color: var(--text-main);
     }
     .legend-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
     }
 
     /* 底部双向价值简表 */
@@ -310,10 +367,10 @@
 </div>
 
 <div class="diagram">
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
     <div>
-      <h2 style="margin-bottom: 2px;"><i class="fas fa-project-diagram"></i> 惊喜食光魔法袋 · 生态价值飞轮</h2>
-      <div class="subtitle" style="margin-bottom: 0;">每个节点双向赋能 · 形成「流量-交易-留存-反哺」增长飞轮</div>
+      <h2 style="margin-bottom: 0;"><i class="fas fa-project-diagram"></i> 惊喜食光魔法袋 · 生态价值飞轮</h2>
+      <div class="subtitle" style="margin-bottom: 0; font-size: 0.9rem;">每个节点双向赋能 · 形成「流量-交易-留存-反哺」增长飞轮</div>
     </div>
     <div class="legend">
       <div class="legend-item"><span class="legend-dot" style="background:#c45d2c;"></span>魔法袋</div>
@@ -325,8 +382,8 @@
   </div>
 
   <div class="content">
-    <!-- 第一行：魔法袋 ⇄ 有赞SaaS (核心引擎) -->
-    <div class="row">
+    <!-- 第一列：魔法袋 + 有赞 -->
+    <div class="col-stack">
       <div class="node node-magic">
         <div class="node-icon"><i class="fas fa-magic"></i></div>
         <h3>惊喜食光魔法袋</h3>
@@ -341,10 +398,12 @@
         </div>
       </div>
 
-      <div class="connector">
-        <div><i class="fas fa-arrow-right"></i> <span class="label">商家/技术</span> <i class="fas fa-arrow-left"></i></div>
-        <div class="sync-label"><i class="fas fa-sync-alt fa-xs"></i> 双向赋能</div>
-        <div><i class="fas fa-arrow-left"></i> <span class="label">流量/数据</span> <i class="fas fa-arrow-right"></i></div>
+      <div class="node-connector-col">
+        <div class="connector-vertical">
+          <div><i class="fas fa-arrow-down"></i> <span class="label">商家/技术</span> <i class="fas fa-arrow-up"></i></div>
+          <div class="sync-label"><i class="fas fa-sync-alt fa-xs"></i> 双向赋能</div>
+          <div><i class="fas fa-arrow-up"></i> <span class="label">流量/数据</span> <i class="fas fa-arrow-down"></i></div>
+        </div>
       </div>
 
       <div class="node node-youzan">
@@ -362,8 +421,8 @@
       </div>
     </div>
 
-    <!-- 第二行：商家 ⇄ 消费者 (交易核心) -->
-    <div class="row">
+    <!-- 第二列：商家 + 消费者 -->
+    <div class="col-stack">
       <div class="node node-merchant">
         <div class="node-icon"><i class="fas fa-shop"></i></div>
         <h3>本地商家</h3>
@@ -378,10 +437,12 @@
         </div>
       </div>
 
-      <div class="connector">
-        <div><i class="fas fa-arrow-right"></i> <span class="label">上架盲盒</span> <i class="fas fa-arrow-left"></i></div>
-        <div class="sync-label"><i class="fas fa-exchange-alt fa-xs"></i> 交易闭环</div>
-        <div><i class="fas fa-arrow-left"></i> <span class="label">到店核销</span> <i class="fas fa-arrow-right"></i></div>
+      <div class="node-connector-col">
+        <div class="connector-vertical">
+          <div><i class="fas fa-arrow-down"></i> <span class="label">上架盲盒</span> <i class="fas fa-arrow-up"></i></div>
+          <div class="sync-label"><i class="fas fa-exchange-alt fa-xs"></i> 交易闭环</div>
+          <div><i class="fas fa-arrow-up"></i> <span class="label">到店核销</span> <i class="fas fa-arrow-down"></i></div>
+        </div>
       </div>
 
       <div class="node node-consumer">
@@ -399,9 +460,10 @@
       </div>
     </div>
 
-    <!-- 第三行：私域社群 (留存反哺层) -->
-    <div class="row" style="flex:0.8;">
-      <div class="node node-private">
+    <!-- 底部一行：私域社群 + 飞轮 + 底部价值表 -->
+    <div class="bottom-row">
+      <!-- 左侧：私域社群 -->
+      <div class="node node-private" style="max-width: 240px;">
         <div class="node-icon"><i class="fas fa-user-group"></i></div>
         <h3>私域社群</h3>
         <div class="sub">周边捡漏群 · 会员池</div>
@@ -414,38 +476,37 @@
           ➡️ 反哺：稳定日活 · 复购流量 → 魔法袋 & 有赞
         </div>
       </div>
-    </div>
 
-    <!-- 飞轮效应核心视觉 -->
-    <div class="flywheel-section">
-      <div style="text-align:center; margin-bottom:4px; font-weight:700; font-size:0.9rem;">
-        <i class="fas fa-sync-alt fa-spin" style="margin-right:6px;"></i>正向飞轮 · 越转越快
+      <!-- 中间：飞轮 -->
+      <div class="flywheel-section">
+        <div style="text-align:center; margin-bottom:6px; font-weight:700; font-size:0.85rem;">
+          <i class="fas fa-sync-alt fa-spin" style="margin-right:4px;"></i>正向飞轮 · 越转越快
+        </div>
+        <div class="flywheel-row">
+          <span class="flywheel-item"><i class="fas fa-store" style="color:#2a7a62;"></i> 商家增收</span>
+          <i class="fas fa-arrow-right flywheel-arrow"></i>
+          <span class="flywheel-item"><i class="fas fa-box-open" style="color:#c45d2c;"></i> 更多供给</span>
+          <i class="fas fa-arrow-right flywheel-arrow"></i>
+          <span class="flywheel-item"><i class="fas fa-user-plus" style="color:#e68a2e;"></i> 用户实惠</span>
+          <i class="fas fa-arrow-right flywheel-arrow"></i>
+          <span class="flywheel-item"><i class="fas fa-share-alt" style="color:#6a4e9e;"></i> 高频裂变</span>
+        </div>
+        <div class="flywheel-row" style="margin-top:6px;">
+          <span class="flywheel-item"><i class="fas fa-users" style="color:#6a4e9e;"></i> 私域沉淀</span>
+          <i class="fas fa-arrow-right flywheel-arrow"></i>
+          <span class="flywheel-item"><i class="fas fa-arrow-rotate-left" style="color:#1d5e4c;"></i> 反哺供给</span>
+          <i class="fas fa-arrow-right flywheel-arrow"></i>
+          <span class="flywheel-item"><i class="fas fa-check-circle" style="color:#1d6b4e;"></i> 闭环成立</span>
+        </div>
       </div>
-      <div class="flywheel-row">
-        <span class="flywheel-item"><i class="fas fa-store" style="color:#2a7a62;"></i> 商家增收</span>
-        <i class="fas fa-arrow-right flywheel-arrow"></i>
-        <span class="flywheel-item"><i class="fas fa-box-open" style="color:#c45d2c;"></i> 更多供给</span>
-        <i class="fas fa-arrow-right flywheel-arrow"></i>
-        <span class="flywheel-item"><i class="fas fa-user-plus" style="color:#e68a2e;"></i> 用户实惠</span>
-        <i class="fas fa-arrow-right flywheel-arrow"></i>
-        <span class="flywheel-item"><i class="fas fa-share-alt" style="color:#6a4e9e;"></i> 高频裂变</span>
-        <i class="fas fa-arrow-right flywheel-arrow"></i>
-        <span class="flywheel-item"><i class="fas fa-users" style="color:#6a4e9e;"></i> 私域沉淀</span>
-        <i class="fas fa-arrow-right flywheel-arrow"></i>
-        <span class="flywheel-item"><i class="fas fa-arrow-rotate-left" style="color:#1d5e4c;"></i> 反哺供给</span>
-      </div>
-      <div style="display:flex; justify-content:center; gap:20px; margin-top:8px; font-size:0.7rem;">
-        <span><i class="fas fa-check-circle" style="color:#1d6b4e;"></i> 魔法袋串联 · 有赞数据闭环</span>
-        <span><i class="fas fa-check-circle" style="color:#1d6b4e;"></i> 每个节点都获得增量价值</span>
-      </div>
-    </div>
 
-    <!-- 双向价值速查表 -->
-    <div class="value-grid">
-      <div class="value-card"><i class="fas fa-exchange-alt" style="color:#c45d2c;"></i> <strong>魔法袋⇄有赞</strong><br>得：商家/技术/种子<br>予：流量/GMV/钩子</div>
-      <div class="value-card"><i class="fas fa-exchange-alt" style="color:#2a7a62;"></i> <strong>魔法袋⇄商家</strong><br>得：稳定供给<br>予：止损利润+客流</div>
-      <div class="value-card"><i class="fas fa-exchange-alt" style="color:#e68a2e;"></i> <strong>魔法袋⇄消费者</strong><br>得：高频交易+传播<br>予：超值惊喜</div>
-      <div class="value-card"><i class="fas fa-exchange-alt" style="color:#6a4e9e;"></i> <strong>私域⇄各方</strong><br>沉淀用户，反哺复购<br>提升魔法袋日活</div>
+      <!-- 右侧：双向价值速查表 -->
+      <div class="value-grid" style="flex: 1; min-width: 0;">
+        <div class="value-card"><i class="fas fa-exchange-alt" style="color:#c45d2c;"></i> <strong>魔法袋⇄有赞</strong><br>得：商家/技术/种子<br>予：流量/GMV/钩子</div>
+        <div class="value-card"><i class="fas fa-exchange-alt" style="color:#2a7a62;"></i> <strong>魔法袋⇄商家</strong><br>得：稳定供给<br>予：止损利润+客流</div>
+        <div class="value-card"><i class="fas fa-exchange-alt" style="color:#e68a2e;"></i> <strong>魔法袋⇄消费者</strong><br>得：高频交易+传播<br>予：超值惊喜</div>
+        <div class="value-card"><i class="fas fa-exchange-alt" style="color:#6a4e9e;"></i> <strong>私域⇄各方</strong><br>沉淀用户，反哺复购<br>提升魔法袋日活</div>
+      </div>
     </div>
   </div>
 </div>
