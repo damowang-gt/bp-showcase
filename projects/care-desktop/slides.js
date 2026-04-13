@@ -91,65 +91,64 @@ const SLIDES = [
   },
   {
     id: 'business',
-    tag: '可执行的收入模型 · 拒绝空谈',
-    title: '三步走，让关怀桌面持续造血',
+    tag: '务实的商业化路径 · 依托真实场景落地',
+    title: '从工具到入口的变现矩阵',
     type: 'three-col',
     cards: [
       {
-        icon: 'gift',
-        title: '基础免费版',
-        image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80',
-        content: '大字桌面、基础语音、通讯卡片 —— 快速积累种子用户，建立信任。<br><br>获客渠道：应用商店、子女推荐、养老社群。'
+        icon: 'microchip',
+        title: '硬件预装与旧机改造',
+        subtitle: '低成本获客基本盘',
+        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80',
+        content: '与二手手机回收商（如转转、爱回收）及区域运营商合作，提供“旧机适老改造”刷机包或预装方案。<br><br><strong>落地模式：</strong> 按授权装机量收取软件买断费（如 5-10元/台），实现低成本批量获客。'
       },
       {
         icon: 'crown',
-        title: '高级订阅 · 子女安心包',
-        subtitle: '¥9.9/月',
+        title: '子女端增值服务',
+        subtitle: '按年付费降低决策门槛',
         image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80',
-        content: '远程配置桌面 · 跌倒监测 · 云端联系人 · 家庭群组 · 防误触高级锁。<br><br><strong>真实转化预估：</strong> 免费用户8-12%转化为付费，月留存>80%。'
+        content: '长辈免费使用基础桌面，子女端App提供高价值守护功能：<strong>远程屏幕协助、反诈骗实时预警、长辈活动轨迹异常提醒</strong>。<br><br><strong>落地模式：</strong> 推出 29.9元/年 的基础守护包，以极低年费快速打穿子女付费意愿。'
       },
       {
         icon: 'handshake',
-        title: 'B端/硬件合作',
+        title: '银发本地生活服务分发',
+        subtitle: '精准流量的 CPS 变现',
         image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80',
-        content: '• 养老机构SaaS版 (年费/床位)<br>• 运营商定制预装分成<br>• 旧手机刷机授权 (每台5-10元)<br><br>已与2家区域养老社区沟通试点方案。'
+        content: '桌面作为长辈最高频的数字入口，接入本地合规的养老服务（如：陪诊看病、上门家政、适老化产品购买）。<br><br><strong>落地模式：</strong> 采用严格筛选的白名单制，通过服务抽成（CPS）实现长效变现，不接任何干扰性广告。'
       }
     ],
     footer: {
       icon: 'map-signs',
-      text: '<strong>初期变现策略：</strong> 通过“家庭相册+健康周报”增值服务提升付费转化；中期探索适老服务推荐，按效果付费，绝不依赖广告影响体验。'
+      text: '<strong>变现节奏：</strong> 早期通过“旧机改造”快速铺量验证产品；中期依靠“子女守护包”实现现金流打平；后期依托高频入口向“银发服务分发平台”演进。'
     }
   },
   {
-    id: 'team-roadmap',
-    tag: '核心团队 · 产品已落地',
-    title: '经验互补，执行力强',
-    type: 'three-col',
+    id: 'roadmap',
+    tag: '务实推进 · 产品已落地',
+    title: '产品现状与发展里程碑',
+    type: 'two-col',
     cards: [
       {
-        icon: 'user-tie',
-        title: '王文涛',
-        subtitle: '需求/营销',
-        image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80',
-        content: '前智能硬件产品负责人，深度访谈200+老龄用户，擅长增长与渠道。'
-      },
-      {
-        icon: 'code',
-        title: '谢飞',
-        subtitle: '开发/架构',
-        image: 'https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=600&q=80',
-        content: '全栈+Android专家，无障碍服务领域4年，主导自动化引擎。'
+        icon: 'check',
+        title: '当前进展：核心技术已验证',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
+        isList: true,
+        items: [
+          { text: '<strong>底层引擎：</strong> 基于无障碍服务的自动化脚本已跑通，核心功能（如微信一键视频）成功率高' },
+          { text: '<strong>防误触系统：</strong> 状态栏拦截、系统设置隐藏等核心能力已在主流安卓机型验证' },
+          { text: '<strong>产品原型：</strong> V1.0 安卓 APK 已完成打包，正在进行小范围测试' }
+        ]
       },
       {
         icon: 'flag-checkered',
-        title: '里程碑',
+        title: '未来规划：从工具到平台',
         image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80',
         isList: true,
         items: [
-          { text: '✅ V1.0 安卓APK完成 (2026.03)' },
-          { text: '✅ 无障碍引擎稳定，适配微信' },
-          { text: '🔄 与2家养老机构沟通内测意向' },
-          { text: '🎯 Q3启动种子用户内测' }
+          { text: '<strong>阶段一：</strong> 完善核心工具体验，启动种子用户内测，打磨交互细节' },
+          { text: '<strong>阶段二：</strong> 上线子女端 App，跑通“长辈端免费使用 + 子女端按年付费”的商业闭环' },
+          { text: '<strong>阶段三：</strong> 拓展硬件渠道合作，与二手数码回收平台建立“旧机适老改造”预装合作' },
+          { text: '<strong>阶段四：</strong> 接入本地适老服务资源，开启 CPS 商业分发平台演进' }
         ]
       }
     ]
