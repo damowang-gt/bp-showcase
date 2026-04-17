@@ -99,6 +99,28 @@ const PROJECTS = [
     ],
     gradient: 'linear-gradient(135deg, rgba(10,25,50,0.85) 0%, rgba(30,10,60,0.85) 100%), url("https://images.unsplash.com/photo-1639762681485-074b7f4ec626?auto=format&fit=crop&w=1200&q=80")',
     imagePosition: 'center center'
+  },
+  {
+    id: 'magic-bag-tech',
+    title: '惊喜食光技术文档',
+    category: '内部技术 · 授权访问',
+    year: 2025,
+    featured: false,
+    description: '惊喜食光业务流程、技术架构、技术栈选型、数据模型、部署方案与开发计划的完整技术文档。（需账号授权访问）',
+    stats: [
+      { label: '终端系统', value: '4' },
+      { label: '核心模块', value: '12' }
+    ],
+    page: '/projects/magic-bag-tech/login.html',
+    pageTitle: '惊喜食光 · 技术文档（授权访问）',
+    subtitle: '业务流程 · 技术架构 · 技术栈选型',
+    heroStats: [
+      { label: '数据实体', value: '28' },
+      { label: '角色体系', value: '3' },
+      { label: '技术栈', value: '12+' }
+    ],
+    gradient: 'linear-gradient(135deg, rgba(27,77,62,0.85) 0%, rgba(196,93,44,0.85) 100%), url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80")',
+    imagePosition: 'center 40%'
   }
 ];
 
