@@ -112,7 +112,7 @@ const PROJECTS = [
       { label: '核心模块', value: '12' }
     ],
     page: '/projects/magic-bag-tech/login.html',
-    pageTitle: '惊喜食光 · 技术文档（授权访问）',
+    pageTitle: '惊喜食光 · 技术栈与业务流程（授权访问）',
     subtitle: '业务流程 · 技术架构 · 技术栈选型',
     heroStats: [
       { label: '数据实体', value: '28' },
