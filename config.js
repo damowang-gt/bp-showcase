@@ -159,7 +159,7 @@ function renderProjectCard(project, index) {
         `).join('')}
         
         <a href="${project.page}" class="bento-card bento-cta-card">
-          <span>查看完整路演详情</span>
+          <span>${project.id === 'magic-bag-tech' ? '查看技术文档' : '查看完整路演详情'}</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
