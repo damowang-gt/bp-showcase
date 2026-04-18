@@ -303,7 +303,7 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
     <p class="fade-up fade-up-d2">连接线下烘焙门店与价格敏感型消费者，将每日剩余库存以盲盒形式低价出售，实现商家清库存、消费者得实惠、社会减浪费的三方共赢</p>
     <div class="hero-stats fade-up fade-up-d3">
       <div class="hero-stat"><div class="val" style="color:var(--cyan);">5</div><div class="lbl">终端系统</div></div>
-      <div class="hero-stat"><div class="val" style="color:var(--primary);">14</div><div class="lbl">核心模块</div></div>
+      <div class="hero-stat"><div class="val" style="color:var(--primary);">9</div><div class="lbl">业务模块</div></div>
       <div class="hero-stat"><div class="val" style="color:var(--purple);">32</div><div class="lbl">数据实体</div></div>
       <div class="hero-stat"><div class="val" style="color:var(--success);">4</div><div class="lbl">角色体系</div></div>
     </div>
@@ -624,7 +624,7 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
 <section class="section" id="tech-arch">
   <div class="section-label"><i class="fas fa-layer-group"></i> Tech Architecture</div>
   <div class="section-title">系统技术架构分层</div>
-  <div class="section-desc" style="margin-bottom:32px;">前后端分离、微服务拆分、云原生部署。四端（用户小程序、商家小程序、平台后台、商家后台）共享同一套后端服务，通过API Gateway统一鉴权路由。</div>
+  <div class="section-desc" style="margin-bottom:32px;">前后端分离、单体架构（Spring Boot 分包）、模块化设计。五端（用户小程序、商家小程序、代理商H5、平台后台、商家后台）共享同一套后端服务，通过 Interceptor 统一鉴权路由。</div>
 
   <!-- 前端层 -->
   <div class="arch-layer">
@@ -648,12 +648,12 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
   <!-- 网关层 -->
   <div class="arch-layer">
     <div class="arch-layer-header" style="background:rgba(243,156,18,0.08); color:var(--warning);">
-      <i class="fas fa-network-wired"></i> 接入网关层
+      <i class="fas fa-network-wired"></i> 接入层
     </div>
     <div class="arch-layer-body">
       <div class="arch-chip"><i class="fas fa-route" style="color:var(--warning);"></i> Nginx 反向代理</div>
-      <div class="arch-chip"><i class="fas fa-key" style="color:var(--warning);"></i> JWT 鉴权校验</div>
-      <div class="arch-chip"><i class="fas fa-gauge-high" style="color:var(--warning);"></i> 限流 / 熔断</div>
+      <div class="arch-chip"><i class="fas fa-key" style="color:var(--warning);"></i> JWT 鉴权拦截器</div>
+      <div class="arch-chip"><i class="fas fa-gauge-high" style="color:var(--warning);"></i> 接口限流</div>
       <div class="arch-chip"><i class="fas fa-file-alt" style="color:var(--warning);"></i> 请求日志</div>
       <div class="arch-chip"><i class="fas fa-shuffle" style="color:var(--warning);"></i> 路由分发</div>
     </div>
@@ -661,24 +661,24 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
 
   <!-- 箭头 -->
   <div style="text-align:center; padding:8px 0; color:var(--text-s); font-size:18px;">
-    <i class="fas fa-arrows-up-down"></i> <span style="font-size:11px; margin-left:6px;">RPC / HTTP</span>
+    <i class="fas fa-arrows-up-down"></i> <span style="font-size:11px; margin-left:6px;">方法调用</span>
   </div>
 
-  <!-- 业务服务层 -->
+  <!-- 业务层 -->
   <div class="arch-layer">
     <div class="arch-layer-header" style="background:rgba(255,107,53,0.08); color:var(--primary);">
-      <i class="fas fa-cubes"></i> 业务服务层（微服务）
+      <i class="fas fa-cubes"></i> 业务层（Spring Boot 分包架构）
     </div>
     <div class="arch-layer-body">
-      <div class="arch-chip"><i class="fas fa-user" style="color:var(--cyan);"></i> 用户服务</div>
-      <div class="arch-chip"><i class="fas fa-store" style="color:var(--primary);"></i> 商家服务</div>
-      <div class="arch-chip"><i class="fas fa-box-open" style="color:var(--warning);"></i> 盲盒服务</div>
-      <div class="arch-chip"><i class="fas fa-receipt" style="color:var(--success);"></i> 订单服务</div>
-      <div class="arch-chip"><i class="fas fa-credit-card" style="color:var(--pink);"></i> 支付服务</div>
-      <div class="arch-chip"><i class="fas fa-qrcode" style="color:var(--purple);"></i> 核销服务</div>
-      <div class="arch-chip"><i class="fas fa-comment-dots" style="color:var(--info);"></i> 消息服务</div>
-      <div class="arch-chip"><i class="fas fa-wallet" style="color:var(--accent);"></i> 结算服务</div>
-      <div class="arch-chip"><i class="fas fa-handshake" style="color:var(--warning);"></i> 代理商/分佣服务</div>
+      <div class="arch-chip"><i class="fas fa-user" style="color:var(--cyan);"></i> user 用户模块</div>
+      <div class="arch-chip"><i class="fas fa-store" style="color:var(--primary);"></i> merchant 商家模块</div>
+      <div class="arch-chip"><i class="fas fa-box-open" style="color:var(--warning);"></i> blindbox 盲盒模块</div>
+      <div class="arch-chip"><i class="fas fa-receipt" style="color:var(--success);"></i> order 订单模块</div>
+      <div class="arch-chip"><i class="fas fa-credit-card" style="color:var(--pink);"></i> pay 支付模块</div>
+      <div class="arch-chip"><i class="fas fa-qrcode" style="color:var(--purple);"></i> verify 核销模块</div>
+      <div class="arch-chip"><i class="fas fa-comment-dots" style="color:var(--info);"></i> notify 消息模块</div>
+      <div class="arch-chip"><i class="fas fa-wallet" style="color:var(--accent);"></i> settle 结算模块</div>
+      <div class="arch-chip"><i class="fas fa-handshake" style="color:var(--warning);"></i> agent 代理商模块</div>
     </div>
   </div>
 
@@ -711,7 +711,7 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
       <i class="fas fa-server"></i> 基础设施与第三方
     </div>
     <div class="arch-layer-body">
-      <div class="arch-chip"><i class="fab fa-docker" style="color:#2496ED;"></i> Docker + K8s</div>
+      <div class="arch-chip"><i class="fab fa-docker" style="color:#2496ED;"></i> Docker 容器化</div>
       <div class="arch-chip"><i class="fas fa-code-branch" style="color:var(--success);"></i> CI/CD 流水线</div>
       <div class="arch-chip"><i class="fas fa-bell" style="color:var(--warning);"></i> 监控告警</div>
       <div class="arch-chip"><i class="fab fa-weixin" style="color:#07C160;"></i> 微信支付</div>
@@ -759,9 +759,14 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
           <td>Java生态最成熟的Web框架，事务管理/安全框架/ORM集成完善，团队招聘容易，适合支付/订单等对事务一致性要求高的业务</td>
         </tr>
         <tr>
-          <td style="font-weight:600; color:var(--primary);"><i class="fas fa-plug" style="margin-right:6px;"></i>微服务</td>
-          <td>Spring Cloud Alibaba</td><td><span class="tech-tag" style="background:rgba(255,107,53,0.15);color:var(--primary);">2022.x</span></td>
-          <td>Nacos注册中心+配置中心，Sentinel限流熔断，Gateway网关，国内文档和社区活跃度最优</td>
+          <td style="font-weight:600; color:var(--primary);"><i class="fas fa-folder-tree" style="margin-right:6px;"></i>架构模式</td>
+          <td>Spring Boot 单体分包</td><td><span class="tech-tag" style="background:rgba(255,107,53,0.15);color:var(--primary);">模块化</span></td>
+          <td>按业务域分包（user/merchant/blindbox/order/pay等），模块间通过 Service 方法调用，无 RPC 开销。初期降低运维复杂度，后续业务增长后可平滑拆分为微服务</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600; color:var(--primary);"><i class="fas fa-database" style="margin-right:6px;"></i>ORM框架</td>
+          <td>MyBatis-Plus</td><td><span class="tech-tag" style="background:rgba(255,107,53,0.15);color:var(--primary);">3.5+</span></td>
+          <td>基于MyBatis增强，内置CRUD/分页/条件构造器，减少样板SQL代码，学习成本低，国内社区活跃</td>
         </tr>
         <tr>
           <td style="font-weight:600; color:var(--success);"><i class="fas fa-database" style="margin-right:6px;"></i>关系数据库</td>
@@ -771,7 +776,7 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
         <tr>
           <td style="font-weight:600; color:var(--warning);"><i class="fas fa-bolt" style="margin-right:6px;"></i>缓存</td>
           <td>Redis</td><td><span class="tech-tag" style="background:rgba(243,156,18,0.15);color:var(--warning);">7.x</span></td>
-          <td>盲盒库存扣减（分布式锁）、取货码生成与校验、LBS附近门店缓存、热点盲盒列表缓存、用户Session</td>
+          <td>盲盒库存扣减（Redis原子操作）、取货码生成与校验、LBS附近门店缓存、热点盲盒列表缓存、用户Session</td>
         </tr>
         <tr>
           <td style="font-weight:600; color:var(--cyan);"><i class="fas fa-search" style="margin-right:6px;"></i>搜索引擎</td>
@@ -896,18 +901,18 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
     <div style="margin-top:8px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
       <div style="text-align:center; padding:20px;">
         <div style="font-size:28px; margin-bottom:10px;">🏗️</div>
-        <div style="font-size:15px; font-weight:700; margin-bottom:6px;">一套后端服务</div>
-        <div style="font-size:13px; color:var(--text-s);">五端共享同一套微服务集群，通过不同的API前缀和角色权限区分调用方</div>
+        <div style="font-size:15px; font-weight:700; margin-bottom:6px;">一套单体应用</div>
+        <div style="font-size:13px; color:var(--text-s);">五端共享同一个 Spring Boot 应用，通过 API 前缀和角色权限区分调用方，无 RPC 调用开销</div>
       </div>
       <div style="text-align:center; padding:20px;">
-        <div style="font-size:28px; margin-bottom:10px;">🔐</div>
-        <div style="font-size:15px; font-weight:700; margin-bottom:6px;">数据隔离靠权限</div>
-        <div style="font-size:13px; color:var(--text-s);">代理商端看名下资产，商家端看本店资产，用户端看个人资产，平台端全局统筹。</div>
+        <div style="font-size:28px; margin-bottom:10px;">📦</div>
+        <div style="font-size:15px; font-weight:700; margin-bottom:6px;">按业务域分包</div>
+        <div style="font-size:13px; color:var(--text-s);">com.yuwei.user / merchant / blindbox / order / pay 等包结构，模块边界清晰，后续可平滑拆分</div>
       </div>
       <div style="text-align:center; padding:20px;">
         <div style="font-size:28px; margin-bottom:10px;">🔄</div>
-        <div style="font-size:15px; font-weight:700; margin-bottom:6px;">协同与利益绑定</div>
-        <div style="font-size:13px; color:var(--text-s);">用户下单核销后，触发资金拆分：商家货款确认 + 代理商分佣到账 + 平台抽成，多端状态同步更新。</div>
+        <div style="font-size:15px; font-weight:700; margin-bottom:6px;">本地事务保障</div>
+        <div style="font-size:13px; color:var(--text-s);">同一进程内通过 @Transactional 保证跨模块事务一致性，无需分布式事务方案</div>
       </div>
     </div>
   </div>
@@ -1051,10 +1056,10 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
 <section class="section" id="deploy">
   <div class="section-label"><i class="fas fa-cloud-arrow-up"></i> Deployment</div>
   <div class="section-title">部署架构</div>
-  <div class="section-desc" style="margin-bottom:32px;">推荐云上部署方案，初期单集群即可，随业务增长逐步横向扩展。</div>
+  <div class="section-desc" style="margin-bottom:32px;">推荐云上部署方案，单体架构简化运维，初期单实例即可满足需求，随业务增长可水平扩展。</div>
 
   <div class="flow-container">
-    <svg viewBox="0 0 1100 520" width="100%" style="min-width:800px;">
+    <svg viewBox="0 0 1100 480" width="100%" style="min-width:800px;">
       <defs>
         <marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--text-s)"/></marker>
       </defs>
@@ -1079,71 +1084,63 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
 
       <!-- CDN / SLB -->
       <rect x="300" y="155" width="320" height="50" rx="10" fill="var(--card2)" stroke="var(--warning)" stroke-width="1.5"/>
-      <text x="460" y="185" fill="var(--warning)" font-size="13" font-weight="600" text-anchor="middle">CDN + SLB 负载均衡</text>
+      <text x="460" y="185" fill="var(--warning)" font-size="13" font-weight="600" text-anchor="middle">CDN + Nginx 负载均衡</text>
 
       <line x1="460" y1="205" x2="460" y2="240" stroke="var(--text-s)" stroke-width="1" marker-end="url(#arr2)"/>
 
-      <!-- K8s集群 -->
-      <rect x="140" y="240" width="640" height="200" rx="14" fill="rgba(255,107,53,0.04)" stroke="var(--primary)" stroke-width="1" stroke-dasharray="6,3"/>
-      <text x="160" y="264" fill="var(--primary)" font-size="12" font-weight="600">Kubernetes 集群（腾讯云 TKE / 阿里云 ACK）</text>
+      <!-- Spring Boot 应用 -->
+      <rect x="200" y="240" width="520" height="140" rx="14" fill="rgba(255,107,53,0.04)" stroke="var(--primary)" stroke-width="1" stroke-dasharray="6,3"/>
+      <text x="220" y="264" fill="var(--primary)" font-size="12" font-weight="600">Spring Boot 单体应用（Docker 容器）</text>
 
-      <!-- 服务实例 -->
-      <rect x="170" y="280" width="120" height="44" rx="8" fill="var(--card2)" stroke="var(--border)"/>
-      <text x="230" y="306" fill="var(--text)" font-size="11" text-anchor="middle">Gateway ×2</text>
+      <!-- 模块 -->
+      <rect x="220" y="280" width="100" height="36" rx="6" fill="var(--card2)" stroke="var(--border)"/>
+      <text x="270" y="302" fill="var(--text)" font-size="10" text-anchor="middle">用户模块</text>
 
-      <rect x="310" y="280" width="120" height="44" rx="8" fill="var(--card2)" stroke="var(--border)"/>
-      <text x="370" y="306" fill="var(--text)" font-size="11" text-anchor="middle">用户服务 ×2</text>
+      <rect x="335" y="280" width="100" height="36" rx="6" fill="var(--card2)" stroke="var(--border)"/>
+      <text x="385" y="302" fill="var(--text)" font-size="10" text-anchor="middle">商家模块</text>
 
-      <rect x="450" y="280" width="120" height="44" rx="8" fill="var(--card2)" stroke="var(--border)"/>
-      <text x="510" y="306" fill="var(--text)" font-size="11" text-anchor="middle">订单服务 ×2</text>
+      <rect x="450" y="280" width="100" height="36" rx="6" fill="var(--card2)" stroke="var(--border)"/>
+      <text x="500" y="302" fill="var(--text)" font-size="10" text-anchor="middle">盲盒模块</text>
 
-      <rect x="590" y="280" width="120" height="44" rx="8" fill="var(--card2)" stroke="var(--border)"/>
-      <text x="650" y="306" fill="var(--text)" font-size="11" text-anchor="middle">盲盒服务 ×2</text>
+      <rect x="565" y="280" width="100" height="36" rx="6" fill="var(--card2)" stroke="var(--border)"/>
+      <text x="615" y="302" fill="var(--text)" font-size="10" text-anchor="middle">订单模块</text>
 
-      <rect x="170" y="340" width="120" height="44" rx="8" fill="var(--card2)" stroke="var(--border)"/>
-      <text x="230" y="366" fill="var(--text)" font-size="11" text-anchor="middle">商家服务 ×2</text>
+      <rect x="220" y="330" width="100" height="36" rx="6" fill="var(--card2)" stroke="var(--border)"/>
+      <text x="270" y="352" fill="var(--text)" font-size="10" text-anchor="middle">支付模块</text>
 
-      <rect x="310" y="340" width="120" height="44" rx="8" fill="var(--card2)" stroke="var(--border)"/>
-      <text x="370" y="366" fill="var(--text)" font-size="11" text-anchor="middle">支付服务 ×2</text>
+      <rect x="335" y="330" width="100" height="36" rx="6" fill="var(--card2)" stroke="var(--border)"/>
+      <text x="385" y="352" fill="var(--text)" font-size="10" text-anchor="middle">核销模块</text>
 
-      <rect x="450" y="340" width="120" height="44" rx="8" fill="var(--card2)" stroke="var(--border)"/>
-      <text x="510" y="366" fill="var(--text)" font-size="11" text-anchor="middle">核销服务 ×2</text>
+      <rect x="450" y="330" width="100" height="36" rx="6" fill="var(--card2)" stroke="var(--border)"/>
+      <text x="500" y="352" fill="var(--text)" font-size="10" text-anchor="middle">消息模块</text>
 
-      <rect x="590" y="340" width="120" height="44" rx="8" fill="var(--card2)" stroke="var(--border)"/>
-      <text x="650" y="366" fill="var(--text)" font-size="11" text-anchor="middle">消息服务 ×2</text>
-
-      <!-- Nacos -->
-      <rect x="170" y="398" width="140" height="32" rx="6" fill="rgba(243,156,18,0.1)" stroke="var(--warning)" stroke-width="1"/>
-      <text x="240" y="418" fill="var(--warning)" font-size="10" text-anchor="middle">Nacos 注册/配置中心</text>
-
-      <!-- Sentinel -->
-      <rect x="330" y="398" width="130" height="32" rx="6" fill="rgba(230,57,70,0.1)" stroke="var(--accent)" stroke-width="1"/>
-      <text x="395" y="418" fill="var(--accent)" font-size="10" text-anchor="middle">Sentinel 限流熔断</text>
+      <rect x="565" y="330" width="100" height="36" rx="6" fill="var(--card2)" stroke="var(--border)"/>
+      <text x="615" y="352" fill="var(--text)" font-size="10" text-anchor="middle">结算模块</text>
 
       <!-- 箭头到数据层 -->
-      <line x1="460" y1="440" x2="460" y2="472" stroke="var(--text-s)" stroke-width="1" marker-end="url(#arr2)"/>
+      <line x1="460" y1="380" x2="460" y2="412" stroke="var(--text-s)" stroke-width="1" marker-end="url(#arr2)"/>
 
       <!-- 数据层 -->
-      <rect x="100" y="472" width="200" height="40" rx="8" fill="rgba(46,204,113,0.08)" stroke="var(--success)" stroke-width="1"/>
-      <text x="200" y="497" fill="var(--success)" font-size="12" font-weight="500" text-anchor="middle">MySQL 主从 (RDS)</text>
+      <rect x="100" y="412" width="200" height="40" rx="8" fill="rgba(46,204,113,0.08)" stroke="var(--success)" stroke-width="1"/>
+      <text x="200" y="437" fill="var(--success)" font-size="12" font-weight="500" text-anchor="middle">MySQL 8.0 (RDS)</text>
 
-      <rect x="330" y="472" width="200" height="40" rx="8" fill="rgba(243,156,18,0.08)" stroke="var(--warning)" stroke-width="1"/>
-      <text x="430" y="497" fill="var(--warning)" font-size="12" font-weight="500" text-anchor="middle">Redis 集群</text>
+      <rect x="330" y="412" width="200" height="40" rx="8" fill="rgba(243,156,18,0.08)" stroke="var(--warning)" stroke-width="1"/>
+      <text x="430" y="437" fill="var(--warning)" font-size="12" font-weight="500" text-anchor="middle">Redis 7.x</text>
 
-      <rect x="560" y="472" width="200" height="40" rx="8" fill="rgba(34,211,238,0.08)" stroke="var(--cyan)" stroke-width="1"/>
-      <text x="660" y="497" fill="var(--cyan)" font-size="12" font-weight="500" text-anchor="middle">ES + OSS</text>
+      <rect x="560" y="412" width="200" height="40" rx="8" fill="rgba(34,211,238,0.08)" stroke="var(--cyan)" stroke-width="1"/>
+      <text x="660" y="437" fill="var(--cyan)" font-size="12" font-weight="500" text-anchor="middle">ES + OSS</text>
 
       <!-- 微信支付 -->
-      <rect x="900" y="280" width="160" height="60" rx="10" fill="rgba(7,193,96,0.08)" stroke="#07C160" stroke-width="1"/>
-      <text x="980" y="305" fill="#07C160" font-size="12" font-weight="600" text-anchor="middle">微信支付</text>
-      <text x="980" y="325" fill="var(--text-s)" font-size="10" text-anchor="middle">回调通知</text>
-      <line x1="710" y1="306" x2="900" y2="306" stroke="var(--text-s)" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr2)"/>
+      <rect x="800" y="260" width="160" height="60" rx="10" fill="rgba(7,193,96,0.08)" stroke="#07C160" stroke-width="1"/>
+      <text x="880" y="285" fill="#07C160" font-size="12" font-weight="600" text-anchor="middle">微信支付</text>
+      <text x="880" y="305" fill="var(--text-s)" font-size="10" text-anchor="middle">回调通知</text>
+      <line x1="720" y1="290" x2="800" y2="290" stroke="var(--text-s)" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr2)"/>
 
       <!-- 微信消息 -->
-      <rect x="900" y="370" width="160" height="60" rx="10" fill="rgba(7,193,96,0.08)" stroke="#07C160" stroke-width="1"/>
-      <text x="980" y="395" fill="#07C160" font-size="12" font-weight="600" text-anchor="middle">微信订阅消息</text>
-      <text x="980" y="415" fill="var(--text-s)" font-size="10" text-anchor="middle">下单/核销通知</text>
-      <line x1="710" y1="366" x2="900" y2="395" stroke="var(--text-s)" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr2)"/>
+      <rect x="800" y="350" width="160" height="60" rx="10" fill="rgba(7,193,96,0.08)" stroke="#07C160" stroke-width="1"/>
+      <text x="880" y="375" fill="#07C160" font-size="12" font-weight="600" text-anchor="middle">微信订阅消息</text>
+      <text x="880" y="395" fill="var(--text-s)" font-size="10" text-anchor="middle">下单/核销通知</text>
+      <line x1="720" y1="346" x2="800" y2="375" stroke="var(--text-s)" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr2)"/>
     </svg>
   </div>
 </section>
@@ -1160,7 +1157,7 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
     <!-- P0 -->
     <div style="background:var(--card); border:2px solid rgba(255,107,53,0.3); border-radius:18px; padding:28px; position:relative;">
       <div style="position:absolute; top:-12px; left:20px; background:var(--primary); color:#fff; font-size:11px; font-weight:700; padding:4px 14px; border-radius:6px;">P0 核心闭环</div>
-      <div style="margin-top:8px; font-size:13px; color:var(--primary); font-weight:600; margin-bottom:16px;">预估 6-8 周</div>
+      <div style="margin-top:8px; font-size:13px; color:var(--primary); font-weight:600; margin-bottom:16px;">预估 4-5 周</div>
       <div style="font-size:13px; color:var(--text-s); line-height:2;">
         <div><i class="fas fa-check" style="color:var(--success); width:16px;"></i> 用户注册登录（微信授权）</div>
         <div><i class="fas fa-check" style="color:var(--success); width:16px;"></i> LBS附近盲盒列表</div>
@@ -1177,7 +1174,7 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
     <!-- P1 -->
     <div style="background:var(--card); border:1px solid var(--border); border-radius:18px; padding:28px; position:relative;">
       <div style="position:absolute; top:-12px; left:20px; background:var(--warning); color:#fff; font-size:11px; font-weight:700; padding:4px 14px; border-radius:6px;">P1 增强体验</div>
-      <div style="margin-top:8px; font-size:13px; color:var(--warning); font-weight:600; margin-bottom:16px;">预估 4-5 周</div>
+      <div style="margin-top:8px; font-size:13px; color:var(--warning); font-weight:600; margin-bottom:16px;">预估 3-4 周</div>
       <div style="font-size:13px; color:var(--text-s); line-height:2;">
         <div><i class="far fa-circle" style="color:var(--text-s); width:16px;"></i> 平台管理后台（全模块）</div>
         <div><i class="far fa-circle" style="color:var(--text-s); width:16px;"></i> 商家管理后台（数据报表）</div>
@@ -1193,13 +1190,13 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
     <!-- P2 -->
     <div style="background:var(--card); border:1px solid var(--border); border-radius:18px; padding:28px; position:relative;">
       <div style="position:absolute; top:-12px; left:20px; background:var(--purple); color:#fff; font-size:11px; font-weight:700; padding:4px 14px; border-radius:6px;">P2 规模化</div>
-      <div style="margin-top:8px; font-size:13px; color:var(--purple); font-weight:600; margin-bottom:16px;">预估 4-6 周</div>
+      <div style="margin-top:8px; font-size:13px; color:var(--purple); font-weight:600; margin-bottom:16px;">预估 3-4 周</div>
       <div style="font-size:13px; color:var(--text-s); line-height:2;">
         <div><i class="far fa-circle" style="color:var(--text-s); width:16px;"></i> 智能推荐算法</div>
         <div><i class="far fa-circle" style="color:var(--text-s); width:16px;"></i> 分享裂变（拼团/邀请）</div>
         <div><i class="far fa-circle" style="color:var(--text-s); width:16px;"></i> 连锁门店管理</div>
         <div><i class="far fa-circle" style="color:var(--text-s); width:16px;"></i> 数据BI看板（高级）</div>
-        <div><i class="far fa-circle" style="color:var(--text-s); width:16px;"></i> 商家开放API</div>
+        <div><i class="far fa-circle" style="color:var(--text-s); width:16px;"></i> 代理商分佣体系</div>
         <div><i class="far fa-circle" style="color:var(--text-s); width:16px;"></i> 客服工单系统</div>
         <div><i class="far fa-circle" style="color:var(--text-s); width:16px;"></i> 多城市扩张支持</div>
         <div><i class="far fa-circle" style="color:var(--text-s); width:16px;"></i> 性能优化/压测</div>
@@ -1214,7 +1211,7 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
       <div style="text-align:center; padding:16px; background:var(--bg2); border-radius:12px;">
         <div style="font-size:24px; margin-bottom:8px;">🧑‍💻</div>
         <div style="font-size:13px; font-weight:600;">后端 ×2</div>
-        <div style="font-size:11px; color:var(--text-s); margin-top:4px;">Java/Spring，分摊用户服务+订单服务+商家服务</div>
+        <div style="font-size:11px; color:var(--text-s); margin-top:4px;">Java/Spring Boot，分摊用户/商家/订单等核心模块</div>
       </div>
       <div style="text-align:center; padding:16px; background:var(--bg2); border-radius:12px;">
         <div style="font-size:24px; margin-bottom:8px;">🎨</div>
@@ -1243,7 +1240,7 @@ footer { transition: background 0.3s, border-color 0.3s; border-top:1px solid va
 <!-- Footer -->
 <footer style="text-align:center; padding:60px 40px; border-top:1px solid var(--border);">
   <div style="font-size:14px; color:var(--text-s);">余味盲盒 · 产品技术方案文档</div>
-  <div style="font-size:12px; color:var(--border); margin-top:8px;">业务流程 + 技术架构 + 技术栈选型 + 数据模型 + 部署方案 + 开发计划</div>
+  <div style="font-size:12px; color:var(--border); margin-top:8px;">业务流程 + 技术架构(单体分包) + 技术栈选型 + 数据模型 + 部署方案 + 开发计划</div>
 </footer>
 
 <script>
