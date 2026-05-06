@@ -121,6 +121,31 @@ const PROJECTS = [
     ],
     gradient: 'linear-gradient(135deg, rgba(27,77,62,0.85) 0%, rgba(196,93,44,0.85) 100%), url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80")',
     imagePosition: 'center 40%'
+  },
+  {
+    id: 'knowledge-planet',
+    title: '知识星球',
+    category: '私域运营 · 内容变现',
+    year: 2026,
+    featured: true,
+    description: '一个基于Vue3+SpringBoot构建的私域知识付费社区。支持图文、音视频、PDF资料分享，包含会员订阅、专栏专区、嘉宾邀请等功能。提供完整的小程序、H5和后台管理体验。',
+    stats: [
+      { label: '多端支持', value: 'H5/小程序' },
+      { label: '技术架构', value: '前后端分离' }
+    ],
+    page: 'http://localhost:8102',
+    website: 'http://localhost:8101',
+    ctaText: '进入星球 H5 端',
+    websiteText: '进入管理后台',
+    pageTitle: '知识星球 · 私域运营社区',
+    subtitle: '多端内容变现私域社区系统',
+    heroStats: [
+      { label: '前端', value: 'Vue3/UniApp' },
+      { label: '后端', value: 'SpringBoot' },
+      { label: '核心功能', value: '知识付费' }
+    ],
+    gradient: 'linear-gradient(135deg, rgba(255,122,0,0.85) 0%, rgba(200,80,0,0.85) 100%), url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80")',
+    imagePosition: 'center center'
   }
 ];
 
@@ -132,11 +157,18 @@ function renderProjectCard(project, index) {
   const isReverse = index % 2 !== 0 ? 'reverse' : '';
   const bgPos = project.imagePosition || 'center center';
   
+  let ctaText = '查看完整路演详情';
+  if (project.id === 'magic-bag-tech') ctaText = '查看技术文档';
+  if (project.ctaText) ctaText = project.ctaText;
+
+  let websiteText = '直达项目官网';
+  if (project.websiteText) websiteText = project.websiteText;
+  
   return `
     <div class="bento-project ${isReverse}">
       <div class="bento-visual-col" style="background: #111;">
         <div class="bento-visual-bg" style="background: ${project.gradient}; background-size: cover; background-position: ${bgPos};"></div>
-        <a href="${project.page}" class="bento-visual-link">
+        <a href="${project.page}" class="bento-visual-link" ${project.page.startsWith('http') ? 'target="_blank"' : ''}>
           <div class="bento-visual-content">
             <span class="bento-tag">${project.category}</span>
             <h3>${project.title}</h3>
@@ -158,16 +190,16 @@ function renderProjectCard(project, index) {
           </div>
         `).join('')}
         
-        <a href="${project.page}" class="bento-card bento-cta-card">
-          <span>${project.id === 'magic-bag-tech' ? '查看技术文档' : '查看完整路演详情'}</span>
+        <a href="${project.page}" class="bento-card bento-cta-card" ${project.page.startsWith('http') ? 'target="_blank"' : ''}>
+          <span>${ctaText}</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
         
         ${project.website ? `
-        <a href="${project.website}" class="bento-card bento-cta-card bento-cta-outline">
-          <span>直达项目官网</span>
+        <a href="${project.website}" class="bento-card bento-cta-card bento-cta-outline" target="_blank">
+          <span>${websiteText}</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
           </svg>
