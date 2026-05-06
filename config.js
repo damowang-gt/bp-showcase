@@ -133,8 +133,8 @@ const PROJECTS = [
       { label: '多端支持', value: 'H5/小程序' },
       { label: '技术架构', value: '前后端分离' }
     ],
-    page: 'http://localhost:8102',
-    website: 'http://localhost:8101',
+    page: 'https://agentvc.top/nbsmaxintong/h5',
+    website: 'https://agentvc.top/nbsmaxintong/admin',
     ctaText: '进入星球 H5 端',
     websiteText: '进入管理后台',
     pageTitle: '知识星球 · 私域运营社区',
